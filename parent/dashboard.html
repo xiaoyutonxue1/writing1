@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家长主页 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/parent.css">
+    <link rel="stylesheet" href="/css/components/aiReadingAssistant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/parent/dashboard.html" class="active">主页</a>
+                <a href="/parent/messages.html">消息</a>
+                <a href="/parent/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- 学习概览 -->
+            <div class="overview-section">
+                <div class="student-info">
+                    <img src="https://via.placeholder.com/60" alt="学生头像" class="student-avatar">
+                    <div class="info-text">
+                        <h2>张小明</h2>
+                        <p>高二三班</p>
+                    </div>
+                </div>
+                <div class="overview-cards">
+                    <div class="overview-card">
+                        <i class="fas fa-clock"></i>
+                        <div class="card-content">
+                            <h3>本周学习时长</h3>
+                            <p>12小时30分钟</p>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <i class="fas fa-pen"></i>
+                        <div class="card-content">
+                            <h3>完成作文数</h3>
+                            <p>8篇</p>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="card-content">
+                            <h3>平均分数</h3>
+                            <p>88分</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最近学习内容 -->
+            <div class="recent-section">
+                <h2><i class="fas fa-history"></i> 最近学习内容</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">今天 14:30</div>
+                        <div class="content">
+                            <h3>完成作文《春天的早晨》</h3>
+                            <p>字数：1200 | 用时：45分钟</p>
+                            <div class="tags">
+                                <span class="tag">记叙文</span>
+                                <span class="tag">描写性文章</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">今天 10:15</div>
+                        <div class="content">
+                            <h3>完成写作技巧课程学习</h3>
+                            <p>课程：《如何写好开头段》</p>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 100%"></div>
+                                <span>已完成</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 学习报告 -->
+            <div class="report-section">
+                <h2><i class="fas fa-chart-bar"></i> 学习报告</h2>
+                <div class="report-content">
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            能力雷达图
+                        </div>
+                    </div>
+                    <div class="report-details">
+                        <div class="detail-item">
+                            <h3>写作能力分析</h3>
+                            <ul>
+                                <li>内容构思能力：良好</li>
+                                <li>语言表达能力：优秀</li>
+                                <li>结构组织能力：良好</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <h3>改进建议</h3>
+                            <ul>
+                                <li>建议加强议论文写作训练</li>
+                                <li>可以多积累写作素材</li>
+                                <li>注意加强文章结构的逻辑性</li>
+                            </ul>
+                        </div>
+                        <button class="view-report-btn" onclick="showFullReport()">
+                            <i class="fas fa-file-alt"></i> 查看完整报告
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教师评语 -->
+            <div class="feedback-section">
+                <h2><i class="fas fa-comment-alt"></i> 教师评语</h2>
+                <div class="feedback-list">
+                    <div class="feedback-item">
+                        <div class="teacher-info">
+                            <img src="https://via.placeholder.com/40" alt="教师头像">
+                            <div>
+                                <h3>王老师</h3>
+                                <span>语文教师</span>
+                            </div>
+                        </div>
+                        <div class="feedback-content">
+                            <p>小明的写作能力有明显提升，特别是在描写细节方面有很大进步。建议继续保持，多注意积累写作素材。</p>
+                            <span class="feedback-time">2023-12-15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 完整学习报告弹窗 -->
+    <div id="reportModal" class="report-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-alt"></i> 学习报告详情</h2>
+                <button class="close-btn" onclick="closeReportModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="report-sections">
+                    <div class="report-section">
+                        <h3>学习数据统计</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">32</div>
+                                <div class="stat-label">总学习时长（小时）</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">18</div>
+                                <div class="stat-label">完成作文数量</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">88</div>
+                                <div class="stat-label">平均分数</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">92%</div>
+                                <div class="stat-label">作业完成率</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="report-section">
+                        <h3>能力评估</h3>
+                        <div class="ability-chart">
+                            <div class="chart-placeholder">
+                                详细能力雷达图
+                            </div>
+                        </div>
+                        <div class="ability-details">
+                            <div class="ability-item">
+                                <h4>内容构思</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                    <span>85%</span>
+                                </div>
+                                <p>能够独立构思文章内容，主题明确，思路清晰</p>
+                            </div>
+                            <div class="ability-item">
+                                <h4>语言表达</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 92%"></div>
+                                    <span>92%</span>
+                                </div>
+                                <p>用词准确，语言生动，表达流畅自然</p>
+                            </div>
+                            <div class="ability-item">
+                                <h4>结构组织</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 78%"></div>
+                                    <span>78%</span>
+                                </div>
+                                <p>文章结构完整，层次分明，过渡自然</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="report-section">
+                        <h3>学习建议</h3>
+                        <div class="suggestions">
+                            <div class="suggestion-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <div class="suggestion-content">
+                                    <h4>加强议论文训练</h4>
+                                    <p>建议多练习议论文写作，特别是论点论据的选择和论证方法的运用</p>
+                                </div>
+                            </div>
+                            <div class="suggestion-item">
+                                <i class="fas fa-book"></i>
+                                <div class="suggestion-content">
+                                    <h4>扩充写作素材</h4>
+                                    <p>可以通过阅读名著、观察生活等方式积累更多写作素材</p>
+                                </div>
+                            </div>
+                            <div class="suggestion-item">
+                                <i class="fas fa-sitemap"></i>
+                                <div class="suggestion-content">
+                                    <h4>优化文章结构</h4>
+                                    <p>注意加强文章结构的逻辑性，使文章更有条理性</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="report-section">
+                        <h3>进步趋势</h3>
+                        <div class="trend-chart">
+                            <div class="chart-placeholder">
+                                学习进步趋势图
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI助手按钮和面板 -->
+        <button class="ai-toggle">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="ai-chat-panel">
+            <div class="ai-header">
+                <h3><i class="fas fa-robot"></i> AI学习助手</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="quick-actions">
+                <button class="action-btn" data-action="analyze">
+                    <i class="fas fa-chart-line"></i> 分析学习报告
+                </button>
+                <button class="action-btn" data-action="suggest">
+                    <i class="fas fa-lightbulb"></i> 获取学习建议
+                </button>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="输入您的问题...">
+                <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/parent.js"></script>
+</body>
+</html>

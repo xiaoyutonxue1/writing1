@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师主页 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/teacher.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/teacher/dashboard.html" class="active">管理</a>
+                <a href="/teacher/correction.html">批改</a>
+                <a href="/teacher/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- 班级管理 -->
+            <div class="management-section">
+                <h2><i class="fas fa-users"></i> 班级管理</h2>
+                <div class="section-content">
+                    <!-- 学生管理 -->
+                    <div class="management-card">
+                        <h3>学生管理</h3>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>高二三班</h4>
+                                    <p>学生数：45人</p>
+                                </div>
+                                <div class="class-actions">
+                                    <button class="btn-primary"><i class="fas fa-user-plus"></i> 添加学生</button>
+                                    <button class="btn-secondary"><i class="fas fa-cog"></i> 管理</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="add-class-btn">
+                            <i class="fas fa-plus"></i> 添加新班级
+                        </button>
+                    </div>
+
+                    <!-- 作业管理 -->
+                    <div class="management-card">
+                        <h3>作业管理</h3>
+                        <div class="homework-list">
+                            <div class="homework-item">
+                                <div class="homework-info">
+                                    <h4>记叙文写作练习</h4>
+                                    <p>截止日期：2023-12-20</p>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 75%"></div>
+                                        <span>已提交：34/45</span>
+                                    </div>
+                                </div>
+                                <div class="homework-actions">
+                                    <button class="btn-primary"><i class="fas fa-check"></i> 批改</button>
+                                    <button class="btn-secondary"><i class="fas fa-eye"></i> 详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="add-homework-btn">
+                            <i class="fas fa-plus"></i> 发布新作业
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 资源管理 -->
+            <div class="management-section">
+                <h2><i class="fas fa-book"></i> 资源管理</h2>
+                <div class="section-content">
+                    <!-- 教学资源 -->
+                    <div class="management-card">
+                        <h3>教学资源</h3>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span>教材资源</span>
+                                <p>12个文件</p>
+                            </div>
+                            <div class="resource-item">
+                                <i class="fas fa-file-powerpoint"></i>
+                                <span>课件资源</span>
+                                <p>8个文件</p>
+                            </div>
+                            <div class="resource-item">
+                                <i class="fas fa-tasks"></i>
+                                <span>习题库</span>
+                                <p>56题</p>
+                            </div>
+                            <div class="resource-item">
+                                <i class="fas fa-folder"></i>
+                                <span>素材库</span>
+                                <p>23个文件</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 资源共享 -->
+                    <div class="management-card">
+                        <h3>资源共享</h3>
+                        <div class="shared-resources">
+                            <div class="resource-upload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>点击或拖拽文件到此处上传</p>
+                            </div>
+                            <div class="shared-list">
+                                <div class="shared-item">
+                                    <div class="shared-info">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <div>
+                                            <h4>高中写作技巧汇总.pdf</h4>
+                                            <p>上传时间：2023-12-01</p>
+                                        </div>
+                                    </div>
+                                    <div class="shared-actions">
+                                        <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/teacher.js"></script>
+</body>
+</html>

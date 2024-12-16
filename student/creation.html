@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创作中心 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/creation.css">
+    <link rel="stylesheet" href="/css/components/favoritesPanel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/student/dashboard.html">首页</a>
+                <a href="/student/creation.html" class="active">创作中心</a>
+                <a href="/student/learning.html">学习中心</a>
+                <a href="/student/messages.html">消息中心</a>
+                <a href="/student/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="creation-layout">
+            <div class="editor-section">
+                <div class="toolbar">
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                        <button class="tool-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                        <button class="tool-btn" data-command="underline"><i class="fas fa-underline"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-command="justifyLeft"><i class="fas fa-align-left"></i></button>
+                        <button class="tool-btn" data-command="justifyCenter"><i class="fas fa-align-center"></i></button>
+                        <button class="tool-btn" data-command="justifyRight"><i class="fas fa-align-right"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <select class="font-size" id="fontSize">
+                            <option value="3">小</option>
+                            <option value="4" selected>中</option>
+                            <option value="5">大</option>
+                            <option value="6">特大</option>
+                        </select>
+                    </div>
+                    <div class="toolbar-group submit-group">
+                        <button class="submit-btn" id="submitEssay">
+                            <i class="fas fa-paper-plane"></i> 提交作文
+                        </button>
+                    </div>
+                </div>
+
+                <div class="editor-container">
+                    <div class="editor" id="editor" contenteditable="true">
+                        <p>开始创作你的文章...</p>
+                    </div>
+                </div>
+
+                <div class="editor-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-font"></i>
+                        <span id="wordCount">字数：0</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-paragraph"></i>
+                        <span id="paragraphCount">段落：0</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="timeSpent">用时：0分钟</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-history"></i>
+                        <span id="saveStatus">已自动保存</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-tools">
+            <button id="aiAssistantBtn" class="floating-btn">
+                <i class="fas fa-robot"></i>
+            </button>
+            <button id="writingToolsBtn" class="floating-btn">
+                <i class="fas fa-tools"></i>
+            </button>
+            <button id="favoritesBtn" class="floating-btn">
+                <i class="fas fa-star"></i>
+            </button>
+        </div>
+
+        <div id="aiAssistantPanel" class="tool-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-robot"></i> AI写作助手</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="panel-content">
+                <div class="quick-options">
+                    <div class="option-group">
+                        <h4>选题建议</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn" data-type="topic" data-option="interest">基于兴趣推荐</button>
+                            <button class="option-btn" data-type="topic" data-option="difficulty">难度匹配建议</button>
+                            <button class="option-btn" data-type="topic" data-option="hot">热点话题推荐</button>
+                            <button class="option-btn" data-type="topic" data-option="direction">写作方向指导</button>
+                        </div>
+                    </div>
+                    <div class="option-group">
+                        <h4>素材推荐</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn" data-type="material" data-option="sentences">相关例句推荐</button>
+                            <button class="option-btn" data-type="material" data-option="quotes">名言警句推荐</button>
+                            <button class="option-btn" data-type="material" data-option="search">素材库检索</button>
+                            <button class="option-btn" data-type="material" data-option="usage">素材使用建议</button>
+                        </div>
+                    </div>
+                    <div class="option-group">
+                        <h4>写作指导</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn" data-type="guidance" data-option="structure">结构优化建议</button>
+                            <button class="option-btn" data-type="guidance" data-option="words">用词改进建议</button>
+                            <button class="option-btn" data-type="guidance" data-option="sentences">句式多样化建议</button>
+                            <button class="option-btn" data-type="guidance" data-option="transition">过渡段落建议</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai">
+                        您好！我是您的AI写作助手，请选择上方选项或直接输入您的问题。
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="输入您的问题...">
+                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="writingToolsPanel" class="tool-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-tools"></i> 写作工具箱</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="panel-content">
+                <div class="writing-tools-content">
+                    <div class="tool-group">
+                        <h4>语言优化</h4>
+                        <div class="tool-buttons">
+                            <button class="tool-button" data-tool="synonym">同义词查找</button>
+                            <button class="tool-button" data-tool="antonym">反义词推荐</button>
+                            <button class="tool-button" data-tool="phrase">词语搭配</button>
+                        </div>
+                    </div>
+                    <div class="tool-group">
+                        <h4>文章润色</h4>
+                        <div class="tool-buttons">
+                            <button class="tool-button" data-tool="polish">句子润色</button>
+                            <button class="tool-button" data-tool="structure">段落优化</button>
+                            <button class="tool-button" data-tool="check">语法检查</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="favoritesPanel" class="favorites-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-star"></i> 我的收藏</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="panel-content">
+                <div class="favorites-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/creation.js"></script>
+</body>
+</html>

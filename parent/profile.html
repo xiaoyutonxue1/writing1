@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/parent-profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/parent/dashboard.html">主页</a>
+                <a href="/parent/messages.html">消息</a>
+                <a href="/parent/profile.html" class="active">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-layout">
+            <!-- 个人信息卡片 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="https://via.placeholder.com/100" alt="头像">
+                        <button class="edit-avatar">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h2>张妈妈</h2>
+                        <p class="relation">小明的家长</p>
+                        <button class="edit-profile-btn">
+                            <i class="fas fa-edit"></i> 编辑资料
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 孩子信息卡片 -->
+            <div class="children-section">
+                <h2><i class="fas fa-child"></i> 孩子信息</h2>
+                <div class="child-card">
+                    <div class="child-info">
+                        <img src="https://via.placeholder.com/60" alt="孩子头像">
+                        <div class="info-text">
+                            <h3>张小明</h3>
+                            <p>高二三班</p>
+                            <div class="tags">
+                                <span class="tag">写作等级 Lv.5</span>
+                                <span class="tag">完成作文 32篇</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learning-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">88</span>
+                            <span class="stat-label">平均分</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">12h</span>
+                            <span class="stat-label">周学习时长</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">85%</span>
+                            <span class="stat-label">进步率</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 通知设置 -->
+            <div class="settings-section">
+                <h2><i class="fas fa-bell"></i> 通知设置</h2>
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>作业提交通知</h3>
+                            <p>孩子提交作业时通知我</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>成绩通知</h3>
+                            <p>作文批改完成时通知我</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>学习报告</h3>
+                            <p>每周发送学习总结报告</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 账号安全 -->
+            <div class="security-section">
+                <h2><i class="fas fa-shield-alt"></i> 账号安全</h2>
+                <div class="security-list">
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>修改密码</h3>
+                            <p>上次修改时间：2023-12-01</p>
+                        </div>
+                        <button class="btn-secondary">
+                            <i class="fas fa-key"></i> 修改
+                        </button>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>手机绑定</h3>
+                            <p>已绑定：138****8888</p>
+                        </div>
+                        <button class="btn-secondary">
+                            <i class="fas fa-mobile-alt"></i> 更换
+                        </button>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>邮箱绑定</h3>
+                            <p>已绑定：exa****@example.com</p>
+                        </div>
+                        <button class="btn-secondary">
+                            <i class="fas fa-envelope"></i> 更换
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/parent-profile.js"></script>
+</body>
+</html>

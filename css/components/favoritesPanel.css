@@ -1,0 +1,168 @@
+.favorites-panel {
+    position: fixed;
+    right: -400px;
+    bottom: 100px;
+    width: 360px;
+    height: 520px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 1000;
+}
+
+.favorites-panel.show {
+    right: 30px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.favorites-panel .panel-header {
+    padding: 16px;
+    background: linear-gradient(135deg, #f5ba1a, #f7a41a);
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favorites-panel .panel-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.favorites-panel .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    transition: all 0.3s;
+}
+
+.favorites-panel .close-btn:hover {
+    transform: rotate(90deg);
+}
+
+.favorites-panel .panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.favorite-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+    transition: all 0.2s;
+}
+
+.favorite-item:hover {
+    background: #f0f7ff;
+}
+
+.favorite-content {
+    flex: 1;
+}
+
+.favorite-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.favorite-content p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    color: #666;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.favorite-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: #999;
+}
+
+.favorite-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.favorite-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.favorite-actions button {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.use-btn {
+    background: #1890ff;
+    color: white;
+}
+
+.use-btn:hover {
+    background: #40a9ff;
+    transform: scale(1.1);
+}
+
+.remove-btn {
+    background: #ff4d4f;
+    color: white;
+}
+
+.remove-btn:hover {
+    background: #ff7875;
+    transform: scale(1.1);
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 32px 16px;
+}
+
+@media (max-width: 768px) {
+    .favorites-panel {
+        width: calc(100% - 40px);
+        right: -100%;
+    }
+
+    .favorites-panel.show {
+        right: 20px;
+    }
+}

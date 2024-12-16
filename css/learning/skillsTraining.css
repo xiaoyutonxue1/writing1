@@ -1,0 +1,85 @@
+/* Skills Training Modal Styles */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin: 2.5rem auto 0;
+    max-width: 1600px;
+}
+
+.skills-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(24, 144, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.skills-card h3 {
+    color: #1890ff;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.training-list {
+    display: grid;
+    gap: 2rem;
+}
+
+.training-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.3s;
+    border: 1px solid rgba(24, 144, 255, 0.1);
+}
+
+.training-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(24, 144, 255, 0.12);
+    border-color: #1890ff;
+}
+
+.training-item h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.training-item p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.start-btn {
+    background: #1890ff;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.start-btn:hover {
+    background: #40a9ff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .training-item {
+        padding: 1.5rem;
+    }
+}

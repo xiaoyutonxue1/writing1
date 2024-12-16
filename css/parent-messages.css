@@ -1,0 +1,276 @@
+/* 消息中心布局 */
+.messages-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 1px;
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    height: calc(100vh - 100px);
+    margin-top: 20px;
+}
+
+/* 消息列表样式 */
+.messages-list {
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.message-filters {
+    margin-top: 1rem;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.message-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.message-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.message-item:hover {
+    background: #f9f9f9;
+}
+
+.message-item.unread {
+    background: #f0f7ff;
+}
+
+.sender-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+}
+
+.sender-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sender-avatar i {
+    font-size: 1.2rem;
+    color: #1890ff;
+}
+
+.message-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.sender-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.message-time {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.message-preview {
+    color: #666;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.message-type {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.message-type.teacher {
+    background: #e6f7ff;
+    color: #1890ff;
+}
+
+.message-type.student {
+    background: #f6ffed;
+    color: #52c41a;
+}
+
+.message-type.system {
+    background: #fff7e6;
+    color: #fa8c16;
+}
+
+.unread-badge {
+    background: #ff4d4f;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+/* 消息详情样式 */
+.message-detail {
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-header {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.contact-text h3 {
+    margin-bottom: 0.2rem;
+}
+
+.contact-text span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
+
+.chat-message.received {
+    align-self: flex-start;
+}
+
+.chat-message.sent {
+    align-self: flex-end;
+}
+
+.message-bubble {
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f0f0f0;
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+}
+
+.chat-message.sent .message-bubble {
+    background: #1890ff;
+    color: white;
+}
+
+.chat-input {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+    height: 80px;
+    outline: none;
+}
+
+.send-btn {
+    width: 40px;
+    height: 40px;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.send-btn:hover {
+    background: #40a9ff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .messages-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .message-detail {
+        display: none;
+    }
+
+    .message-detail.active {
+        display: flex;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+    }
+}

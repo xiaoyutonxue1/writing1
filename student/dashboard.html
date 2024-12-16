@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生主页 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/student/dashboard.html" class="active">首页</a>
+                <a href="/student/creation.html">创作中心</a>
+                <a href="/student/learning.html">学习中心</a>
+                <a href="/student/messages.html">消息中心</a>
+                <a href="/student/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-content">
+            <!-- 班级作业 -->
+            <div class="class-assignments">
+                <h2>班级作业</h2>
+                <div class="assignments-grid">
+                    <div class="assignment-card">
+                        <div class="assignment-header">
+                            <h3>记叙文写作练习</h3>
+                            <span class="status ongoing">进行中</span>
+                        </div>
+                        <p class="deadline">截止日期：2023-12-20</p>
+                        <p class="description">以"难忘的一天"为主题，写一篇不少于800字的记叙文。</p>
+                        <div class="assignment-footer">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                            <span class="submission-status">未提交</span>
+                        </div>
+                    </div>
+                    <div class="assignment-card completed">
+                        <div class="assignment-header">
+                            <h3>议论文写作练习</h3>
+                            <span class="status">已完成</span>
+                        </div>
+                        <p class="deadline">截止日期：2023-12-10</p>
+                        <p class="description">以"诚信"为主题，写一篇不少于1000字的议论文。</p>
+                        <div class="assignment-footer">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                            <span class="submission-status">已提交</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作文分类 -->
+            <div class="categories-section">
+                <h2>作文分类</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-bullseye category-icon"></i> 按写作目的分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 说明文</li>
+                            <li><i class="fas fa-angle-right"></i> 应用文</li>
+                            <li><i class="fas fa-angle-right"></i> 议论文</li>
+                            <li><i class="fas fa-angle-right"></i> 记叙文</li>
+                            <li><i class="fas fa-angle-right"></i> 抒情文</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-feather category-icon"></i> 按写作风格分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 记叙文</li>
+                            <li><i class="fas fa-angle-right"></i> 议论文</li>
+                            <li><i class="fas fa-angle-right"></i> 抒情文</li>
+                            <li><i class="fas fa-angle-right"></i> 散文</li>
+                            <li><i class="fas fa-angle-right"></i> 诗歌</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-book-open category-icon"></i> 按写作内容分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 写物</li>
+                            <li><i class="fas fa-angle-right"></i> 写理</li>
+                            <li><i class="fas fa-angle-right"></i> 写史</li>
+                            <li><i class="fas fa-angle-right"></i> 写人</li>
+                            <li><i class="fas fa-angle-right"></i> 写景</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-pen-fancy category-icon"></i> 按写作技巧分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 描写文</li>
+                            <li><i class="fas fa-angle-right"></i> 叙事文</li>
+                            <li><i class="fas fa-angle-right"></i> 说明文</li>
+                            <li><i class="fas fa-angle-right"></i> 议论文</li>
+                            <li><i class="fas fa-angle-right"></i> 抒情文</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-users category-icon"></i> 按写作对象分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 儿童文学</li>
+                            <li><i class="fas fa-angle-right"></i> 成人文学</li>
+                            <li><i class="fas fa-angle-right"></i> 青少年文学</li>
+                            <li><i class="fas fa-angle-right"></i> 通俗文学</li>
+                            <li><i class="fas fa-angle-right"></i> 专业文学</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-theater-masks category-icon"></i> 按写作形式分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 诗歌</li>
+                            <li><i class="fas fa-angle-right"></i> 剧本</li>
+                            <li><i class="fas fa-angle-right"></i> 小说</li>
+                            <li><i class="fas fa-angle-right"></i> 散文</li>
+                            <li><i class="fas fa-angle-right"></i> 日记</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-ruler category-icon"></i> 按写作篇幅分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 短文（800字以内）</li>
+                            <li><i class="fas fa-angle-right"></i> 中篇（800-2000字）</li>
+                            <li><i class="fas fa-angle-right"></i> 长文（2000字以上）</li>
+                            <li><i class="fas fa-angle-right"></i> 微型文（300字以内）</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>
+                            <span><i class="fas fa-language category-icon"></i> 按写作语言风格分</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </h3>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> 文言文</li>
+                            <li><i class="fas fa-angle-right"></i> 白话文</li>
+                            <li><i class="fas fa-angle-right"></i> 古体诗文</li>
+                            <li><i class="fas fa-angle-right"></i> 现代文体</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 优秀作文推荐 -->
+            <div class="featured-articles">
+                <h2>优秀作文推荐</h2>
+                <div class="article-grid">
+                    <div class="article-card">
+                        <h3>春天的早晨</h3>
+                        <p class="article-meta">类型：记叙文 | 作者：张同学</p>
+                        <p class="article-preview">清晨的阳光洒在窗台上，整个世界都笼罩在金色的光芒中...</p>
+                        <div class="article-tags">
+                            <span class="tag">写景</span>
+                            <span class="tag">抒情</span>
+                            <span class="tag">800字</span>
+                        </div>
+                        <button class="btn btn-primary">阅读全文</button>
+                    </div>
+
+                    <div class="article-card">
+                        <h3>科技改变生活</h3>
+                        <p class="article-meta">类型：议论文 | 作者：李同学</p>
+                        <p class="article-preview">随着科技的快速发展，我们的生活方式发生了翻天覆地的变化...</p>
+                        <div class="article-tags">
+                            <span class="tag">议论</span>
+                            <span class="tag">说理</span>
+                            <span class="tag">1200字</span>
+                        </div>
+                        <button class="btn btn-primary">阅读全文</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

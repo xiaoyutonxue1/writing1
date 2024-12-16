@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消息中心 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/parent-messages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/parent/dashboard.html">主页</a>
+                <a href="/parent/messages.html" class="active">消息</a>
+                <a href="/parent/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="messages-layout">
+            <!-- 消息列表 -->
+            <div class="messages-list">
+                <div class="list-header">
+                    <h2>消息列表</h2>
+                    <div class="message-filters">
+                        <select class="filter-select">
+                            <option value="all">全部消息</option>
+                            <option value="teacher">教师消息</option>
+                            <option value="student">学生消息</option>
+                            <option value="system">系统通知</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="message-items">
+                    <div class="message-item unread">
+                        <div class="sender-avatar">
+                            <img src="https://via.placeholder.com/40" alt="头像">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="sender-name">王老师</span>
+                                <span class="message-time">10:30</span>
+                            </div>
+                            <p class="message-preview">您好，关于小明最近的写作进步情况，我想和您详细沟通一下...</p>
+                            <div class="message-meta">
+                                <span class="message-type teacher">教师消息</span>
+                                <span class="unread-badge">未读</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-item">
+                        <div class="sender-avatar">
+                            <img src="https://via.placeholder.com/40" alt="头像">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="sender-name">小明</span>
+                                <span class="message-time">昨天</span>
+                            </div>
+                            <p class="message-preview">妈妈，我今天在写作课上获得了优秀作文奖！</p>
+                            <div class="message-meta">
+                                <span class="message-type student">学生消息</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-item">
+                        <div class="sender-avatar">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="sender-name">系统通知</span>
+                                <span class="message-time">2天前</span>
+                            </div>
+                            <p class="message-preview">本周写作能力评估报告已生成，请查看。</p>
+                            <div class="message-meta">
+                                <span class="message-type system">系统通知</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 消息详情 -->
+            <div class="message-detail">
+                <div class="detail-header">
+                    <div class="contact-info">
+                        <img src="https://via.placeholder.com/40" alt="头像">
+                        <div class="contact-text">
+                            <h3>王老师</h3>
+                            <span>语文教师</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-messages">
+                        <div class="chat-message received">
+                            <div class="message-bubble">
+                                您好，关于小明最近的写作进步情况，我想和您详细沟通一下。他在描写技巧和情感表达方面有很大的提升。
+                            </div>
+                            <span class="message-time">10:30</span>
+                        </div>
+
+                        <div class="chat-message sent">
+                            <div class="message-bubble">
+                                谢谢王老师，我也发现小明最近对写作很有兴趣。具体有哪些进步呢？
+                            </div>
+                            <span class="message-time">10:35</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <textarea placeholder="输入消息..."></textarea>
+                        <button class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/parent-messages.js"></script>
+</body>
+</html>

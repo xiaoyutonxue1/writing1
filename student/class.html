@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/class.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/student/dashboard.html">首页</a>
+                <a href="/student/creation.html">创作中心</a>
+                <a href="/student/learning.html">学习中心</a>
+                <a href="/student/class.html" class="active">班级</a>
+                <a href="/student/messages.html">消息中心</a>
+                <a href="/student/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="class-layout">
+            <!-- 班级信息 -->
+            <div class="class-info">
+                <h2>高二三班</h2>
+                <div class="class-meta">
+                    <span><i class="fas fa-user-tie"></i> 班主任：王老师</span>
+                    <span><i class="fas fa-users"></i> 班级人数：45人</span>
+                </div>
+            </div>
+
+            <!-- 作文任务列表 -->
+            <div class="assignments-section">
+                <h3><i class="fas fa-tasks"></i> 作文任务</h3>
+                <div class="assignments-list">
+                    <div class="assignment-item">
+                        <div class="assignment-header">
+                            <h4>记叙文写作练习</h4>
+                            <div class="assignment-meta">
+                                <span class="deadline"><i class="fas fa-clock"></i> 截止日期：2023-12-20</span>
+                                <span class="status ongoing">进行中</span>
+                            </div>
+                        </div>
+                        <div class="assignment-content">
+                            <p>以"难忘的一天"为主题，写一篇不少于800字的记叙文。要求：</p>
+                            <ul>
+                                <li>紧扣主题，内容真实感人</li>
+                                <li>详略得当，重点突出</li>
+                                <li>语言流畅，有感情色彩</li>
+                            </ul>
+                        </div>
+                        <div class="example-essays">
+                            <h5>参考范文：</h5>
+                            <div class="essay-cards">
+                                <div class="essay-card" onclick="showEssay('那一天的阳光')">
+                                    <h6>那一天的阳光</h6>
+                                    <p>那是一个普通的下午，阳光温柔地洒在教室的窗台上...</p>
+                                    <div class="essay-meta">
+                                        <span><i class="fas fa-star"></i> 优秀范文</span>
+                                        <span><i class="fas fa-eye"></i> 查看全文</span>
+                                    </div>
+                                </div>
+                                <div class="essay-card" onclick="showEssay('难忘的运动会')">
+                                    <h6>难忘的运动会</h6>
+                                    <p>秋高气爽的十月，我们迎来了期待已久的校运动会...</p>
+                                    <div class="essay-meta">
+                                        <span><i class="fas fa-star"></i> 优秀范文</span>
+                                        <span><i class="fas fa-eye"></i> 查看全文</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="assignment-item completed">
+                        <div class="assignment-header">
+                            <h4>议论文写作练习</h4>
+                            <div class="assignment-meta">
+                                <span class="deadline"><i class="fas fa-clock"></i> 截止日期：2023-12-10</span>
+                                <span class="status">已完成</span>
+                            </div>
+                        </div>
+                        <div class="assignment-content">
+                            <p>以"诚信"为主题，写一篇不少于1000字的议论文。要求：</p>
+                            <ul>
+                                <li>论点明确，论据充分</li>
+                                <li>论证有力，层次分明</li>
+                                <li>语言准确，有说服力</li>
+                            </ul>
+                        </div>
+                        <div class="example-essays">
+                            <h5>参考范文：</h5>
+                            <div class="essay-cards">
+                                <div class="essay-card" onclick="showEssay('诚信是金')">
+                                    <h6>诚信是金</h6>
+                                    <p>在这个快速发展的时代，诚信显得尤为珍贵...</p>
+                                    <div class="essay-meta">
+                                        <span><i class="fas fa-star"></i> 优秀范文</span>
+                                        <span><i class="fas fa-eye"></i> 查看全文</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 范文阅读弹窗 -->
+    <div id="essayModal" class="essay-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2></h2>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="article-content"></div>
+            </div>
+        </div>
+
+        <button class="ai-toggle">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="ai-chat-panel">
+            <div class="ai-header">
+                <h3><i class="fas fa-robot"></i> AI阅读助手</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="quick-actions">
+                <button class="action-btn" data-action="introduce">
+                    <i class="fas fa-book-open"></i> 跟我介绍一下这篇文章
+                </button>
+                <button class="action-btn" data-action="analyze">
+                    <i class="fas fa-chart-line"></i> 我读完了，下面我来分析一下这篇文章
+                </button>
+                <button class="action-btn" data-action="quiz">
+                    <i class="fas fa-question-circle"></i> 我读完了，可以考考我
+                </button>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="输入您的问题...">
+                <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/class.js"></script>
+</body>
+</html>
