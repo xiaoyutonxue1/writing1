@@ -1710,3 +1710,160 @@
     min-height: 400px;
     outline: none;
 }
+
+/* 确保所有可点击元素的样式正确 */
+.tree-item,
+.folder-header,
+.collapse-btn {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 2px 0;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.tree-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tree-item.active {
+    background-color: rgba(24, 144, 255, 0.1);
+    color: #1890ff;
+}
+
+.folder-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 2px 0;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.folder-header:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.folder-content {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.folder-header.collapsed + .folder-content {
+    max-height: 0;
+    opacity: 0;
+}
+
+.section-content {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.collapse-btn.collapsed + .section-content {
+    max-height: 0;
+    opacity: 0;
+}
+
+/* 确保图标正确显示 */
+.tree-item i,
+.folder-header i {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+.folder-header i.fa-chevron-down {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.folder-header.collapsed i.fa-chevron-down {
+    transform: rotate(-90deg);
+}
+
+/* 确保所有父元素允许点击事件 */
+.app-container,
+.main-content,
+.left-sidebar,
+.project-list,
+.list-section,
+.section-content,
+.tree-folder,
+.folder-content {
+    pointer-events: auto;
+}
+
+/* 添加过渡动画 */
+.tree-item,
+.folder-header,
+.collapse-btn {
+    transition: all 0.2s ease;
+}
+
+/* 任务信息折叠按钮样式 */
+.task-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -12px;
+    margin-bottom: -12px;
+    position: relative;
+    z-index: 10;
+}
+
+.task-toggle-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.task-toggle-btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.task-toggle-btn i {
+    font-size: 12px;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.task-toggle-btn:hover i {
+    color: #1890ff;
+}
+
+/* 任务信息区域样式调整 */
+.task-header {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 24px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.task-requirements {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-top: 20px;
+}
