@@ -11,7 +11,21 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- 顶部工具栏 -->
+        <!-- 统一的顶部导航栏 -->
+        <div class="navbar">
+            <div class="navbar-container">
+                <a href="/student/dashboard.html" class="logo">AI智能写作辅导平台</a>
+                <div class="nav-links">
+                    <a href="/student/dashboard.html">首页</a>
+                    <a href="/student/creation.html" class="active">创作中心</a>
+                    <a href="/student/learning.html">学习中心</a>
+                    <a href="/student/messages.html">消息中心</a>
+                    <a href="/student/profile.html">个人中心</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 创作中心工具栏 -->
         <div class="top-toolbar">
             <div class="left-tools">
                 <button class="tool-btn back-btn">
@@ -337,26 +351,31 @@
                         <span><i class="fas fa-tag"></i> 类型: 写作训练</span>
                     </div>
                     <div class="task-requirements">
-                        <h2>写作要求</h2>
-                        <p>以"春天的气息"为主题，运用细腻的观察和生动的描写，表达对春天的感受。</p>
-                        
-                        <div class="focus-points">
-                            <h3>重点关注</h3>
-                            <ul>
-                                <li>自然描写：观察春天的景象变化</li>
-                                <li>感官体验：运用视觉、听觉、嗅觉等多感官描写</li>
-                                <li>情感表达：融入个人对春天的感受和思考</li>
-                            </ul>
+                        <div class="requirement-header" onclick="toggleRequirements(this)">
+                            <h2>写作要求</h2>
+                            <i class="fas fa-chevron-down"></i>
                         </div>
-                        
-                        <div class="keywords">
-                            <h3>关键词建议</h3>
-                            <div class="keyword-tags">
-                                <span class="keyword-tag">生机</span>
-                                <span class="keyword-tag">温暖</span>
-                                <span class="keyword-tag">色彩</span>
-                                <span class="keyword-tag">变化</span>
-                                <span class="keyword-tag">希望</span>
+                        <div class="requirement-content collapsed">
+                            <p>以"春天的气息"为主题，运用细腻的观察和生动的描写，表达对春天的感受。</p>
+                            
+                            <div class="focus-points">
+                                <h3>重点关注</h3>
+                                <ul>
+                                    <li>自然描写：观察春天的景象变化</li>
+                                    <li>感官体验：运用视觉、听觉、嗅觉等多感官描写</li>
+                                    <li>情感表达：融入个人对春天的感受和思考</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="keywords">
+                                <h3>关键词建议</h3>
+                                <div class="keyword-tags">
+                                    <span class="keyword-tag">生机</span>
+                                    <span class="keyword-tag">温暖</span>
+                                    <span class="keyword-tag">色彩</span>
+                                    <span class="keyword-tag">变化</span>
+                                    <span class="keyword-tag">希望</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -484,7 +503,7 @@
                         <div class="note-card">
                             <div class="note-header">
                                 <i class="fas fa-star"></i>
-                                <h3>评分重点</h3>
+                                <h3>��分重点</h3>
                             </div>
                             <div class="note-content">
                                 <p>1. 描写的细腻程度<br>
@@ -521,7 +540,7 @@
             </button>
         </div>
 
-        <!-- 浮动工具 -->
+        <!-- 浮��工具 -->
         <div class="floating-tools">
             <button id="aiAssistantBtn" class="floating-btn" title="AI助手">
                 <i class="fas fa-robot"></i>
@@ -548,7 +567,7 @@
                             <button class="option-btn">润色文字</button>
                             <button class="option-btn">扩展内容</button>
                             <button class="option-btn">生成大纲</button>
-                            <button class="option-btn">改善语法</button>
+                            <button class="option-btn">改善���法</button>
                         </div>
                     </div>
                 </div>
@@ -599,5 +618,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+    function toggleRequirements(header) {
+        const content = header.nextElementSibling;
+        content.classList.toggle('collapsed');
+        header.querySelector('i').classList.toggle('fa-rotate-180');
+    }
+    </script>
 </body>
 </html>
