@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
@@ -12,11 +17,10 @@ body {
     color: #333;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 48px; /* 为固定导航栏留出空间 */
 }
 
 /* 导航栏样式 */
-.navbar {
+.navbar, nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -29,7 +33,7 @@ body {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
-.navbar-container {
+.navbar-container, nav > div {
     display: flex;
     align-items: center;
     max-width: 1200px;

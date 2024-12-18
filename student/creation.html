@@ -304,7 +304,7 @@
                     <!-- 教师反馈 -->
                     <div class="list-section">
                         <div class="section-header">
-                            <span>教师反馈</span>
+                            <span>��师反馈</span>
                             <button class="collapse-btn">
                                 <i class="fas fa-chevron-down"></i>
                             </button>
@@ -342,45 +342,6 @@
 
             <!-- 编辑器部分 -->
             <div class="editor-section">
-                <!-- ���务信息区域 -->
-                <div class="task-header">
-                    <h1>描写春天的散文</h1>
-                    <div class="task-meta">
-                        <span><i class="far fa-calendar"></i> 截止日期: 2024-03-20</span>
-                        <span><i class="fas fa-text-width"></i> 字数要求: 800-1200字</span>
-                        <span><i class="fas fa-tag"></i> 类型: 写作训练</span>
-                    </div>
-                    <div class="task-requirements">
-                        <div class="requirement-header" onclick="toggleRequirements(this)">
-                            <h2>写作要求</h2>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="requirement-content collapsed">
-                            <p>以"春天的气息"为主题，运用细腻的观察和生动的描写，表达对春天的感受。</p>
-                            
-                            <div class="focus-points">
-                                <h3>重点关注</h3>
-                                <ul>
-                                    <li>自然描写：观察春天的景象变化</li>
-                                    <li>感官体验：运用视觉、听觉、嗅觉等多感官描写</li>
-                                    <li>情感表达：融入个人对春天的感受和思考</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="keywords">
-                                <h3>关键词建议</h3>
-                                <div class="keyword-tags">
-                                    <span class="keyword-tag">生机</span>
-                                    <span class="keyword-tag">温暖</span>
-                                    <span class="keyword-tag">色彩</span>
-                                    <span class="keyword-tag">变化</span>
-                                    <span class="keyword-tag">希望</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="editor-toolbar">
                     <div class="toolbar-group">
                         <button class="tool-btn" data-command="undo" title="撤销">
@@ -427,7 +388,48 @@
                 </div>
 
                 <div class="editor-container">
-                    <div id="editor" class="editor" contenteditable="true" placeholder="开始创作你的文章..."></div>
+                    <!-- 任务信息区域 -->
+                    <div class="task-header">
+                        <h1>描写春天的散文</h1>
+                        <div class="task-meta">
+                            <span><i class="far fa-calendar"></i> 截止日期: 2024-03-20</span>
+                            <span><i class="fas fa-text-width"></i> 字数要求: 800-1200字</span>
+                            <span><i class="fas fa-tag"></i> 类型: 写作训练</span>
+                        </div>
+                        <div class="task-requirements">
+                            <div class="requirement-header" onclick="toggleRequirements(this)">
+                                <h2>写作要求</h2>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="requirement-content collapsed">
+                                <p>以"春天的气息"为主题，运用细腻的观察和生动的描写，表达对春天的感受。</p>
+                                
+                                <div class="focus-points">
+                                    <h3>重点关注</h3>
+                                    <ul>
+                                        <li>自然描写：观察春天的景象变化</li>
+                                        <li>感官体验：运用视觉、听觉、嗅觉等多感官描写</li>
+                                        <li>情感表达：融入个人对春天的感受和思考</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="keywords">
+                                    <h3>关键词建议</h3>
+                                    <div class="keyword-tags">
+                                        <span class="keyword-tag">生机</span>
+                                        <span class="keyword-tag">温暖</span>
+                                        <span class="keyword-tag">色彩</span>
+                                        <span class="keyword-tag">变化</span>
+                                        <span class="keyword-tag">希望</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-content">
+                        <div id="editor" class="editor" contenteditable="true" placeholder="开始创作你的文章..."></div>
+                    </div>
                 </div>
 
                 <div class="editor-stats">
@@ -537,19 +539,6 @@
             <button class="quick-edit-btn" data-tooltip="快速编辑">
                 <i class="fas fa-magic"></i>
                 快速编辑
-            </button>
-        </div>
-
-        <!-- 浮��工具 -->
-        <div class="floating-tools">
-            <button id="aiAssistantBtn" class="floating-btn" title="AI助手">
-                <i class="fas fa-robot"></i>
-            </button>
-            <button id="writingToolsBtn" class="floating-btn" title="写作工具">
-                <i class="fas fa-tools"></i>
-            </button>
-            <button id="favoritesBtn" class="floating-btn" title="我的收藏">
-                <i class="fas fa-star"></i>
             </button>
         </div>
 

@@ -1,13 +1,28 @@
 /* Creation center layout */
-.creation-layout {
-    padding: 2rem 0;
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 主体内容区域 */
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    height: calc(100vh - 96px); /* 减去导航栏和工具栏的高度 */
 }
 
 /* Editor section */
 .editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     background: white;
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 /* Toolbar */
@@ -77,14 +92,17 @@
 
 /* Editor container */
 .editor-container {
-    padding: 2rem;
-    min-height: calc(100vh - 300px);
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0; /* 确保flex布局正常工作 */
 }
 
 .editor {
     outline: none;
     line-height: 1.8;
     color: #333;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .editor[contenteditable=true]:empty:before {
@@ -431,7 +449,6 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    overflow: hidden;
 }
 
 /* 顶部导航栏样式继承自全局style.css */
@@ -490,7 +507,7 @@
     border-right: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 /* 项目管理头部 */
@@ -1173,7 +1190,7 @@
     color: #4b5563;
 }
 
-/* 写作模式样�� */
+/* 写作模式样式 */
 .writing-mode-indicator {
     display: inline-flex;
     align-items: center;
@@ -1235,220 +1252,15 @@
     animation: slideIn 0.3s ease-out;
 }
 
-/* 工具提示 */
-[data-tooltip] {
-    position: relative;
-}
-
-[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 4px 8px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    font-size: 12px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-}
-
-[data-tooltip]:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-8px);
-}
-
-/* 对话框样式 */
-.modal-dialog {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1100;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 8px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    animation: slideIn 0.2s ease-out;
-}
-
-.modal-header {
-    padding: 16px 20px;
-    border-bottom: 1px solid #e2e8f0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modal-header h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0;
-}
-
-.modal-body {
-    padding: 20px;
-}
-
-.modal-footer {
-    padding: 16px 20px;
-    border-top: 1px solid #e2e8f0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-}
-
-.form-group {
-    margin-bottom: 16px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    color: #475569;
-    margin-bottom: 6px;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #1e293b;
-    transition: all 0.2s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #94a3b8;
-    box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.1);
-}
-
-.form-group input.error {
-    border-color: #ef4444;
-}
-
-.modal-footer button {
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.cancel-btn {
-    border: 1px solid #e2e8f0;
-    background: white;
-    color: #475569;
-}
-
-.cancel-btn:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-}
-
-.create-btn {
-    border: none;
-    background: #3b82f6;
-    color: white;
-}
-
-.create-btn:hover {
-    background: #2563eb;
-}
-
-/* 上下文菜单 */
-.context-menu {
-    position: fixed;
-    background: white;
-    border-radius: 6px;
-    min-width: 160px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    z-index: 1000;
-    animation: fadeIn 0.1s ease-out;
-}
-
-.context-menu button {
-    width: 100%;
-    padding: 8px 16px;
-    border: none;
-    background: none;
-    font-size: 14px;
-    color: #475569;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.context-menu button:hover {
-    background: #f1f5f9;
-}
-
-.context-menu button.danger {
-    color: #ef4444;
-}
-
-.context-menu button.danger:hover {
-    background: #fef2f2;
-}
-
-.context-menu button i {
-    font-size: 14px;
-    width: 16px;
-    text-align: center;
-}
-
-/* 动画 */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 /* 任务信息样式 */
 .task-header {
-    margin-bottom: 40px;
-    padding: 28px;
-    background: linear-gradient(to right bottom, #f8fafc, #f1f5f9);
-    border-radius: 16px;
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.05);
-    transition: all 0.3s ease;
+    flex-shrink: 0;
+    position: relative;
+    margin-bottom: 0;
+    padding: 24px;
+    background: #f8fafc;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .task-header h1 {
@@ -2057,11 +1869,9 @@
 /* 任务信息区域样式调整 */
 .task-header {
     position: relative;
-    margin-bottom: 20px;
     padding: 24px;
     background: #f8fafc;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .task-requirements {
@@ -2069,4 +1879,8 @@
     border-radius: 8px;
     border: 1px solid #e2e8f0;
     margin-top: 20px;
+}
+
+.editor-content {
+    padding: 2rem;
 }
