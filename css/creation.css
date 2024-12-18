@@ -1323,7 +1323,7 @@
     }
 }
 
-/* 右侧建议卡片样式 */
+/* 右侧��议卡片样式 */
 .suggestion-card {
     background: white;
     border-radius: 12px;
@@ -1646,13 +1646,12 @@
 }
 
 .task-requirements {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 14px;
-    border: 1px solid rgba(229, 229, 229, 0.6);
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
     margin: 20px 0;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
@@ -1662,24 +1661,24 @@
 }
 
 .requirement-header {
-    padding: 18px 24px;
+    padding: 16px 24px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     user-select: none;
-    background: rgba(255, 255, 255, 0.9);
     transition: all 0.2s ease;
-    border-bottom: 1px solid rgba(229, 229, 229, 0.4);
 }
 
 .requirement-header:hover {
-    background: rgba(249, 250, 251, 0.9);
+    background: #f1f5f9;
 }
 
 .requirement-header h2 {
     font-size: 16px;
-    color: #1d1d1f;
+    color: #1e293b;
     margin: 0;
     font-weight: 500;
     display: flex;
@@ -1687,31 +1686,18 @@
     gap: 8px;
 }
 
-.requirement-header h2::before {
-    content: '';
-    display: block;
-    width: 4px;
-    height: 4px;
-    background: #3b82f6;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-}
-
-.requirement-header:hover h2::before {
-    transform: scale(1.5);
-}
-
 .requirement-header i {
-    color: #8e8e93;
-    transition: all 0.3s ease;
+    color: #64748b;
+    transition: transform 0.3s ease;
 }
 
 .requirement-content {
-    padding: 0 24px;
+    padding: 20px 24px;
+    background: white;
     max-height: 1000px;
     opacity: 1;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .requirement-content.collapsed {
@@ -1722,115 +1708,64 @@
 }
 
 .requirement-content p {
-    margin: 20px 0;
-    color: #3c3c43;
-    line-height: 1.7;
-    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
 }
 
 .focus-points {
-    margin: 24px 0;
+    margin-bottom: 24px;
 }
 
-.focus-points h3 {
-    font-size: 15px;
-    color: #1d1d1f;
-    margin-bottom: 16px;
+.focus-points h3,
+.keywords h3 {
+    font-size: 14px;
+    color: #334155;
+    margin: 0 0 12px 0;
     font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.focus-points h3::before {
-    content: '';
-    display: block;
-    width: 3px;
-    height: 16px;
-    background: #3b82f6;
-    border-radius: 2px;
 }
 
 .focus-points ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 }
 
 .focus-points li {
-    padding: 16px;
-    background: rgba(245, 245, 247, 0.6);
-    border-radius: 10px;
-    font-size: 14px;
-    color: #3c3c43;
-    border: 1px solid rgba(229, 229, 229, 0.4);
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.focus-points li:hover {
-    background: rgba(245, 245, 247, 0.9);
-    transform: translateX(4px);
+    color: #475569;
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
 }
 
 .focus-points li::before {
-    content: '•';
+    content: "•";
+    position: absolute;
+    left: 8px;
     color: #3b82f6;
-    font-size: 20px;
-    line-height: 1;
-    margin-top: -2px;
+    font-weight: bold;
 }
 
-.keywords {
-    margin: 24px 0;
-    padding-bottom: 24px;
-}
-
-.keywords h3 {
-    font-size: 15px;
-    color: #1d1d1f;
-    margin-bottom: 16px;
-    font-weight: 500;
+.keyword-list {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
-.keywords h3::before {
-    content: '';
-    display: block;
-    width: 3px;
-    height: 16px;
-    background: #3b82f6;
-    border-radius: 2px;
-}
-
-.keyword-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
 .keyword-tag {
-    padding: 6px 16px;
-    background: rgba(245, 245, 247, 0.6);
+    padding: 6px 12px;
+    background: #f1f5f9;
     border-radius: 100px;
     font-size: 13px;
-    color: #3c3c43;
-    border: 1px solid rgba(229, 229, 229, 0.4);
+    color: #475569;
     transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .keyword-tag:hover {
-    background: rgba(245, 245, 247, 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #e2e8f0;
+    transform: translateY(-1px);
 }
 
 /* 暗色主题支持 */
