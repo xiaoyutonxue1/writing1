@@ -1,6 +1,7 @@
 // 核心应用类
 class WritingApp {
     constructor() {
+        this.version = 'v1.9.0';  // 更新版本号
         console.log('WritingApp 构造函数被调用');
         this.editor = document.getElementById('editor');
         this.wordCountElement = document.getElementById('wordCount');
@@ -32,7 +33,7 @@ class WritingApp {
             // 检查是否已存在建议列表容器
             let suggestionsContainer = rightSidebar.querySelector('.suggestions-list');
             if (!suggestionsContainer) {
-                // 创建建议列表容器
+                // 创建��议列表容器
                 suggestionsContainer = document.createElement('div');
                 suggestionsContainer.className = 'suggestions-list';
                 rightSidebar.appendChild(suggestionsContainer);
@@ -371,7 +372,7 @@ class WritingApp {
         // 计算用时
         const timeSpent = this.calculateTimeSpent();
         
-        // 更新显示
+        // 更���显示
         if (this.wordCountElement) {
             this.wordCountElement.textContent = `字数：${wordCount}`;
         }
@@ -554,7 +555,7 @@ class WritingApp {
                 type: 'style',
                 icon: 'palette',
                 title: '风格建议',
-                text: '建议采用更富有诗意和韵律感的表达方式。建议：\n"春意悄然，新绿的精灵从沉睡的土地中苏醒，点点嫩芽如碧玉般晶莹，编织成一幅生机勃勃的翠绿画卷，在园林与田野间徐徐展开。\n\n百花争艳，果树枝头绽放出春天的调色盘：桃花如朝霞初绽，灿若云霓；杏花似晚霞留恋，绚若彩虹；梨花若云雪飘散，纯净无暇。花香氤氲，沁人心脾，让人不禁遐想满树硕果的丰收景象。\n\n春风拂过，带来燕子的欢唱与风筝的翩跹，还有孩童们在草地上、池水旁追逐嬉戏的欢声笑语，共同谱写这春日的交响乐章。"',
+                text: '建议采用更富有诗意和韵律感的表达方式。建议：\n"春意悄然，新绿的精灵从沉睡的土地中苏醒，点点嫩芽如碧玉般晶莹，编织成一幅生机勃勃的翠绿画卷，在园林与田野间徐徐展开。\n\n百花争艳，果树枝头绽放出春天的调色盘：桃花如朝霞初绽，灿若云霓；杏花似晚霞留恋，绚若彩虹；梨花若云雪飘散，纯净无暇。花香氤氲，沁人心脾，让人不禁遐想满树硕果的丰收景象。\n\n春风拂过，带来燕子的欢唱与风筝的翩跹，还有孩童们在草地���、池水旁追逐嬉戏的欢声笑语，共同谱写这春日的交响乐章。"',
                 options: [
                     { value: 'narrative', text: '叙事风格' },
                     { value: 'descriptive', text: '描写风格' },
@@ -837,7 +838,7 @@ class WritingApp {
         document.head.appendChild(style);
     }
 
-    // 显示错误提示
+    // 显示���误提示
     showError(message) {
         const rightSidebar = document.querySelector('.right-sidebar');
         if (!rightSidebar) return;
@@ -1151,14 +1152,14 @@ class AIChat {
                 '把自然景物和心情结合：\n- 春芽破土：充满生机与希望\n- 春雨润物：滋养心灵的温柔\n- 百花绽放：绚烂多彩的梦想\n- 春风拂面：温暖治愈的感动'
             ],
             '好词好句': [
-                '描写春天的好词：\n【颜色词】\n- 嫩绿、青翠、粉嫩、灼灼\n【声音词】\n- 潺潺、淙淙、啁啾、沙沙\n【动作词】\n- 萌发、绽放、飘洒、吐绿\n【形容词】\n- 温润、和煦、清新、盎然',
+                '描写春天的好词：\n【颜色词】\n- 嫩绿、青翠、粉嫩、灼灼\n【声音词】\n- 潺潺、淙淙、啁啾、沙沙\n【动作词】\n- 萌发、绽放、飘洒、吐绿\n【形���词】\n- 温润、和煦、清新、盎然',
                 '优美句子参考：\n1. "春雨如丝，润物无声，让大地披上了一层薄薄的轻纱。"\n2. "春风和煦，像母亲的手轻轻抚过大地，唤醒了沉睡的万物。"\n3. "嫩绿的小草刚刚探出头，像是大地绣出的一幅翠绿的地毯。"',
                 '可以用这些词语：\n【春天景色】\n- 春意盎然、春光明媚、春色满园\n【春天气息】\n- 春暖花开、春意融融、春风和煦\n【春天生机】\n- 欣欣向荣、蓬勃生机、万象更新'
             ],
             '开头技巧': [
                 '春天文章的开头可以这样写：\n1. 拟人开头：\n"春姑娘悄悄地来了，她轻轻地敲响了大地的门。"\n\n2. 比喻开头：\n"春天像一位画家，用她的画笔为大地增添色彩。"\n\n3. 感官开头：\n"一阵温暖的春风拂面而来，带来了泥土和花香的气息。"',
                 '好的开头方式：\n1. 环境描写：从天气、景色入手\n2. 人物活动：描写人们的春日活动\n3. 感受抒发：表达对春天的期待\n4. 场景对比：冬去春来的变化',
-                '开头注意事项：\n1. 要简洁生动\n2. 紧扣春天特点\n3. 引起读者兴趣\n4. 为全文定下基调\n\n可以从这些方面切入：\n- 春风、春雨、春芽\n- 气温变化、日照变化\n- 人们的春日活动'
+                '开头注意事项：\n1. 要简洁生动\n2. 紧扣春天特点\n3. 引起读者兴趣\n4. 为全文定下基调\n\n可以从这些方面��入：\n- 春风、春雨、春芽\n- 气温变化、日照变化\n- 人们的春日活动'
             ]
         };
 
@@ -1275,7 +1276,7 @@ class AIChat {
             } else if (userInput.includes('心情') || userInput.includes('情感')) {
                 response = this.getRandomResponse('情感表达');
             } else if (userInput.includes('词') || userInput.includes('句')) {
-                response = this.getRandomResponse('好词好句');
+                response = this.getRandomResponse('好词好��');
             } else if (userInput.includes('开头') || userInput.includes('开始')) {
                 response = this.getRandomResponse('开头技巧');
             } else {
@@ -1346,7 +1347,7 @@ class AIChat {
 
 // 等待DOM加载完成后初始化应用
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM加载完成,开始初始化应用...');
+    console.log('DOM加载��成,开始初始化应用...');
     window.writingApp = new WritingApp();
     window.aiChat = new AIChat();
     console.log('应用初始化完成');
