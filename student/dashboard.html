@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学生主页 - AI智能写作辅导平台</title>
+    <title>首页 - AI智能写作辅导平台</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="/student/dashboard.html" class="logo">AI智能写作辅导平台</a>
+            <a href="#" class="logo">AI智能写作辅导平台</a>
             <div class="nav-links">
                 <a href="/student/dashboard.html" class="active">首页</a>
                 <a href="/student/creation.html">创作中心</a>
@@ -22,190 +22,252 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="dashboard-content">
-            <!-- 班级作业 -->
-            <div class="class-assignments">
-                <h2>班级作业</h2>
+    <div class="main-content">
+        <div class="container">
+            <!-- 写作进度概览 -->
+            <div class="progress-overview">
+                <div class="progress-card">
+                    <div class="progress-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="progress-info">
+                        <h3>本月写作</h3>
+                        <div class="progress-data">
+                            <span class="number">8</span>
+                            <span class="unit">篇</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="progress-info">
+                        <h3>平均分数</h3>
+                        <div class="progress-data">
+                            <span class="number">92</span>
+                            <span class="unit">分</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="progress-info">
+                        <h3>写作时长</h3>
+                        <div class="progress-data">
+                            <span class="number">16</span>
+                            <span class="unit">小时</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="progress-info">
+                        <h3>获得勋章</h3>
+                        <div class="progress-data">
+                            <span class="number">5</span>
+                            <span class="unit">枚</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 班级作业区域 -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2><i class="fas fa-tasks"></i> 班级作业</h2>
+                    <div class="section-actions">
+                        <span class="task-count">待完成 1/2</span>
+                        <a href="#" class="view-all">查看全部 <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
                 <div class="assignments-grid">
+                    <!-- 进行中的作业 -->
                     <div class="assignment-card">
-                        <div class="assignment-header">
+                        <div class="assignment-status">进行中</div>
+                        <div class="assignment-content">
                             <h3>描写春天的散文</h3>
-                            <span class="status ongoing">进行中</span>
-                        </div>
-                        <p class="deadline">截止日期：2024-12-20</p>
-                        <p class="description">以春天为主题创作一篇散文，字数要求800-1200字。重点关注细腻的观察、多种感官的运用、真挚的情感表达。</p>
-                        <div class="assignment-footer">
-                            <a href="/student/creation.html" class="view-btn">
-                                <i class="fas fa-edit"></i> 开始创作
-                            </a>
-                            <span class="submission-status">未提交</span>
+                            <p class="assignment-desc">以春天为主题创作一篇散文，字数要求800-1200字。重点关注细腻的观察、多种感官的运用、真挚的情感表达。</p>
+                            <div class="assignment-meta">
+                                <div class="meta-info">
+                                    <span class="deadline"><i class="far fa-clock"></i> 截止日期：2024-12-20</span>
+                                    <span class="word-count"><i class="fas fa-font"></i> 字数要求：800-1200字</span>
+                                </div>
+                                <button class="start-btn">
+                                    <i class="fas fa-edit"></i>
+                                    开始创作
+                                </button>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- 已完成的作业 -->
                     <div class="assignment-card completed">
-                        <div class="assignment-header">
+                        <div class="assignment-status">已完成</div>
+                        <div class="assignment-content">
                             <h3>议论文写作练习</h3>
-                            <span class="status">已完成</span>
-                        </div>
-                        <p class="deadline">截止日期：2024-12-01</p>
-                        <p class="description">以"诚信"为主题，写一篇不少于1000字的议论文。</p>
-                        <div class="assignment-footer">
-                            <button class="view-btn">
-                                <i class="fas fa-eye"></i> 查看详情
-                            </button>
-                            <span class="submission-status">已提交</span>
+                            <p class="assignment-desc">以"诚信"为主题，写一篇不少于1000字的议论文。要求论点明确，论据充分，结构完整，语言流畅。</p>
+                            <div class="assignment-meta">
+                                <div class="meta-info">
+                                    <span class="deadline"><i class="far fa-clock"></i> 截止日期：2024-12-01</span>
+                                    <span class="score"><i class="fas fa-star"></i> 得分：95</span>
+                                </div>
+                                <button class="view-btn">
+                                    <i class="fas fa-eye"></i>
+                                    查看详情
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 作文分类 -->
-            <div class="categories-section">
-                <h2>作文分类</h2>
-                <div class="category-grid">
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-bullseye category-icon"></i> 按写作目的分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 说明文</li>
-                            <li><i class="fas fa-angle-right"></i> 应用文</li>
-                            <li><i class="fas fa-angle-right"></i> 议论文</li>
-                            <li><i class="fas fa-angle-right"></i> 记叙文</li>
-                            <li><i class="fas fa-angle-right"></i> 抒情文</li>
-                        </ul>
+            <!-- 写作能力分析 -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-pie"></i> 写作能力分析</h2>
+                    <div class="section-actions">
+                        <a href="#" class="view-all">查看详细报告 <i class="fas fa-angle-right"></i></a>
                     </div>
-
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-feather category-icon"></i> 按写作风格分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 记叙文</li>
-                            <li><i class="fas fa-angle-right"></i> 议论文</li>
-                            <li><i class="fas fa-angle-right"></i> 抒情文</li>
-                            <li><i class="fas fa-angle-right"></i> 散文</li>
-                            <li><i class="fas fa-angle-right"></i> 诗歌</li>
-                        </ul>
+                </div>
+                <div class="ability-analysis">
+                    <div class="radar-chart">
+                        <!-- 雷达图将通过JavaScript渲染 -->
                     </div>
-
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-book-open category-icon"></i> 按写作内容分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 写物</li>
-                            <li><i class="fas fa-angle-right"></i> 写理</li>
-                            <li><i class="fas fa-angle-right"></i> 写史</li>
-                            <li><i class="fas fa-angle-right"></i> 写人</li>
-                            <li><i class="fas fa-angle-right"></i> 写景</li>
-                        </ul>
-                    </div>
-
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-pen-fancy category-icon"></i> 按写作技巧分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 描写文</li>
-                            <li><i class="fas fa-angle-right"></i> 叙事文</li>
-                            <li><i class="fas fa-angle-right"></i> 说明文</li>
-                            <li><i class="fas fa-angle-right"></i> 议论文</li>
-                            <li><i class="fas fa-angle-right"></i> 抒情文</li>
-                        </ul>
-                    </div>
-
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-users category-icon"></i> 按写作对象分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 儿童文学</li>
-                            <li><i class="fas fa-angle-right"></i> 成人文学</li>
-                            <li><i class="fas fa-angle-right"></i> 青少年文学</li>
-                            <li><i class="fas fa-angle-right"></i> 通俗文学</li>
-                            <li><i class="fas fa-angle-right"></i> 专业文学</li>
-                        </ul>
-                    </div>
-
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-theater-masks category-icon"></i> 按写作形式分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 诗歌</li>
-                            <li><i class="fas fa-angle-right"></i> 剧本</li>
-                            <li><i class="fas fa-angle-right"></i> 小说</li>
-                            <li><i class="fas fa-angle-right"></i> 散文</li>
-                            <li><i class="fas fa-angle-right"></i> 日记</li>
-                        </ul>
-                    </div>
-
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-ruler category-icon"></i> 按写作篇幅分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 短文（800字以内）</li>
-                            <li><i class="fas fa-angle-right"></i> 中篇（800-2000字）</li>
-                            <li><i class="fas fa-angle-right"></i> 长文（2000字以上）</li>
-                            <li><i class="fas fa-angle-right"></i> 微型文（300字以内）</li>
-                        </ul>
-                    </div>
-
-                    <div class="category-card">
-                        <h3>
-                            <span><i class="fas fa-language category-icon"></i> 按写作语言风格分</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </h3>
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i> 文言文</li>
-                            <li><i class="fas fa-angle-right"></i> 白话文</li>
-                            <li><i class="fas fa-angle-right"></i> 古体诗文</li>
-                            <li><i class="fas fa-angle-right"></i> 现代文体</li>
-                        </ul>
+                    <div class="ability-metrics">
+                        <div class="metric-item">
+                            <div class="metric-header">
+                                <h4>内容立意</h4>
+                                <span class="score">92</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="bar-fill" style="width: 92%"></div>
+                            </div>
+                            <p class="metric-desc">善于发现新颖视角，思想深度有待提升</p>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header">
+                                <h4>结构布局</h4>
+                                <span class="score">88</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="bar-fill" style="width: 88%"></div>
+                            </div>
+                            <p class="metric-desc">段落层次分明，过渡还需加强</p>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header">
+                                <h4>语言表达</h4>
+                                <span class="score">95</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="bar-fill" style="width: 95%"></div>
+                            </div>
+                            <p class="metric-desc">用词准确生动，句式灵活多样</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 优秀作文推荐 -->
-            <div class="featured-articles">
-                <h2>优秀作文推荐</h2>
-                <div class="article-grid">
-                    <div class="article-card">
-                        <h3>春天的早晨</h3>
-                        <p class="article-meta">类型：记叙文 | 作者：张同学</p>
-                        <p class="article-preview">清晨的阳光洒在窗台上，整个世界都笼罩在金色的光芒中...</p>
-                        <div class="article-tags">
-                            <span class="tag">写景</span>
-                            <span class="tag">抒情</span>
-                            <span class="tag">800字</span>
+            <!-- 学习资源推荐 -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2><i class="fas fa-book"></i> 学习资源推荐</h2>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-crown"></i>
                         </div>
-                        <button class="btn btn-primary">阅读全文</button>
+                        <div class="resource-content">
+                            <h3>优秀范文赏析</h3>
+                            <p>精选各类型优秀作文，配有详细点评和写作技巧分析</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-book-reader"></i> 100+ 范文</span>
+                                <a href="/student/model-essays.html" class="resource-btn">开始学习</a>
+                            </div>
+                        </div>
                     </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h3>写作技巧课程</h3>
+                            <p>系统化的写作技巧教学，从基础到进阶的完整课程体系</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-play-circle"></i> 50+ 课时</span>
+                                <button class="resource-btn">立即学习</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h3>素材积累库</h3>
+                            <p>精选名言、素材、例证，分类整理，随时查阅使用</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-folder-open"></i> 1000+ 素材</span>
+                                <button class="resource-btn">去看看</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h3>常见错误修改</h3>
+                            <p>收集常见写作错误，提供修改建议和正确示范</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-check-circle"></i> 200+ 案例</span>
+                                <button class="resource-btn">去改错</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="article-card">
-                        <h3>科技改变生活</h3>
-                        <p class="article-meta">类型：议论文 | 作者：李同学</p>
-                        <p class="article-preview">随着科技的快速发展，我们的生活方式发生了翻天覆地的变化...</p>
-                        <div class="article-tags">
-                            <span class="tag">议论</span>
-                            <span class="tag">说理</span>
-                            <span class="tag">1200字</span>
-                        </div>
-                        <button class="btn btn-primary">阅读全文</button>
-                    </div>
+            <!-- AI助手悬浮按钮 -->
+            <button class="ai-assistant-btn">
+                <i class="fas fa-robot"></i>
+            </button>
+
+            <!-- AI助手对话框 -->
+            <div class="ai-chat-panel">
+                <div class="ai-header">
+                    <h3><i class="fas fa-robot"></i> AI写作助手</h3>
+                    <button class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="quick-actions">
+                    <button class="action-btn">
+                        <i class="fas fa-magic"></i>
+                        写作建议
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-lightbulb"></i>
+                        创作灵感
+                    </button>
+                </div>
+                <div class="chat-messages">
+                    <!-- 消息内容将通过JavaScript动态添加 -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="输入你的问题...">
+                    <button class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="/js/dashboard.js"></script>
 </body>
 </html>

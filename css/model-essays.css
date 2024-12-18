@@ -1,0 +1,787 @@
+/* 主内容区域 */
+.main-content {
+    padding: 2rem 0;
+    background: #f5f7fa;
+    min-height: calc(100vh - 64px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 搜索和筛选区域 */
+.search-filter-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.search-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.filter-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.filter-label {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    min-width: 50px;
+}
+
+.filter-tag {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e1e8ed;
+    border-radius: 20px;
+    background: white;
+    color: #7f8c8d;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-tag:hover {
+    border-color: #3498db;
+    color: #3498db;
+    transform: translateY(-2px);
+}
+
+.filter-tag.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* 范文列表区域 */
+.essays-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.essay-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.essay-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.essay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.essay-meta {
+    display: flex;
+    gap: 1rem;
+}
+
+.essay-type {
+    padding: 0.3rem 0.8rem;
+    background: #e1f0ff;
+    color: #3498db;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.essay-score {
+    color: #f39c12;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.collect-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    color: #bdc3c7;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.collect-btn:hover {
+    color: #f1c40f;
+    transform: scale(1.1);
+}
+
+.collect-btn.active {
+    color: #f1c40f;
+}
+
+.essay-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.essay-preview {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.essay-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.feature {
+    padding: 0.3rem 0.8rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.essay-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.essay-info {
+    display: flex;
+    gap: 1rem;
+}
+
+.essay-info span {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.read-btn {
+    padding: 0.6rem 1.2rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.read-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* 范文详情弹窗 */
+.essay-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.essay-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #ecf0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+.modal-title h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.modal-meta {
+    display: flex;
+    gap: 1rem;
+}
+
+.modal-meta span {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.modal-meta .type {
+    color: #3498db;
+}
+
+.modal-meta .score {
+    color: #f39c12;
+}
+
+.close-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    color: #7f8c8d;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #2c3e50;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 1.5rem;
+    background: #f5f7fa;
+}
+
+.essay-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.essay-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.essay-text p {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.essay-analysis {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.analysis-section h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.analysis-section h3 i {
+    color: #3498db;
+}
+
+.highlight-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.highlight-points li {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #2ecc71;
+}
+
+.highlight-points h4 {
+    color: #2c3e50;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.highlight-points p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.writing-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tip-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #9b59b6;
+}
+
+.ai-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-item {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.2rem;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.comment-header i {
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+.comment-header h4 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.comment-item p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #ecf0f1;
+    background: #f8f9fa;
+}
+
+.note-section {
+    display: flex;
+    gap: 1rem;
+}
+
+.note-section textarea {
+    flex: 1;
+    height: 80px;
+    padding: 1rem;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    resize: none;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.note-section textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.save-note-btn {
+    padding: 0 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.save-note-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+    
+    .essay-content {
+        padding: 1.5rem;
+    }
+    
+    .essay-analysis {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .essay-content,
+    .essay-analysis {
+        padding: 1rem;
+    }
+    
+    .note-list,
+    .highlight-points,
+    .writing-tips {
+        gap: 0.8rem;
+    }
+    
+    .note-item,
+    .highlight-points li,
+    .tip-card {
+        padding: 1rem;
+    }
+}
+
+/* 文本高亮样式 */
+.highlight {
+    position: relative;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: all 0.3s ease;
+}
+
+.highlight.scene-desc {
+    background: rgba(52, 152, 219, 0.1);
+    border-bottom: 2px solid #3498db;
+}
+
+.highlight.metaphor {
+    background: rgba(231, 76, 60, 0.1);
+    border-bottom: 2px solid #e74c3c;
+}
+
+.highlight.psychology {
+    background: rgba(155, 89, 182, 0.1);
+    border-bottom: 2px solid #9b59b6;
+}
+
+.highlight.transition {
+    background: rgba(241, 196, 15, 0.1);
+    border-bottom: 2px solid #f1c40f;
+}
+
+.highlight.enlightenment {
+    background: rgba(46, 204, 113, 0.1);
+    border-bottom: 2px solid #2ecc71;
+}
+
+.highlight.active {
+    background-opacity: 0.2;
+}
+
+/* 批注提示 */
+.highlight::after {
+    content: attr(data-comment);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.highlight:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 10px);
+}
+
+/* 老师批注面板 */
+.teacher-notes {
+    position: fixed;
+    right: 2rem;
+    top: 20%;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* 批注面板标题栏 */
+.note-header {
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid #ecf0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+/* 拖动手柄 */
+.drag-handle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: move;
+}
+
+.drag-handle i {
+    color: #3498db;
+}
+
+/* 拖动时的样式 */
+.teacher-notes.dragging {
+    opacity: 0.9;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transition: none;
+    cursor: move;
+    user-select: none;
+}
+
+/* 最小化按钮 */
+.minimize-btn {
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: #7f8c8d;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.minimize-btn:hover {
+    color: #34495e;
+}
+
+/* 最小化状态 */
+.teacher-notes.minimized .note-list {
+    display: none;
+}
+
+.teacher-notes.minimized {
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+}
+
+.teacher-notes.minimized .note-header {
+    background: #3498db;
+    padding: 0.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.teacher-notes.minimized .drag-handle {
+    color: white;
+}
+
+.teacher-notes.minimized .drag-handle i,
+.teacher-notes.minimized .minimize-btn {
+    color: white;
+}
+
+.note-list {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* 不同类型批注的卡片样式 */
+.note-item {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* 开头点评样式 */
+.note-item[id^="note-1"] {
+    border-top: 4px solid #3498db;
+}
+
+/* 比喻运用样式 */
+.note-item[id^="note-2"] {
+    border-top: 4px solid #e74c3c;
+}
+
+/* 心理描写样式 */
+.note-item[id^="note-3"] {
+    border-top: 4px solid #9b59b6;
+}
+
+/* 过渡技巧样式 */
+.note-item[id^="note-4"] {
+    border-top: 4px solid #f1c40f;
+}
+
+/* 主题升华样式 */
+.note-item[id^="note-5"] {
+    border-top: 4px solid #2ecc71;
+}
+
+.note-item.active {
+    transform: translateX(-5px);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.note-item .note-type {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.note-item .note-type::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.note-item .note-content {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 1400px) {
+    .teacher-notes {
+        right: 1rem;
+        width: 280px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .teacher-notes {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    .note-list {
+        max-height: none;
+    }
+}
+ 

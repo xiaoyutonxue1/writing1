@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优秀范文赏析 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/model-essays.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/student/dashboard.html">首页</a>
+                <a href="/student/creation.html">创作中心</a>
+                <a href="/student/learning.html">学习中心</a>
+                <a href="/student/messages.html">消息中心</a>
+                <a href="/student/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <!-- 搜索和筛选区域 -->
+            <div class="search-filter-section">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索范文、主题、技巧...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="filter-tags">
+                    <div class="filter-group">
+                        <span class="filter-label">文体:</span>
+                        <button class="filter-tag active">全部</button>
+                        <button class="filter-tag">记叙文</button>
+                        <button class="filter-tag">议论文</button>
+                        <button class="filter-tag">说明文</button>
+                        <button class="filter-tag">描写文</button>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-label">主题:</span>
+                        <button class="filter-tag active">全部</button>
+                        <button class="filter-tag">人物</button>
+                        <button class="filter-tag">景物</button>
+                        <button class="filter-tag">事件</button>
+                        <button class="filter-tag">社会</button>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-label">字数:</span>
+                        <button class="filter-tag active">全部</button>
+                        <button class="filter-tag">800字以内</button>
+                        <button class="filter-tag">800-1200字</button>
+                        <button class="filter-tag">1200字以上</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 范文列表区域 -->
+            <div class="essays-grid">
+                <!-- 范文卡片 -->
+                <div class="essay-card">
+                    <div class="essay-header">
+                        <div class="essay-meta">
+                            <span class="essay-type">记叙文</span>
+                            <span class="essay-score">得分: 98</span>
+                        </div>
+                        <button class="collect-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="essay-title">难忘的一课</h3>
+                    <p class="essay-preview">那是一堂特别的语文课，老师没有照本宣科，而是带着我们走出教室，来到校园的小花园里。春日的阳光温暖而不刺眼，微风轻拂，花香四溢...</p>
+                    <div class="essay-features">
+                        <span class="feature"><i class="fas fa-feather"></i> 细腻的心理描写</span>
+                        <span class="feature"><i class="fas fa-palette"></i> 生动的景物描绘</span>
+                        <span class="feature"><i class="fas fa-theater-masks"></i> 真挚的情感表达</span>
+                    </div>
+                    <div class="essay-footer">
+                        <div class="essay-info">
+                            <span><i class="fas fa-font"></i> 1200字</span>
+                            <span><i class="fas fa-eye"></i> 2.3k阅读</span>
+                        </div>
+                        <button class="read-btn">
+                            阅读全文 <i class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="essay-card">
+                    <div class="essay-header">
+                        <div class="essay-meta">
+                            <span class="essay-type">议论文</span>
+                            <span class="essay-score">得分: 96</span>
+                        </div>
+                        <button class="collect-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="essay-title">诚信是金</h3>
+                    <p class="essay-preview">诚信，是为人处世的基石，是社会运行的润滑剂。从古至今，诚信都是中华民族的传统美德。然而，在当今社会，一些失信现象却时有发生...</p>
+                    <div class="essay-features">
+                        <span class="feature"><i class="fas fa-bullseye"></i> 论点鲜明</span>
+                        <span class="feature"><i class="fas fa-link"></i> 论证充分</span>
+                        <span class="feature"><i class="fas fa-language"></i> 语言精练</span>
+                    </div>
+                    <div class="essay-footer">
+                        <div class="essay-info">
+                            <span><i class="fas fa-font"></i> 1000字</span>
+                            <span><i class="fas fa-eye"></i> 1.8k阅读</span>
+                        </div>
+                        <button class="read-btn">
+                            阅读全文 <i class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 更多范文卡片 -->
+            </div>
+
+            <!-- 范文详情弹窗 -->
+            <div class="essay-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            <h2>难忘的一课</h2>
+                            <div class="modal-meta">
+                                <span class="type">记叙文</span>
+                                <span class="score">得分: 98</span>
+                                <span class="words">1200字</span>
+                            </div>
+                        </div>
+                        <button class="close-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="essay-content">
+                            <!-- 文章内容区域 -->
+                            <div class="essay-text">
+                                <p>
+                                    那是一堂特别的语文课，老师没有照本宣科，而是带着我们走出教室，来到校园的小花园里。
+                                    <span class="highlight scene-desc" data-comment="好的开头,直接点明特别之处,吸引读者">春日的阳光温暖而不刺眼，微风轻拂，花香四溢...</span>
+                                </p>
+                                <p>
+                                    老师指着一朵含苞待放的花骨朵说：
+                                    <span class="highlight metaphor" data-comment="巧妙运用比喻,形象生动">"同学们，你们看，这朵花像不像一个害羞的小姑娘？"</span>
+                                    这一个简单的比喻，瞬间让我们眼前一亮。
+                                    <span class="highlight psychology" data-comment="细腻的心理描写,展现学生的内心感受">是啊，那微微低垂的花苞，确实像个羞涩的少女，让人忍不住想一探究竟...</span>
+                                </p>
+                                <p>
+                                    <span class="highlight transition" data-comment="过渡自然,承上启下">就这样，在老师的引导下，我们开始用心观察周围的一草一木。</span>
+                                    <span class="highlight enlightenment" data-comment="点明主题,升华文章">不知不觉中，我发现原来写作的素材就在身边，关键是要用心去发现，用心去感受...</span>
+                                </p>
+                            </div>
+
+                            <!-- 老师批注面板 -->
+                            <div class="teacher-notes">
+                                <div class="note-header">
+                                    <div class="drag-handle">
+                                        <i class="fas fa-comment-alt"></i>
+                                        <span>老师批注</span>
+                                    </div>
+                                </div>
+                                <div class="note-list">
+                                    <!-- 批注会根据选中的文本动态显示 -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="essay-analysis">
+                            <div class="analysis-section">
+                                <h3><i class="fas fa-star"></i> 亮点赏析</h3>
+                                <ul class="highlight-points">
+                                    <li>
+                                        <h4>细腻的心理描写</h4>
+                                        <p>文章通过细腻的心理描写，生动展现了主人公内心的变化过程，让读者感同身受。</p>
+                                    </li>
+                                    <li>
+                                        <h4>生动的景物描绘</h4>
+                                        <p>运用多感官描写，将春日校园的美景呈现得栩栩如生，营造出美好的意境。</p>
+                                    </li>
+                                    <li>
+                                        <h4>真挚的情感表达</h4>
+                                        <p>字里行间流露出对老师的敬佩之情，情感真挚动人，打动读者。</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="analysis-section">
+                                <h3><i class="fas fa-lightbulb"></i> 写作技巧</h3>
+                                <div class="writing-tips">
+                                    <div class="tip-card">
+                                        <div class="tip-header">
+                                            <i class="fas fa-pen"></i>
+                                            <h4>环境描写技巧</h4>
+                                        </div>
+                                        <p>善用感官描写，通过视觉、听觉、嗅觉等多角度描绘环境，使场景更加立体。</p>
+                                    </div>
+                                    <div class="tip-card">
+                                        <div class="tip-header">
+                                            <i class="fas fa-heart"></i>
+                                            <h4>情感表达技巧</h4>
+                                        </div>
+                                        <p>将情感融入细节描写中，通过具体的人物言行表现情感，避免直白表述。</p>
+                                    </div>
+                                    <div class="tip-card">
+                                        <div class="tip-header">
+                                            <i class="fas fa-puzzle-piece"></i>
+                                            <h4>结构安排技巧</h4>
+                                        </div>
+                                        <p>采用总分总的结构，层次分明，过渡自然，首尾呼应。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="analysis-section">
+                                <h3><i class="fas fa-comment-dots"></i> AI点评</h3>
+                                <div class="ai-comments">
+                                    <div class="comment-item">
+                                        <div class="comment-header">
+                                            <i class="fas fa-robot"></i>
+                                            <h4>整体评价</h4>
+                                        </div>
+                                        <p>这是一篇优秀的记叙文，主题鲜明，结构完整，语言生动，感情真挚。文章通过具体的教学场景，展现了一堂生动的语文课，同时也表达了对老师的敬佩之情。</p>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-header">
+                                            <i class="fas fa-robot"></i>
+                                            <h4>改进建议</h4>
+                                        </div>
+                                        <p>1. 可以适当增加对课堂互动的描写，使课堂场景更加生动。<br>2. 结尾的升华部分可以再深入一些，表达对教育意义的思考。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="note-section">
+                            <textarea placeholder="写下你的笔记和感悟..."></textarea>
+                            <button class="save-note-btn">
+                                <i class="fas fa-save"></i> 保存笔记
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/model-essays.js"></script>
+</body>
+</html> 
