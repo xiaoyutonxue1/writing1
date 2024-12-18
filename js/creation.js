@@ -1,12 +1,21 @@
 // 核心应用类
 class WritingApp {
     constructor() {
+        console.log('WritingApp 构造函数被调用');
         this.editor = document.getElementById('editor');
         this.wordCountElement = document.getElementById('wordCount');
         this.paragraphCountElement = document.getElementById('paragraphCount');
         this.timeSpentElement = document.getElementById('timeSpent');
         this.floatingToolbar = document.getElementById('floatingToolbar');
         this.startTime = new Date();
+        
+        // 确保在构造函数中获取左侧栏元素
+        this.leftSidebar = document.querySelector('.left-sidebar');
+        if (!this.leftSidebar) {
+            console.error('左侧栏元素未找到');
+            return;
+        }
+        
         this.initializeUI();
         this.bindEvents();
         this.updateStats();
@@ -46,37 +55,48 @@ class WritingApp {
         this.bindTaskInfoEvents();
     }
 
-    // 绑定侧边栏事件
+    // 绑定侧边栏事件 - 使用事件委托
     bindSidebarEvents() {
-        // 文件项点击
-        const treeItems = document.querySelectorAll('.tree-item');
-        treeItems.forEach(item => {
-            item.addEventListener('click', (e) => {
+        console.log('开始绑定侧边栏事件...');
+        
+        if (!this.leftSidebar) {
+            console.error('左侧栏元素不存在,无法绑定事件');
+            return;
+        }
+
+        // 使用事件委托,将点击事件绑定到左侧栏容器
+        this.leftSidebar.addEventListener('click', (e) => {
+            console.log('左侧栏被点击:', e.target);
+            
+            // 处理文件项点击
+            if (e.target.closest('.tree-item')) {
+                const item = e.target.closest('.tree-item');
+                console.log('文件项被点击:', item);
                 e.preventDefault();
                 e.stopPropagation();
                 this.handleTreeItemClick(item);
-            });
-        });
-
-        // 文件夹点击
-        const folderHeaders = document.querySelectorAll('.folder-header');
-        folderHeaders.forEach(header => {
-            header.addEventListener('click', (e) => {
+            }
+            
+            // 处理文件夹点击
+            else if (e.target.closest('.folder-header')) {
+                const header = e.target.closest('.folder-header');
+                console.log('文件夹被点击:', header);
                 e.preventDefault();
                 e.stopPropagation();
                 this.handleFolderClick(header);
-            });
-        });
-
-        // 折叠按钮点击
-        const collapseBtns = document.querySelectorAll('.collapse-btn');
-        collapseBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
+            }
+            
+            // 处理折叠按钮点击
+            else if (e.target.closest('.collapse-btn')) {
+                const btn = e.target.closest('.collapse-btn');
+                console.log('折叠按钮被点击:', btn);
                 e.preventDefault();
                 e.stopPropagation();
                 this.handleCollapseClick(btn);
-            });
+            }
         });
+
+        console.log('侧边栏事件绑定完成');
     }
 
     // 绑定编辑器事件
@@ -187,7 +207,7 @@ class WritingApp {
 
     // 处理文件项点击
     handleTreeItemClick(item) {
-        console.log('文件项被点击:', item);
+        console.log('处理文件项点击:', item);
         
         // 移除其他项目的active类
         document.querySelectorAll('.tree-item').forEach(i => {
@@ -198,25 +218,39 @@ class WritingApp {
         item.classList.add('active');
         
         // 加载文件内容
-        const fileName = item.querySelector('span').textContent;
-        this.loadFileContent(fileName);
+        const fileName = item.querySelector('span')?.textContent;
+        if (fileName) {
+            console.log('加载文件:', fileName);
+            this.loadFileContent(fileName);
+        }
     }
 
     // 处理文件夹点击
     handleFolderClick(header) {
-        console.log('文件夹被点击:', header);
+        console.log('处理文件夹点击:', header);
         
         const folder = header.closest('.tree-folder');
-        const content = folder.querySelector('.folder-content');
-        const icon = header.querySelector('.fa-chevron-down');
+        const content = folder?.querySelector('.folder-content');
+        const icon = header.querySelector('i.fa-chevron-down');
         
-        header.classList.toggle('collapsed');
-        
-        if (header.classList.contains('collapsed')) {
+        if (!folder || !content || !icon) {
+            console.error('找不到必要的DOM元素');
+            return;
+        }
+
+        // 切换折叠状态
+        const isCollapsed = header.classList.contains('collapsed');
+        console.log('当前折叠状态:', isCollapsed);
+
+        if (!isCollapsed) {
+            // 折叠
+            header.classList.add('collapsed');
             content.style.maxHeight = '0';
             content.style.opacity = '0';
             icon.style.transform = 'rotate(-90deg)';
         } else {
+            // 展开
+            header.classList.remove('collapsed');
             content.style.maxHeight = content.scrollHeight + 'px';
             content.style.opacity = '1';
             icon.style.transform = 'rotate(0)';
@@ -225,19 +259,30 @@ class WritingApp {
 
     // 处理折叠按钮点击
     handleCollapseClick(btn) {
-        console.log('折叠按钮被点击:', btn);
+        console.log('处理折叠按钮点击:', btn);
         
         const section = btn.closest('.list-section');
-        const content = section.querySelector('.section-content');
+        const content = section?.querySelector('.section-content');
         const icon = btn.querySelector('i');
         
-        btn.classList.toggle('collapsed');
-        
-        if (btn.classList.contains('collapsed')) {
+        if (!section || !content || !icon) {
+            console.error('找不到必要的DOM元素');
+            return;
+        }
+
+        // 切换折叠状态
+        const isCollapsed = btn.classList.contains('collapsed');
+        console.log('当前折叠状态:', isCollapsed);
+
+        if (!isCollapsed) {
+            // 折叠
+            btn.classList.add('collapsed');
             content.style.maxHeight = '0';
             content.style.opacity = '0';
             icon.style.transform = 'rotate(-90deg)';
         } else {
+            // 展开
+            btn.classList.remove('collapsed');
             content.style.maxHeight = content.scrollHeight + 'px';
             content.style.opacity = '1';
             icon.style.transform = 'rotate(0)';
@@ -498,7 +543,7 @@ class WritingApp {
                 type: 'polish',
                 icon: 'magic',
                 title: '润色建议',
-                text: '建议通过更丰富的意象和更细腻的描写来增强画面感。建议：\n"春日里，嫩芽偷偷探出头来，像一个个顽皮的精灵，将大地点缀得生机盎然。放眼望去，园林与田野间尽是一片片青翠欲滴的新绿。\n\n果树们仿佛在举办盛大的春日庆典，桃花红得似火般热烈，杏花粉得像霞般温柔，梨花白得如雪般纯洁。阵阵花香在微风中流转，闭上眼，仿佛已能看到满树的果实在枝头轻轻摇曳。\n\n春风裹挟着燕子的欢唱，牵引着风筝的舞姿，还有孩童们的笑声在草地上、池水旁回荡，构成了一幅动感十足的春日画卷。"',
+                text: '建议通过更丰富的意象和更细腻的描写来增强画面感。建议：\n"春日里，嫩芽偷偷探出头来，像一个个顽皮的精灵，将大地点缀得生机盎然。放眼望去，园林与田野间尽是一片片青翠欲滴的新绿。\n\n果树们仿在举办盛大的春日庆典，桃花红得似火般热烈，杏花粉得像霞般温柔，梨花白得如雪般纯洁。阵阵花香在微风中流转，闭上眼，仿佛已能看到满树的果实在枝头轻轻摇曳。\n\n春风裹挟着燕子的欢唱，牵引着风筝的舞姿，还有孩童们的笑声在草地上、池水旁回荡，构成了一幅动感十足的春日画卷。"',
                 options: [
                     { value: 'concise', text: '简洁版本' },
                     { value: 'detailed', text: '详细版本' },
@@ -1069,87 +1114,240 @@ class WritingApp {
     }
 }
 
+// AI聊天助手类
+class AIChat {
+    constructor() {
+        this.chat = document.getElementById('aiChat');
+        this.toggle = document.getElementById('aiToggle');
+        this.messages = document.getElementById('aiMessages');
+        this.closeBtn = this.chat.querySelector('.ai-chat-close');
+        this.input = this.chat.querySelector('textarea');
+        this.sendBtn = this.chat.querySelector('.send-btn');
+        this.quickBtns = this.chat.querySelectorAll('.quick-btn');
+        
+        this.isOpen = false;
+        this.isProcessing = false;
+        this.messageQueue = [];
+        
+        this.mockResponses = {
+            '写作技巧': [
+                '描写春天时，可以从以下几个方面入手：\n1. 视觉：新绿、花朵、春雨\n2. 听觉：鸟鸣、风声、雨声\n3. 嗅觉：花香、泥土气息\n4. 触觉：春风、温暖阳光',
+                '写作要注意细节描写，可以用比喻、拟人等修辞手法让文章更生动。比如：\n- 比喻：春风像温柔的手\n- 拟人：小草探出好奇的脑袋\n- 夸张：百花齐放，春意盎然',
+                '建议按时间顺序或空间顺序来组织文章结构，让描写更有条理：\n1. 时间顺序：清晨→中午→傍晚\n2. 空间顺序：远处→近处，或上→下'
+            ],
+            '景色描写': [
+                '春天的景色可以这样描写：\n1. 天空：碧空如洗，白云悠悠\n2. 植物：\n - 树木：嫩芽初绽，新叶吐绿\n - 花朵：桃红柳绿，百花争艳\n3. 小动物：蝴蝶翩翩，小鸟欢唱',
+                '可以重点描写春天特有的景象：\n1. 春雨：细雨如丝，滋润万物\n2. 春风：和煦温柔，拂面生香\n3. 春水：冰雪消融，小溪潺潺\n4. 春芽：嫩绿新芽，破土而出',
+                '注意捕捉春天的色彩变化：\n- 绿色：新叶嫩芽，青草如茵\n- 粉色：桃花灼灼，杏花烂漫\n- 黄色：迎春花开，油菜花田\n- 白色：梨花如雪，白云悠悠'
+            ],
+            '感官描写': [
+                '春天的感官描写素材\n【视觉】\n- 嫩绿的新芽\n- 绚丽的花朵\n- 飘洒的春雨\n【听觉】\n- 鸟儿的啁啾\n- 春雨的滴答\n- 溪水的潺潺\n【嗅觉】\n- 泥土的芬芳\n- 花草的清香\n【触觉】\n- 温暖的阳光\n- 柔和的春风',
+                '可以多角度描写春雨：\n1. 视觉：雨丝如烟，朦胧轻盈\n2. 听觉：滴滴答答，奏响春之歌\n3. 触觉：润物无声，细腻温柔\n4. 嗅觉：泥土芬芳，清新怡人',
+                '描写春风的感受：\n1. 温度：温暖如母亲的手\n2. 触感：轻柔似丝绸抚摸\n3. 气：带来花草的芬芳\n4. 视觉：摇曳的花枝，飘舞的柳絮'
+            ],
+            '情感表达': [
+                '春天象征着希望和新生，可以表达：\n1. 对生命的热爱\n2. 对未来的期待\n3. 对美好的向往\n4. 对自然的赞美',
+                '可以从这些角度抒发感情：\n1. 生机勃勃带来的喜悦\n2. 万物复苏激发的希望\n3. 美好春光引发的感动\n4. 春暖花开带来的温馨',
+                '把自然景物和心情结合：\n- 春芽破土：充满生机与希望\n- 春雨润物：滋养心灵的温柔\n- 百花绽放：绚烂多彩的梦想\n- 春风拂面：温暖治愈的感动'
+            ],
+            '好词好句': [
+                '描写春天的好词：\n【颜色词】\n- 嫩绿、青翠、粉嫩、灼灼\n【声音词】\n- 潺潺、淙淙、啁啾、沙沙\n【动作词】\n- 萌发、绽放、飘洒、吐绿\n【形容词】\n- 温润、和煦、清新、盎然',
+                '优美句子参考：\n1. "春雨如丝，润物无声，让大地披上了一层薄薄的轻纱。"\n2. "春风和煦，像母亲的手轻轻抚过大地，唤醒了沉睡的万物。"\n3. "嫩绿的小草刚刚探出头，像是大地绣出的一幅翠绿的地毯。"',
+                '可以用这些词语：\n【春天景色】\n- 春意盎然、春光明媚、春色满园\n【春天气息】\n- 春暖花开、春意融融、春风和煦\n【春天生机】\n- 欣欣向荣、蓬勃生机、万象更新'
+            ],
+            '开头技巧': [
+                '春天文章的开头可以这样写：\n1. 拟人开头：\n"春姑娘悄悄地来了，她轻轻地敲响了大地的门。"\n\n2. 比喻开头：\n"春天像一位画家，用她的画笔为大地增添色彩。"\n\n3. 感官开头：\n"一阵温暖的春风拂面而来，带来了泥土和花香的气息。"',
+                '好的开头方式：\n1. 环境描写：从天气、景色入手\n2. 人物活动：描写人们的春日活动\n3. 感受抒发：表达对春天的期待\n4. 场景对比：冬去春来的变化',
+                '开头注意事项：\n1. 要简洁生动\n2. 紧扣春天特点\n3. 引起读者兴趣\n4. 为全文定下基调\n\n可以从这些方面切入：\n- 春风、春雨、春芽\n- 气温变化、日照变化\n- 人们的春日活动'
+            ]
+        };
+
+        this.initEventListeners();
+    }
+
+    initEventListeners() {
+        // 打开/关闭聊天窗口
+        this.toggle.addEventListener('click', () => this.toggleChat());
+        this.closeBtn.addEventListener('click', () => this.toggleChat());
+
+        // 发送消息
+        this.sendBtn.addEventListener('click', () => this.handleSend());
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.handleSend();
+            }
+        });
+
+        // 自动调整输入框高度
+        this.input.addEventListener('input', () => {
+            this.input.style.height = 'auto';
+            this.input.style.height = Math.min(this.input.scrollHeight, 120) + 'px';
+        });
+
+        // 快捷问题点击
+        this.quickBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (this.isProcessing) return;
+                const question = btn.dataset.question;
+                this.handleQuickQuestion(question);
+            });
+        });
+    }
+
+    toggleChat() {
+        this.isOpen = !this.isOpen;
+        this.chat.classList.toggle('show');
+        this.toggle.classList.toggle('active');
+
+        if (this.isOpen && this.messages.children.length === 0) {
+            this.showWelcomeMessage();
+        }
+    }
+
+    showWelcomeMessage() {
+        const welcomeMessages = [
+            '你好！我是你的AI写作助手。我可以帮你：',
+            '1. 提供写作建议和技巧',
+            '2. 帮助你构思和完善文章',
+            '3. 解答你的写作疑问',
+            '有什么我可以帮你的吗？'
+        ];
+        
+        this.addMessage(welcomeMessages.join('\n'), 'ai');
+    }
+
+    addMessage(content, type) {
+        const message = document.createElement('div');
+        message.className = `message ${type}`;
+        
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.innerHTML = type === 'ai' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+        
+        const messageContent = document.createElement('div');
+        messageContent.className = 'message-content';
+        messageContent.textContent = content;
+        
+        message.appendChild(avatar);
+        message.appendChild(messageContent);
+        
+        this.messages.appendChild(message);
+        this.messages.scrollTop = this.messages.scrollHeight;
+    }
+
+    handleSend() {
+        if (this.isProcessing) return;
+        
+        const content = this.input.value.trim();
+        if (!content) return;
+        
+        // 添加用户消息
+        this.addMessage(content, 'user');
+        
+        // 清空输入框
+        this.input.value = '';
+        this.input.style.height = '44px';
+        
+        // 处理响应
+        this.processResponse(content);
+    }
+
+    handleQuickQuestion(question) {
+        if (this.isProcessing) return;
+        
+        // 添加用户消息
+        this.addMessage(question, 'user');
+        
+        // 处理响应
+        this.processQuickResponse(question);
+    }
+
+    processResponse(userInput) {
+        this.isProcessing = true;
+        
+        try {
+            let response;
+            if (userInput.includes('景色') || userInput.includes('描写')) {
+                response = this.getRandomResponse('景色描写');
+            } else if (userInput.includes('感官') || userInput.includes('感受')) {
+                response = this.getRandomResponse('感官描写');
+            } else if (userInput.includes('心情') || userInput.includes('情感')) {
+                response = this.getRandomResponse('情感表达');
+            } else if (userInput.includes('词') || userInput.includes('句')) {
+                response = this.getRandomResponse('好词好句');
+            } else if (userInput.includes('开头') || userInput.includes('开始')) {
+                response = this.getRandomResponse('开头技巧');
+            } else {
+                response = this.getRandomResponse('写作技巧');
+            }
+            
+            // 使用setTimeout模拟延迟,但不使用Promise
+            setTimeout(() => {
+                if (this.isOpen) {
+                    this.addMessage(response, 'ai');
+                }
+                this.isProcessing = false;
+            }, 800);
+            
+        } catch (error) {
+            console.error('处理响应出错:', error);
+            if (this.isOpen) {
+                this.addMessage('抱歉,我现在无法回应。请稍后再试。', 'ai');
+            }
+            this.isProcessing = false;
+        }
+    }
+
+    processQuickResponse(question) {
+        this.isProcessing = true;
+        
+        try {
+            let response;
+            if (question.includes('景色')) {
+                response = this.getRandomResponse('景色描写');
+            } else if (question.includes('感官')) {
+                response = this.getRandomResponse('感官描写');
+            } else if (question.includes('心情') || question.includes('情感')) {
+                response = this.getRandomResponse('情感表达');
+            } else if (question.includes('好词好句')) {
+                response = this.getRandomResponse('好词好句');
+            } else if (question.includes('开头')) {
+                response = this.getRandomResponse('开头技巧');
+            } else {
+                response = this.getRandomResponse('写作技巧');
+            }
+            
+            // 使用setTimeout模拟延迟,但不使用Promise
+            setTimeout(() => {
+                if (this.isOpen) {
+                    this.addMessage(response, 'ai');
+                }
+                this.isProcessing = false;
+            }, 800);
+            
+        } catch (error) {
+            console.error('处理快速响应出错:', error);
+            if (this.isOpen) {
+                this.addMessage('抱歉,我现在无法回应。请稍后再试。', 'ai');
+            }
+            this.isProcessing = false;
+        }
+    }
+
+    getRandomResponse(category) {
+        const responses = this.mockResponses[category];
+        if (!responses || responses.length === 0) {
+            return '抱歉,我现在无法提供合适的回应。';
+        }
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+}
+
 // 等待DOM加载完成后初始化应用
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM加载完成');
-    setTimeout(() => {
-        console.log('初始化应用...');
-        window.app = new WritingApp();
-    }, 500);
+    console.log('DOM加载完成,开始初始化应用...');
+    window.writingApp = new WritingApp();
+    window.aiChat = new AIChat();
+    console.log('应用初始化完成');
 });
-
-// 初始化编辑器功能
-document.addEventListener('DOMContentLoaded', function() {
-    // 确保WritingApp实例已创建
-    if (!window.app) {
-        console.log('初始化应用...');
-        window.app = new WritingApp();
-    }
-    
-    // 只初始化浮动工具栏
-    initFloatingToolbar();
-});
-
-// 初始化浮动工具栏
-function initFloatingToolbar() {
-    const editor = document.getElementById('editor');
-    const toolbar = document.getElementById('floatingToolbar');
-    
-    // 监听选中文本事件
-    editor.addEventListener('mouseup', function(e) {
-        const selection = window.getSelection();
-        const selectedText = selection.toString().trim();
-        
-        if (selectedText) {
-            // 显示浮动工具栏
-            toolbar.style.display = 'flex';
-            // 计算位置
-            const range = selection.getRangeAt(0);
-            const rect = range.getBoundingClientRect();
-            toolbar.style.top = `${rect.top - toolbar.offsetHeight - 10 + window.scrollY}px`;
-            toolbar.style.left = `${rect.left + (rect.width - toolbar.offsetWidth) / 2 + window.scrollX}px`;
-            
-            // 为工具栏按钮添加事件监听
-            setupToolbarButtons(selectedText);
-        } else {
-            toolbar.style.display = 'none';
-        }
-    });
-}
-
-// 设置工具栏按钮事件
-function setupToolbarButtons(selectedText) {
-    const toolbar = document.getElementById('floatingToolbar');
-    if (!toolbar) return;
-
-    // 获取WritingApp实例
-    const app = window.app;
-    if (!app) {
-        console.error('WritingApp实例未初始化');
-        return;
-    }
-    
-    // 重写按钮
-    const rewriteBtn = toolbar.querySelector('.rewrite-btn');
-    if (rewriteBtn) {
-        rewriteBtn.onclick = () => app.handleAIRewrite(selectedText);
-    }
-    
-    // 描述按钮
-    const describeBtn = toolbar.querySelector('.describe-btn');
-    if (describeBtn) {
-        describeBtn.onclick = () => app.handleAIDescribe(selectedText);
-    }
-    
-    // 扩展按钮
-    const expandBtn = toolbar.querySelector('.expand-btn');
-    if (expandBtn) {
-        expandBtn.onclick = () => app.handleAIExpand(selectedText);
-    }
-    
-    // 快速编辑按钮
-    const quickEditBtn = toolbar.querySelector('.quick-edit-btn');
-    if (quickEditBtn) {
-        quickEditBtn.onclick = () => app.handleQuickEdit(selectedText);
-    }
-}

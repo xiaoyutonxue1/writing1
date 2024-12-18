@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>创作中心 - AI智能写作教学平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/creation.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="../js/creation.js" type="module" defer></script>
 </head>
 <body>
@@ -569,78 +569,42 @@
             </button>
         </div>
 
-        <!-- AI助手面板 -->
-        <div id="aiAssistantPanel" class="tool-panel">
-            <div class="panel-header">
-                <h3><i class="fas fa-robot"></i> AI助手</h3>
-                <button class="close-btn"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="panel-content">
-                <div class="quick-options">
-                    <div class="option-group">
-                        <h4>常用功能</h4>
-                        <div class="option-buttons">
-                            <button class="option-btn">润色文字</button>
-                            <button class="option-btn">扩展内容</button>
-                            <button class="option-btn">生成大纲</button>
-                            <button class="option-btn">改善写作</button>
-                        </div>
-                    </div>
+        <!-- AI助手 -->
+        <div class="ai-chat" id="aiChat">
+            <div class="ai-chat-header">
+                <div class="ai-chat-title">
+                    <i class="fas fa-robot"></i>
+                    <span>AI写作助手</span>
                 </div>
-                <div class="chat-messages" id="chatMessages"></div>
-                <div class="chat-input">
-                    <input type="text" id="chatInput" placeholder="输入你的问题...">
-                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
-                </div>
+                <button class="ai-chat-close">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-        </div>
-
-        <!-- 写作工具面板 -->
-        <div id="writingToolsPanel" class="tool-panel">
-            <div class="panel-header">
-                <h3><i class="fas fa-tools"></i> 写作工具</h3>
-                <button class="close-btn"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="panel-content">
-                <div class="tool-group">
-                    <h4>文字工具</h4>
-                    <div class="tool-buttons">
-                        <button class="tool-button" data-tool="synonyms">同义词</button>
-                        <button class="tool-button" data-tool="antonyms">反义词</button>
-                        <button class="tool-button" data-tool="rhyme">押韵词</button>
-                        <button class="tool-button" data-tool="idioms">成语</button>
-                    </div>
+            
+            <div class="ai-chat-body">
+                <div class="ai-chat-messages" id="aiMessages"></div>
+                
+                <div class="ai-chat-quick-questions">
+                    <button class="quick-btn" data-question="如何描写春天的景色？">描写春天景色</button>
+                    <button class="quick-btn" data-question="春天有哪些感官描写的素材？">感官描写素材</button>
+                    <button class="quick-btn" data-question="如何表达春天带来的心情？">情感表达方法</button>
+                    <button class="quick-btn" data-question="有哪些描写春天的好词好句？">好词好句推荐</button>
+                    <button class="quick-btn" data-question="如何写好文章开头？">开头写作技巧</button>
                 </div>
-                <div class="tool-group">
-                    <h4>写作辅助</h4>
-                    <div class="tool-buttons">
-                        <button class="tool-button" data-tool="outline">大纲</button>
-                        <button class="tool-button" data-tool="mindmap">思维导图</button>
-                        <button class="tool-button" data-tool="timer">计时器</button>
-                        <button class="tool-button" data-tool="notes">笔记</button>
-                    </div>
+                
+                <div class="ai-chat-input">
+                    <textarea placeholder="请输入你的问题..." rows="1"></textarea>
+                    <button class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- 收藏面板 -->
-        <div id="favoritesPanel" class="tool-panel">
-            <div class="panel-header">
-                <h3><i class="fas fa-star"></i> 我的收藏</h3>
-                <button class="close-btn"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="panel-content">
-                <div class="favorites-list"></div>
-            </div>
-        </div>
-    </div>
+        <!-- AI助手触发按钮 -->
+        <button class="ai-toggle" id="aiToggle" title="AI写作助手">
+            <i class="fas fa-robot"></i>
+        </button>
 
-    <script>
-    function toggleRequirements(header) {
-        const content = header.nextElementSibling;
-        content.classList.toggle('collapsed');
-        header.querySelector('i').classList.toggle('fa-rotate-180');
-    }
-    </script>
-</body>
+    </body>
 </html>
