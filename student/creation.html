@@ -115,7 +115,7 @@
                             <i class="fas fa-language"></i> 翻译助手
                         </button>
                         <button class="dropdown-item" data-plugin="grammar">
-                            <i class="fas fa-spell-check"></i> ��检查
+                            <i class="fas fa-spell-check"></i> 语法检查
                         </button>
                     </div>
                 </div>
@@ -304,7 +304,7 @@
                     <!-- 教师反馈 -->
                     <div class="list-section">
                         <div class="section-header">
-                            <span>��师反馈</span>
+                            <span>教师反馈</span>
                             <button class="collapse-btn">
                                 <i class="fas fa-chevron-down"></i>
                             </button>
@@ -312,7 +312,7 @@
                         <div class="section-content">
                             <div class="tree-item">
                                 <i class="fas fa-comment-alt"></i>
-                                <span>��作要点提示</span>
+                                <span>写作要点提示</span>
                             </div>
                             <div class="tree-item">
                                 <i class="fas fa-comment-alt"></i>
@@ -442,83 +442,110 @@
 
             <!-- 右侧辅助区 -->
             <div class="right-sidebar">
-                <!-- 学习资料区域 -->
-                <div class="materials-section">
-                    <div class="section-header">
-                        <h2><i class="fas fa-book-open"></i> 学习资料</h2>
-                    </div>
-                    <div class="materials-list">
-                        <div class="material-card">
-                            <div class="material-icon">
-                                <i class="fas fa-archive"></i>
-                            </div>
-                            <div class="material-info">
-                                <h3>春天意象素材</h3>
-                                <span class="material-type">素材库</span>
-                            </div>
-                            <button class="view-btn">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                        <div class="material-card">
-                            <div class="material-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <div class="material-info">
-                                <h3>优秀范文赏析</h3>
-                                <span class="material-type">范文</span>
-                            </div>
-                            <button class="view-btn">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                        <div class="material-card">
-                            <div class="material-icon">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                            </div>
-                            <div class="material-info">
-                                <h3>写作建议</h3>
-                                <span class="material-type">指导</span>
-                            </div>
-                            <button class="view-btn">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
+                <!-- 顶部标签页 -->
+                <div class="sidebar-tabs">
+                    <button class="tab-btn active">
+                        <i class="fas fa-lightbulb"></i>
+                        AI建议
+                    </button>
+                    <button class="tab-btn">
+                        <i class="fas fa-star"></i>
+                        收藏夹
+                    </button>
+                    <div class="tab-actions">
+                        <button class="action-btn" title="刷新">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <button class="action-btn" title="设置">
+                            <i class="fas fa-cog"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- 教师批注区域 -->
-                <div class="teacher-notes-section">
-                    <div class="section-header">
-                        <h2><i class="fas fa-comment-alt"></i> 教师批注</h2>
-                    </div>
-                    <div class="notes-list">
-                        <div class="note-card">
-                            <div class="note-header">
-                                <i class="fas fa-lightbulb"></i>
-                                <h3>写作要点提示</h3>
+                <!-- 建议内容区域 -->
+                <div class="suggestions-list">
+                    <!-- 写作建议卡片 -->
+                    <div class="suggestion-card">
+                        <div class="suggestion-icon">
+                            <i class="fas fa-pen"></i>
+                            写作建议
+                        </div>
+                        <div class="suggestion-content">
+                            <div class="suggestion-text">
+                                <span class="highlight">这段描写</span>可以通过增加更多感官细节来增强画面感,建议从视觉、听觉、嗅觉等多个维度进行描写。
                             </div>
-                            <div class="note-content">
-                                <p>同学们要注意将自然描写与情感表达相结合，避免单纯的客观描述。</p>
+                            <div class="suggestion-actions">
+                                <div class="action-row">
+                                    <select class="suggestion-select">
+                                        <option value="improve">改进建议</option>
+                                        <option value="polish">润色文字</option>
+                                        <option value="expand">扩展内容</option>
+                                    </select>
+                                    <button class="apply-btn">应用</button>
+                                </div>
+                                <div class="button-row">
+                                    <button class="insert-btn">
+                                        <i class="fas fa-plus"></i>
+                                        插入
+                                    </button>
+                                    <button class="copy-btn">
+                                        <i class="far fa-copy"></i>
+                                        复制
+                                    </button>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="收藏">
+                                            <i class="far fa-star"></i>
+                                        </button>
+                                        <button class="action-btn" title="更多">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="note-card">
-                            <div class="note-header">
-                                <i class="fas fa-star"></i>
-                                <h3>��分重点</h3>
+                    </div>
+
+                    <!-- 语法建议卡片 -->
+                    <div class="suggestion-card">
+                        <div class="suggestion-icon">
+                            <i class="fas fa-spell-check"></i>
+                            语法建议
+                        </div>
+                        <div class="suggestion-content">
+                            <div class="suggestion-text">
+                                <span class="highlight">这个句子</span>的语序可以调整以使表达更加流畅,建议将状语提前。
                             </div>
-                            <div class="note-content">
-                                <p>1. 描写的细腻程度<br>
-                                2. 情感的真实性<br>
-                                3. 语言的生动性<br>
-                                4. 结构的完整性</p>
+                            <div class="suggestion-actions">
+                                <div class="action-row">
+                                    <select class="suggestion-select">
+                                        <option value="grammar">语法检查</option>
+                                        <option value="style">风格优化</option>
+                                        <option value="tone">语气调整</option>
+                                    </select>
+                                    <button class="apply-btn">应用</button>
+                                </div>
+                                <div class="button-row">
+                                    <button class="insert-btn">
+                                        <i class="fas fa-plus"></i>
+                                        插入
+                                    </button>
+                                    <button class="copy-btn">
+                                        <i class="far fa-copy"></i>
+                                        复制
+                                    </button>
+                                    <div class="action-buttons">
+                                        <button class="action-btn active" title="已收藏">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+                                        <button class="action-btn" title="更多">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- AI建议区域 -->
-                <div class="writing-suggestions"></div>
             </div>
         </div>
 
@@ -556,7 +583,7 @@
                             <button class="option-btn">润色文字</button>
                             <button class="option-btn">扩展内容</button>
                             <button class="option-btn">生成大纲</button>
-                            <button class="option-btn">改善���法</button>
+                            <button class="option-btn">改善写作</button>
                         </div>
                     </div>
                 </div>

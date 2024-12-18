@@ -1,0 +1,9 @@
+[33mcommit 082835452fae53d929a21f544383ce450886af25[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/v1.6.5[m[33m, [m[1;31morigin/feature/v1.6.5[m[33m)[m
+Author: xiaoyutonxue1 <2456198610@qq.com>
+Date:   Wed Dec 18 11:41:40 2024 +0800
+
+    chore: 更新项目版本至V1.6.5
+
+M	CHANGELOG.md
+M	README.md
+M	package.json

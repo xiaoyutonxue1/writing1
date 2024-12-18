@@ -1,6 +1,6 @@
 {
-  "name": "learning-platform",
-  "version": "1.6.5",
+  "name": "writing-platform",
+  "version": "1.7.0",
   "description": "AI智能写作教学平台 - 一个帮助中学生提升写作能力的智能教学系统",
   "main": "index.js",
   "scripts": {
