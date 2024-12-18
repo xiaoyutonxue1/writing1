@@ -1,4 +1,70 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize radar chart
+    const radarChart = document.querySelector('.radar-chart');
+    if (radarChart) {
+        const ctx = document.createElement('canvas');
+        radarChart.appendChild(ctx);
+        
+        // Get scores from ability metrics
+        const scores = Array.from(document.querySelectorAll('.metric-header .score')).map(el => parseInt(el.textContent));
+        const labels = Array.from(document.querySelectorAll('.metric-header h4')).map(el => el.textContent);
+        
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '写作能力分析',
+                    data: scores,
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: '#3498db',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#3498db',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#3498db'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                family: "'Microsoft YaHei', sans-serif"
+                            },
+                            color: '#2c3e50'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }
+
     // Initialize category cards
     const categoryCards = document.querySelectorAll('.category-card');
     
@@ -199,7 +265,7 @@ function initializeAIAssistant(modal, articleTitle) {
 2. 优美的语言表达，营造出诗意的意境
 3. 深刻的生活感悟，引发读者思考
 
-这篇文章的写作技巧值得学习，特别是在细节描写和情感表达方面。`);
+这篇文章的写作技巧值得学习，特别是��细节描写和情感表达方面。`);
             } else if (action === 'analyze') {
                 addMessage('ai', `请分享您对《${articleTitle}》的分析和感悟，可以从以下几个方面入手：
 
@@ -351,7 +417,7 @@ function getFullArticleContent(title) {
 
 漫步在小径上，我感受着春天的温暖。嫩绿的草芽从泥土中探出头来，像是在向世界打招呼。树枝上的新芽正在舒展，仿佛在伸着懒腰。空气中弥漫着泥土和花草的清新气息，让人心旷神怡。
 
-远处的山峦笼罩在薄薄的晨雾中，如同一幅水墨画。阳光穿透雾气，在空中形成了一道道金色的光束，宛如天使的光芒。小溪欢快地流淌，发出清脆的声响，像是在演奏一曲动听的春之歌。
+远处的山峦笼罩在薄薄的晨雾中，如同一幅水墨画。阳光穿透雾气，在空中形成了一道道金色的光��，宛如天使的光芒。小溪欢快地流淌，发出清脆的声响，像是在演奏一曲动听的春之歌。
 
 春天的早晨是一天中最美好的时刻。这个时候，整个世界都充满了生机和活力，让人感受到生命的美好。每一个细节都在诉说着春天的故事，每一个瞬间都值得珍惜。
 
@@ -365,7 +431,7 @@ function getFullArticleContent(title) {
 
 我开始讲述我的故事，声音由颤抖变得坚定。随着演讲的深入，我发现自己越来越自信。当我说到动情处，甚至看到有同学眼中闪烁着泪光。那一刻，我明白了真诚的力量。
 
-演讲结束后，热烈的掌声响彻教室。老师走过来，轻轻拍了拍我的肩膀，说："你做得很好。"这简单的一句话，让我感到所有的努力都是值得的。
+演讲结束后，热烈的掌声响彻教室。老��走过来，轻轻拍了拍我的肩膀，说："你做得很好。"这简单的一句话，让我感到所有的努力都是值得的。
 
 这一天教会了我很多：勇气不是没有恐惧，而是克服恐惧的决心；自信不是与生俱来，而是在挑战中逐渐培养的。最重要的是，我学会了相信自己。
 

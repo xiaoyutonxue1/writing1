@@ -243,6 +243,14 @@
     border-radius: 12px;
     padding: 1.5rem;
     height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radar-chart canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .ability-metrics {

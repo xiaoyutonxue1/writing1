@@ -252,19 +252,19 @@
             </div>
         </div>
 
-        <!-- 添加写作进步趋势图 -->
-        <div class="trend-analysis">
+        <!-- 写作能力进步趋势 -->
+        <div class="trend-analysis" style="background: white; border-radius: 16px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
             <div class="section-header">
                 <h3>写作能力进步趋势</h3>
                 <div class="time-range">
                     <select>
-                        <option>近6个月</option>
-                        <option>近1年</option>
-                        <option>全部时间</option>
+                        <option value="6">近6个月</option>
+                        <option value="12">近1年</option>
+                        <option value="24">近2年</option>
                     </select>
                 </div>
             </div>
-            <div class="trend-chart" id="trendChart"></div>
+            <div id="trendChart" style="width: 100%; height: 400px;"></div>
         </div>
 
         <!-- 诊断报告 -->
@@ -380,9 +380,9 @@
             </div>
         </div>
 
-        <!-- 在雷达图后添加 -->
+        <!-- 多维能力分析 -->
         <div class="ability-charts">
-            <div class="chart-container">
+            <div class="chart-container" style="background: white; border-radius: 16px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
                 <div class="chart-header">
                     <h4>写作能力多维分析</h4>
                     <div class="chart-legend">
@@ -396,7 +396,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="multi-dimension-chart" id="multiDimensionChart"></div>
+                <div class="multi-dimension-chart" id="multiDimensionChart" style="width: 100%; height: 500px;"></div>
             </div>
         </div>
     </div>
