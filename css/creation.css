@@ -741,44 +741,26 @@
 }
 
 .folder-header {
+    padding: 6px 8px;
     display: flex;
     align-items: center;
-    padding: 8px 12px;
+    gap: 8px;
     cursor: pointer;
-    user-select: none;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
 }
 
-.folder-header:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.folder-header i.fa-chevron-down {
+.folder-header i:last-child {
     margin-left: auto;
-    transition: transform 0.3s ease;
     font-size: 12px;
-    color: #666;
+    transition: transform 0.2s ease;
 }
 
-.folder-content {
-    max-height: 1000px;
-    opacity: 1;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    padding-left: 16px;
-}
-
-/* 折叠状态 */
-.folder-header.collapsed i.fa-chevron-down {
+.folder-header.collapsed i:last-child {
     transform: rotate(-90deg);
 }
 
-.folder-header.collapsed + .folder-content {
-    max-height: 0 !important;
-    opacity: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+.folder-content {
+    margin-left: 24px;
+    padding-top: 4px;
 }
 
 /* 底部工具栏 */
@@ -1563,7 +1545,7 @@
     justify-content: flex-end;
 }
 
-/* 动画优化 */
+/* 动���优化 */
 @keyframes slideIn {
     from { transform: translateX(20px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
@@ -2079,8 +2061,7 @@
     display: flex;
     align-items: center;
     padding: 8px 12px;
-    cursor: pointer;
-    user-select: none;
+    margin: 2px 0;
     border-radius: 4px;
     transition: background-color 0.2s ease;
 }
@@ -2089,61 +2070,28 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.folder-header i.fa-chevron-down {
-    margin-left: auto;
-    transition: transform 0.3s ease;
-    font-size: 12px;
-    color: #666;
-}
-
 .folder-content {
     max-height: 1000px;
     opacity: 1;
     overflow: hidden;
     transition: all 0.3s ease;
-    padding-left: 16px;
-}
-
-/* 折叠状态 */
-.folder-header.collapsed i.fa-chevron-down {
-    transform: rotate(-90deg);
 }
 
 .folder-header.collapsed + .folder-content {
-    max-height: 0 !important;
+    max-height: 0;
     opacity: 0;
-    padding-top: 0;
-    padding-bottom: 0;
 }
 
 .section-content {
-    max-height: none;
+    max-height: 1000px;
     opacity: 1;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
-.collapse-btn {
-    padding: 4px;
-    cursor: pointer;
-    border: none;
-    background: none;
-    transition: transform 0.3s ease;
-}
-
-.collapse-btn i {
-    transition: transform 0.3s ease;
-}
-
 .collapse-btn.collapsed + .section-content {
-    max-height: 0 !important;
+    max-height: 0;
     opacity: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.collapse-btn.collapsed i {
-    transform: rotate(-90deg);
 }
 
 /* 确保图标正确显示 */

@@ -7,17 +7,10 @@ class WritingApp {
         this.timeSpentElement = document.getElementById('timeSpent');
         this.floatingToolbar = document.getElementById('floatingToolbar');
         this.startTime = new Date();
-
-        if (!this.editor || !this.floatingToolbar) {
-            console.error('必要的DOM元素未找到');
-            return;
-        }
-
         this.initializeUI();
         this.bindEvents();
         this.updateStats();
         this.addAnimationStyles();
-        this.initializeFolderStates();
     }
 
     // 初始化UI
@@ -55,49 +48,35 @@ class WritingApp {
 
     // 绑定侧边栏事件
     bindSidebarEvents() {
-        try {
-            const projectList = document.querySelector('.project-list');
-            if (!projectList) {
-                console.error('未找到项目列表容器');
-                return;
-            }
-
-            projectList.addEventListener('click', (e) => {
-                const target = e.target;
-                let handled = false;
-
-                // 处理文件夹点击
-                const folderHeader = target.closest('.folder-header');
-                if (folderHeader) {
-                    e.preventDefault();
-                    this.handleFolderClick(folderHeader);
-                    handled = true;
-                }
-
-                // 处理树形项点击
-                const treeItem = target.closest('.tree-item');
-                if (treeItem && !handled) {
-                    e.preventDefault();
-                    this.handleTreeItemClick(treeItem);
-                    handled = true;
-                }
-
-                // 处理折叠按钮点击
-                const collapseBtn = target.closest('.collapse-btn');
-                if (collapseBtn && !handled) {
-                    e.preventDefault();
-                    this.handleCollapseClick(collapseBtn);
-                    handled = true;
-                }
-
-                if (handled) {
-                    e.stopPropagation();
-                    return false;
-                }
+        // 文件项点击
+        const treeItems = document.querySelectorAll('.tree-item');
+        treeItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.handleTreeItemClick(item);
             });
-        } catch (error) {
-            console.error('绑定侧边栏事件时出错:', error);
-        }
+        });
+
+        // 文件夹点击
+        const folderHeaders = document.querySelectorAll('.folder-header');
+        folderHeaders.forEach(header => {
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.handleFolderClick(header);
+            });
+        });
+
+        // 折叠按钮点击
+        const collapseBtns = document.querySelectorAll('.collapse-btn');
+        collapseBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.handleCollapseClick(btn);
+            });
+        });
     }
 
     // 绑定编辑器事件
@@ -208,7 +187,7 @@ class WritingApp {
 
     // 处理文件项点击
     handleTreeItemClick(item) {
-        if (!item) return;
+        console.log('文件项被点击:', item);
         
         // 移除其他项目的active类
         document.querySelectorAll('.tree-item').forEach(i => {
@@ -218,105 +197,50 @@ class WritingApp {
         // 添加当前项目的active类
         item.classList.add('active');
         
-        // 获取文件名
-        const nameSpan = item.querySelector('span');
-        if (nameSpan) {
-            const fileName = nameSpan.textContent;
-            this.loadFileContent(fileName);
-        }
+        // 加载文件内容
+        const fileName = item.querySelector('span').textContent;
+        this.loadFileContent(fileName);
     }
 
     // 处理文件夹点击
     handleFolderClick(header) {
-        if (!header) {
-            console.log('未找到文件夹头部');
-            return;
-        }
-
-        try {
-            const folder = header.closest('.tree-folder');
-            if (!folder) {
-                console.log('未找到文件夹容器');
-                return;
-            }
-
-            const content = folder.querySelector('.folder-content');
-            const icon = header.querySelector('.fa-chevron-down');
-            if (!content || !icon) {
-                console.log('未找到必要元素');
-                return;
-            }
-
-            // 切换折叠状态
-            const isCollapsed = header.classList.contains('collapsed');
-            const contentHeight = content.scrollHeight;
-
-            // 使用requestAnimationFrame确保样式变化平滑
-            requestAnimationFrame(() => {
-                header.classList.toggle('collapsed');
-                
-                if (!isCollapsed) {
-                    // 折叠
-                    content.style.maxHeight = '0px';
-                    content.style.opacity = '0';
-                    icon.style.transform = 'rotate(-90deg)';
-                } else {
-                    // 展开
-                    content.style.maxHeight = `${contentHeight}px`;
-                    content.style.opacity = '1';
-                    icon.style.transform = 'rotate(0deg)';
-                }
-            });
-
-            console.log(`文件夹 ${header.textContent.trim()} ${!isCollapsed ? '已折叠' : '已展开'}`);
-        } catch (error) {
-            console.error('处理文件夹点击时出错:', error);
+        console.log('文件夹被点击:', header);
+        
+        const folder = header.closest('.tree-folder');
+        const content = folder.querySelector('.folder-content');
+        const icon = header.querySelector('.fa-chevron-down');
+        
+        header.classList.toggle('collapsed');
+        
+        if (header.classList.contains('collapsed')) {
+            content.style.maxHeight = '0';
+            content.style.opacity = '0';
+            icon.style.transform = 'rotate(-90deg)';
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+            icon.style.transform = 'rotate(0)';
         }
     }
 
     // 处理折叠按钮点击
     handleCollapseClick(btn) {
-        if (!btn) {
-            console.log('未找到折叠按钮');
-            return;
-        }
-
+        console.log('折叠按钮被点击:', btn);
+        
         const section = btn.closest('.list-section');
-        if (!section) {
-            console.log('未找到列表区块');
-            return;
-        }
-
         const content = section.querySelector('.section-content');
-        if (!content) {
-            console.log('未找到内容区域');
-            return;
-        }
-
-        // 切换折叠状态
+        const icon = btn.querySelector('i');
+        
         btn.classList.toggle('collapsed');
         
-        // 设置内容高度
         if (btn.classList.contains('collapsed')) {
-            // 折叠状态
-            content.style.maxHeight = '0px';
+            content.style.maxHeight = '0';
             content.style.opacity = '0';
+            icon.style.transform = 'rotate(-90deg)';
         } else {
-            // 展开状态
             content.style.maxHeight = content.scrollHeight + 'px';
             content.style.opacity = '1';
-            
-            // 确保子内容也能正确显示
-            const subContents = content.querySelectorAll('.folder-content');
-            if (subContents.length > 0) {
-                subContents.forEach(subContent => {
-                    const parentHeader = subContent.previousElementSibling;
-                    if (parentHeader && !parentHeader.classList.contains('collapsed')) {
-                        subContent.style.maxHeight = subContent.scrollHeight + 'px';
-                        subContent.style.opacity = '1';
-                    }
-                });
-            }
+            icon.style.transform = 'rotate(0)';
         }
     }
 
@@ -1143,40 +1067,89 @@ class WritingApp {
             document.head.appendChild(style);
         }
     }
-
-    // 添加初始化方法
-    initializeFolderStates() {
-        try {
-            // 设置所有文件夹内容的初始高度
-            const folderContents = document.querySelectorAll('.folder-content');
-            if (folderContents.length > 0) {
-                folderContents.forEach(content => {
-                    const header = content.previousElementSibling;
-                    if (header && header.classList.contains('folder-header')) {
-                        if (header.classList.contains('collapsed')) {
-                            content.style.maxHeight = '0px';
-                            content.style.opacity = '0';
-                        } else {
-                            content.style.maxHeight = content.scrollHeight + 'px';
-                            content.style.opacity = '1';
-                        }
-                    }
-                });
-            }
-        } catch (error) {
-            console.error('初始化文件夹状态时出错:', error);
-        }
-    }
 }
 
 // 等待DOM加载完成后初始化应用
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('初始化应用...');
-    window.app = new WritingApp();
+    console.log('DOM加载完成');
+    setTimeout(() => {
+        console.log('初始化应用...');
+        window.app = new WritingApp();
+    }, 500);
 });
 
-// 移除重复的DOMContentLoaded监听器
-const existingInitFunction = window.initFloatingToolbar;
-if (existingInitFunction) {
-    document.removeEventListener('DOMContentLoaded', existingInitFunction);
+// 初始化编辑器功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 确保WritingApp实例已创建
+    if (!window.app) {
+        console.log('初始化应用...');
+        window.app = new WritingApp();
+    }
+    
+    // 只初始化浮动工具栏
+    initFloatingToolbar();
+});
+
+// 初始化浮动工具栏
+function initFloatingToolbar() {
+    const editor = document.getElementById('editor');
+    const toolbar = document.getElementById('floatingToolbar');
+    
+    // 监听选中文本事件
+    editor.addEventListener('mouseup', function(e) {
+        const selection = window.getSelection();
+        const selectedText = selection.toString().trim();
+        
+        if (selectedText) {
+            // 显示浮动工具栏
+            toolbar.style.display = 'flex';
+            // 计算位置
+            const range = selection.getRangeAt(0);
+            const rect = range.getBoundingClientRect();
+            toolbar.style.top = `${rect.top - toolbar.offsetHeight - 10 + window.scrollY}px`;
+            toolbar.style.left = `${rect.left + (rect.width - toolbar.offsetWidth) / 2 + window.scrollX}px`;
+            
+            // 为工具栏按钮添加事件监听
+            setupToolbarButtons(selectedText);
+        } else {
+            toolbar.style.display = 'none';
+        }
+    });
+}
+
+// 设置工具栏按钮事件
+function setupToolbarButtons(selectedText) {
+    const toolbar = document.getElementById('floatingToolbar');
+    if (!toolbar) return;
+
+    // 获取WritingApp实例
+    const app = window.app;
+    if (!app) {
+        console.error('WritingApp实例未初始化');
+        return;
+    }
+    
+    // 重写按钮
+    const rewriteBtn = toolbar.querySelector('.rewrite-btn');
+    if (rewriteBtn) {
+        rewriteBtn.onclick = () => app.handleAIRewrite(selectedText);
+    }
+    
+    // 描述按钮
+    const describeBtn = toolbar.querySelector('.describe-btn');
+    if (describeBtn) {
+        describeBtn.onclick = () => app.handleAIDescribe(selectedText);
+    }
+    
+    // 扩展按钮
+    const expandBtn = toolbar.querySelector('.expand-btn');
+    if (expandBtn) {
+        expandBtn.onclick = () => app.handleAIExpand(selectedText);
+    }
+    
+    // 快速编辑按钮
+    const quickEditBtn = toolbar.querySelector('.quick-edit-btn');
+    if (quickEditBtn) {
+        quickEditBtn.onclick = () => app.handleQuickEdit(selectedText);
+    }
 }
