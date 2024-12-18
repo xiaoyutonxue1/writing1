@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创作中心 - AI智能写作教学平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/creation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="../js/creation.js" type="module" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 统一的顶部导航栏 -->
+        <div class="navbar">
+            <div class="navbar-container">
+                <a href="/student/dashboard.html" class="logo">AI智能写作辅导平台</a>
+                <div class="nav-links">
+                    <a href="/student/dashboard.html">首页</a>
+                    <a href="/student/creation.html" class="active">创作中心</a>
+                    <a href="/student/learning.html">学习中心</a>
+                    <a href="/student/messages.html">消息中心</a>
+                    <a href="/student/profile.html">个人中心</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 创作中心工具栏 -->
+        <div class="top-toolbar">
+            <div class="left-tools">
+                <button class="tool-btn back-btn">
+                    <i class="fas fa-arrow-left"></i> 返回
+                </button>
+                <div class="tool-separator"></div>
+                
+                <!-- Write功能 -->
+                <div class="dropdown">
+                    <button class="tool-btn write-btn">
+                        <i class="fas fa-pencil-alt"></i> 写作
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item" data-mode="free">
+                            <i class="fas fa-feather"></i> 自由写作
+                        </button>
+                        <button class="dropdown-item" data-mode="guided">
+                            <i class="fas fa-compass"></i> 引导写作
+                        </button>
+                        <button class="dropdown-item" data-mode="outline">
+                            <i class="fas fa-list"></i> 大纲模式
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rewrite功能 -->
+                <div class="dropdown">
+                    <button class="tool-btn rewrite-btn">
+                        <i class="fas fa-sync"></i> 重写
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item" data-mode="shorter">
+                            <i class="fas fa-compress-alt"></i> 简化版本
+                        </button>
+                        <button class="dropdown-item" data-mode="longer">
+                            <i class="fas fa-expand-alt"></i> 扩展版本
+                        </button>
+                        <button class="dropdown-item" data-mode="creative">
+                            <i class="fas fa-magic"></i> 创意改写
+                        </button>
+                        <button class="dropdown-item" data-mode="tone">
+                            <i class="fas fa-theater-masks"></i> 语气调整
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Describe功能 -->
+                <div class="dropdown">
+                    <button class="tool-btn describe-btn">
+                        <i class="fas fa-align-left"></i> 描述
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item" data-mode="scene">
+                            <i class="fas fa-film"></i> 场景描写
+                        </button>
+                        <button class="dropdown-item" data-mode="character">
+                            <i class="fas fa-user"></i> 人物描写
+                        </button>
+                        <button class="dropdown-item" data-mode="emotion">
+                            <i class="fas fa-heart"></i> 情感描写
+                        </button>
+                        <button class="dropdown-item" data-mode="detail">
+                            <i class="fas fa-search-plus"></i> 细节补充
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Brainstorm功能 -->
+                <button class="tool-btn brainstorm-btn">
+                    <i class="fas fa-lightbulb"></i> 头脑风暴
+                </button>
+
+                <!-- Plugins功能 -->
+                <div class="dropdown">
+                    <button class="tool-btn plugins-btn">
+                        <i class="fas fa-puzzle-piece"></i> 插件
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item" data-plugin="thesaurus">
+                            <i class="fas fa-book"></i> 同义词词典
+                        </button>
+                        <button class="dropdown-item" data-plugin="translator">
+                            <i class="fas fa-language"></i> 翻译助手
+                        </button>
+                        <button class="dropdown-item" data-plugin="grammar">
+                            <i class="fas fa-spell-check"></i> 语法检查
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-tools">
+                <span class="word-count">高亮字数: 0</span>
+                <span class="save-status">已保存</span>
+                <button class="tool-btn whats-new-btn">新功能</button>
+                <button class="tool-btn share-btn">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+                <button class="tool-btn help-btn">
+                    <i class="fas fa-question"></i>
+                </button>
+                <button class="tool-btn settings-btn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 主体内容区 -->
+        <div class="main-content">
+            <!-- 左侧导航栏 -->
+            <div class="left-sidebar">
+                <!-- 项目管理头部 -->
+                <div class="project-header">
+                    <div class="header-title">
+                        <h2>写作训练</h2>
+                        <span class="project-count">春天主题写作</span>
+                    </div>
+                </div>
+
+                <!-- 搜索栏 -->
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="搜索文件...">
+                </div>
+
+                <!-- 项目文件列表 -->
+                <div class="project-list">
+                    <!-- 写作任务 -->
+                    <div class="list-section">
+                        <div class="section-header">
+                            <span>写作任务</span>
+                            <button class="collapse-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="project-item active">
+                                <div class="project-icon">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </div>
+                                <div class="project-info">
+                                    <span class="project-name">描写春天的散文</span>
+                                    <span class="project-meta">截止日期: 2024-03-20</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 学习资料 -->
+                    <div class="list-section">
+                        <div class="section-header">
+                            <span>学习资料</span>
+                            <button class="collapse-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <i class="fas fa-folder"></i>
+                                    <span>写作素材</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>春天意象素材库</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>自然描写技巧</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>感官描写示例</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <i class="fas fa-folder"></i>
+                                    <span>优秀范文</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>朱自清《春》</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>冰心《春水》</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>其他优秀范文</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <i class="fas fa-folder"></i>
+                                    <span>写作指导</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>写作技巧讲解</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>常见问题解答</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>写作步骤指南</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 我的文稿 -->
+                    <div class="list-section">
+                        <div class="section-header">
+                            <span>我的文稿</span>
+                            <button class="collapse-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <i class="fas fa-folder"></i>
+                                    <span>草稿</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>初稿 - 2024-03-15</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>修改稿 - 2024-03-16</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <i class="fas fa-folder"></i>
+                                    <span>笔记</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>写作构思</span>
+                                    </div>
+                                    <div class="tree-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>灵感记录</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 教师反馈 -->
+                    <div class="list-section">
+                        <div class="section-header">
+                            <span>教师反馈</span>
+                            <button class="collapse-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="tree-item">
+                                <i class="fas fa-comment-alt"></i>
+                                <span>写作要点提示</span>
+                            </div>
+                            <div class="tree-item">
+                                <i class="fas fa-comment-alt"></i>
+                                <span>评分标准说明</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部工具栏 -->
+                <div class="sidebar-tools">
+                    <button class="tool-btn story-bible-btn" data-tooltip="管理故事元素">
+                        <i class="fas fa-book"></i>
+                        <span>Story Bible</span>
+                    </button>
+                    <button class="tool-btn canvas-btn" data-tooltip="可视化大纲">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Canvas</span>
+                    </button>
+                    <div class="tool-separator"></div>
+                    <button class="tool-btn trash-btn" data-tooltip="查看已删除的文件">
+                        <i class="fas fa-trash"></i>
+                        <span>回收站</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 编辑器部分 -->
+            <div class="editor-section">
+                <div class="editor-toolbar">
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-command="undo" title="撤销">
+                            <i class="fas fa-undo"></i>
+                        </button>
+                        <button class="tool-btn" data-command="redo" title="重做">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-command="bold" title="加粗">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button class="tool-btn" data-command="italic" title="斜体">
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button class="tool-btn" data-command="underline" title="下划线">
+                            <i class="fas fa-underline"></i>
+                        </button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-command="justifyLeft" title="左对齐">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        <button class="tool-btn" data-command="justifyCenter" title="居中对齐">
+                            <i class="fas fa-align-center"></i>
+                        </button>
+                        <button class="tool-btn" data-command="justifyRight" title="右对齐">
+                            <i class="fas fa-align-right"></i>
+                        </button>
+                    </div>
+                    <div class="toolbar-group heading-buttons">
+                        <button class="tool-btn" data-command="h1">H1</button>
+                        <button class="tool-btn" data-command="h2">H2</button>
+                        <button class="tool-btn" data-command="h3">H3</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <select class="font-size" id="fontSize">
+                            <option value="3">小</option>
+                            <option value="4" selected>中</option>
+                            <option value="5">大</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="editor-container">
+                    <!-- 任务信息区域 -->
+                    <div class="task-header">
+                        <h1>描写春天的散文</h1>
+                        <div class="task-meta">
+                            <span><i class="far fa-calendar"></i> 截止日期: 2024-03-20</span>
+                            <span><i class="fas fa-text-width"></i> 字数要求: 800-1200字</span>
+                            <span><i class="fas fa-tag"></i> 类型: 写作训练</span>
+                        </div>
+                        <div class="task-requirements">
+                            <div class="requirement-header" onclick="toggleRequirements(this)">
+                                <h2>写作要求</h2>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="requirement-content collapsed">
+                                <p>以"春天的气息"为主题，运用细腻的观察和生动的描写，表达对春天的感受。</p>
+                                
+                                <div class="focus-points">
+                                    <h3>重点关注</h3>
+                                    <ul>
+                                        <li>自然描写：观察春天的景象变化</li>
+                                        <li>感官体验：运用视觉、听觉、嗅觉等多感官描写</li>
+                                        <li>情感表达：融入个人对春天的感受和思考</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="keywords">
+                                    <h3>关键词建议</h3>
+                                    <div class="keyword-tags">
+                                        <span class="keyword-tag">生机</span>
+                                        <span class="keyword-tag">温暖</span>
+                                        <span class="keyword-tag">色彩</span>
+                                        <span class="keyword-tag">变化</span>
+                                        <span class="keyword-tag">希望</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-content">
+                        <div id="editor" class="editor" contenteditable="true" placeholder="开始创作你的文章..."></div>
+                    </div>
+                </div>
+
+                <div class="editor-stats">
+                    <span id="wordCount" class="stat-item">字数：0</span>
+                    <span id="paragraphCount" class="stat-item">段落：0</span>
+                    <span id="timeSpent" class="stat-item">用时：0分钟</span>
+                    <span id="saveStatus" class="stat-item">已保存</span>
+                </div>
+            </div>
+
+            <!-- 右侧辅助区 -->
+            <div class="right-sidebar">
+                <!-- 顶部标签页 -->
+                <div class="sidebar-tabs">
+                    <button class="tab-btn active">
+                        <i class="fas fa-lightbulb"></i>
+                        AI建议
+                    </button>
+                    <button class="tab-btn">
+                        <i class="fas fa-star"></i>
+                        收藏夹
+                    </button>
+                    <div class="tab-actions">
+                        <button class="action-btn" title="刷新">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <button class="action-btn" title="设置">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 建议内容区域 -->
+                <div class="suggestions-list">
+                    <!-- 写作建议卡片 -->
+                    <div class="suggestion-card">
+                        <div class="suggestion-icon">
+                            <i class="fas fa-pen"></i>
+                            写作建议
+                        </div>
+                        <div class="suggestion-content">
+                            <div class="suggestion-text">
+                                <span class="highlight">这段描写</span>可以通过增加更多感官细节来增强画面感,建议从视觉、听觉、嗅觉等多个维度进行描写。
+                            </div>
+                            <div class="suggestion-actions">
+                                <div class="action-row">
+                                    <select class="suggestion-select">
+                                        <option value="improve">改进建议</option>
+                                        <option value="polish">润色文字</option>
+                                        <option value="expand">扩展内容</option>
+                                    </select>
+                                    <button class="apply-btn">应用</button>
+                                </div>
+                                <div class="button-row">
+                                    <button class="insert-btn">
+                                        <i class="fas fa-plus"></i>
+                                        插入
+                                    </button>
+                                    <button class="copy-btn">
+                                        <i class="far fa-copy"></i>
+                                        复制
+                                    </button>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="收藏">
+                                            <i class="far fa-star"></i>
+                                        </button>
+                                        <button class="action-btn" title="更多">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 语法建议卡片 -->
+                    <div class="suggestion-card">
+                        <div class="suggestion-icon">
+                            <i class="fas fa-spell-check"></i>
+                            语法建议
+                        </div>
+                        <div class="suggestion-content">
+                            <div class="suggestion-text">
+                                <span class="highlight">这个句子</span>的语序可以调整以使表达更加流畅,建议将状语提前。
+                            </div>
+                            <div class="suggestion-actions">
+                                <div class="action-row">
+                                    <select class="suggestion-select">
+                                        <option value="grammar">语法检查</option>
+                                        <option value="style">风格优化</option>
+                                        <option value="tone">语气调整</option>
+                                    </select>
+                                    <button class="apply-btn">应用</button>
+                                </div>
+                                <div class="button-row">
+                                    <button class="insert-btn">
+                                        <i class="fas fa-plus"></i>
+                                        插入
+                                    </button>
+                                    <button class="copy-btn">
+                                        <i class="far fa-copy"></i>
+                                        复制
+                                    </button>
+                                    <div class="action-buttons">
+                                        <button class="action-btn active" title="已收藏">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+                                        <button class="action-btn" title="更多">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 浮动工具栏 -->
+        <div class="floating-toolbar" id="floatingToolbar">
+            <button class="rewrite-btn" data-tooltip="重写选中内容">
+                <i class="fas fa-sync"></i>
+                重写
+            </button>
+            <button class="describe-btn" data-tooltip="增加描述">
+                <i class="fas fa-align-left"></i>
+                描述
+            </button>
+            <button class="expand-btn" data-tooltip="扩展内容">
+                <i class="fas fa-expand-alt"></i>
+                扩展
+            </button>
+            <button class="quick-edit-btn" data-tooltip="快速编辑">
+                <i class="fas fa-magic"></i>
+                快速编辑
+            </button>
+        </div>
+
+        <!-- AI助手面板 -->
+        <div id="aiAssistantPanel" class="tool-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-robot"></i> AI助手</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="panel-content">
+                <div class="quick-options">
+                    <div class="option-group">
+                        <h4>常用功能</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn">润色文字</button>
+                            <button class="option-btn">扩展内容</button>
+                            <button class="option-btn">生成大纲</button>
+                            <button class="option-btn">改善写作</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="输入你的问题...">
+                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 写作工具面板 -->
+        <div id="writingToolsPanel" class="tool-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-tools"></i> 写作工具</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="panel-content">
+                <div class="tool-group">
+                    <h4>文字工具</h4>
+                    <div class="tool-buttons">
+                        <button class="tool-button" data-tool="synonyms">同义词</button>
+                        <button class="tool-button" data-tool="antonyms">反义词</button>
+                        <button class="tool-button" data-tool="rhyme">押韵词</button>
+                        <button class="tool-button" data-tool="idioms">成语</button>
+                    </div>
+                </div>
+                <div class="tool-group">
+                    <h4>写作辅助</h4>
+                    <div class="tool-buttons">
+                        <button class="tool-button" data-tool="outline">大纲</button>
+                        <button class="tool-button" data-tool="mindmap">思维导图</button>
+                        <button class="tool-button" data-tool="timer">计时器</button>
+                        <button class="tool-button" data-tool="notes">笔记</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 收藏面板 -->
+        <div id="favoritesPanel" class="tool-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-star"></i> 我的收藏</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="panel-content">
+                <div class="favorites-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function toggleRequirements(header) {
+        const content = header.nextElementSibling;
+        content.classList.toggle('collapsed');
+        header.querySelector('i').classList.toggle('fa-rotate-180');
+    }
+    </script>
+</body>
+</html>

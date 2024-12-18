@@ -1,0 +1,244 @@
+/* Learning center layout */
+.main-content {
+    padding: 2rem 0;
+    background: #f5f7fa;
+    min-height: calc(100vh - 60px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Learning grid layout */
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Learning section styles */
+.learning-section {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.learning-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.learning-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #1890ff;
+    border-radius: 16px 16px 0 0;
+}
+
+.learning-section h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.learning-section h2 i {
+    color: #1890ff;
+    font-size: 1.8rem;
+}
+
+.learning-section p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Learning tools section */
+.learning-tools {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.learning-tools h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.learning-tools h3 i {
+    color: #1890ff;
+}
+
+.tools-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.tool-btn {
+    background: white;
+    border: 2px solid #1890ff;
+    color: #1890ff;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.tool-btn:hover {
+    background: #1890ff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Modal Container Styles */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1.5rem;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 98%;
+    max-width: 1800px;
+    height: 95vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    animation: modalShow 0.3s ease;
+}
+
+.modal-header {
+    padding: 2rem 3rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 16px 16px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-body {
+    padding: 3rem;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s;
+}
+
+.close-modal:hover {
+    color: #333;
+    transform: rotate(90deg);
+}
+
+/* Back button styles */
+.back-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    color: #1890ff;
+    transform: translateX(-5px);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .modal-header {
+        padding: 1.5rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Animation */
+@keyframes modalShow {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

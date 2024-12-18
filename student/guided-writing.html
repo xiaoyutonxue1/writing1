@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引导式写作 - 智能写作教学平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/guided-writing.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="nav-left">
+                <a href="writing-training.html" class="back-btn">← 返回</a>
+                <h1>引导式写作</h1>
+            </div>
+            <div class="step-indicator">
+                <div class="step active" data-step="1">选择主题</div>
+                <div class="step" data-step="2">构思大纲</div>
+                <div class="step" data-step="3">素材收集</div>
+                <div class="step" data-step="4">开始写作</div>
+                <div class="step" data-step="5">优化完善</div>
+            </div>
+        </header>
+
+        <!-- 主要内容区 -->
+        <main class="main-content">
+            <!-- 写作区域 -->
+            <div class="writing-area">
+                <!-- 步骤1：选择主题 -->
+                <div class="step-content active" id="step-1">
+                    <h2>选择写作主题</h2>
+                    <div class="topic-categories">
+                        <div class="category">
+                            <h3>推荐主题</h3>
+                            <div class="topic-list">
+                                <div class="topic-card">
+                                    <h4>我的理想校园</h4>
+                                    <p>描述你心目中完美的校园环境和学习氛围</p>
+                                    <span class="difficulty">难度：★★☆☆☆</span>
+                                </div>
+                                <div class="topic-card">
+                                    <h4>难忘的一次比赛</h4>
+                                    <p>记录一次给你留下深刻印象的比赛经历</p>
+                                    <span class="difficulty">难度：★★★☆☆</span>
+                                </div>
+                                <div class="topic-card">
+                                    <h4>科技改变生活</h4>
+                                    <p>探讨科技给我们的生活带来的变化</p>
+                                    <span class="difficulty">难度：★★★★☆</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category">
+                            <h3>自定义主题</h3>
+                            <div class="custom-topic">
+                                <input type="text" placeholder="输入你想写的主题" class="topic-input">
+                                <button class="confirm-topic">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 步骤2：构思大纲 -->
+                <div class="step-content" id="step-2">
+                    <h2>构思文章大纲</h2>
+                    <div class="outline-area">
+                        <div class="outline-editor">
+                            <div class="outline-tools">
+                                <button class="tool-btn add-section">添加章节</button>
+                                <button class="tool-btn add-point">添加要点</button>
+                                <button class="tool-btn get-suggestion">获取建议</button>
+                            </div>
+                            <div class="outline-content" contenteditable="true">
+                                <div class="outline-section">
+                                    <h3>引言</h3>
+                                    <ul>
+                                        <li>背景介绍</li>
+                                        <li>写作目的</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-suggestions">
+                            <h3>AI建议</h3>
+                            <div class="suggestion-content">
+                                <!-- AI建议将在这里动态显示 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 步骤3：素材收集 -->
+                <div class="step-content" id="step-3">
+                    <h2>素材收集</h2>
+                    <div class="materials-area">
+                        <div class="material-search">
+                            <input type="text" placeholder="搜索相关素材" class="search-input">
+                            <button class="search-btn">搜索</button>
+                        </div>
+                        <div class="material-categories">
+                            <button class="category-btn active">名言警句</button>
+                            <button class="category-btn">优秀片段</button>
+                            <button class="category-btn">相关案例</button>
+                            <button class="category-btn">图片素材</button>
+                        </div>
+                        <div class="material-list">
+                            <!-- 素材将在这里动态显示 -->
+                        </div>
+                        <div class="collected-materials">
+                            <h3>已收集的素材</h3>
+                            <div class="collected-list">
+                                <!-- 收集的素材将在这里显示 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 步骤4：开始写作 -->
+                <div class="step-content" id="step-4">
+                    <h2>开始写作</h2>
+                    <div class="writing-workspace">
+                        <div class="editor-area">
+                            <div class="editor-tools">
+                                <button class="tool-btn format">格式</button>
+                                <button class="tool-btn save">保存</button>
+                                <button class="tool-btn help">帮助</button>
+                            </div>
+                            <div class="editor" contenteditable="true">
+                                <!-- 写作内容将在这里编辑 -->
+                            </div>
+                        </div>
+                        <div class="writing-assistant">
+                            <div class="assistant-header">
+                                <h3>AI写作助手</h3>
+                                <button class="minimize-btn">_</button>
+                            </div>
+                            <div class="assistant-content">
+                                <div class="message-list">
+                                    <!-- AI消息将在这里显示 -->
+                                </div>
+                                <div class="input-area">
+                                    <input type="text" placeholder="询问AI助手..." class="ai-input">
+                                    <button class="send-btn">发送</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 步骤5：优化完善 -->
+                <div class="step-content" id="step-5">
+                    <h2>优化完善</h2>
+                    <div class="optimization-area">
+                        <div class="text-analysis">
+                            <h3>文章分析</h3>
+                            <div class="analysis-items">
+                                <div class="analysis-item">
+                                    <span class="item-label">字数统计</span>
+                                    <span class="item-value">0</span>
+                                </div>
+                                <div class="analysis-item">
+                                    <span class="item-label">主题相关度</span>
+                                    <span class="item-value">0%</span>
+                                </div>
+                                <div class="analysis-item">
+                                    <span class="item-label">结构完整度</span>
+                                    <span class="item-value">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="improvement-suggestions">
+                            <h3>改进建议</h3>
+                            <div class="suggestion-list">
+                                <!-- 改进建议将在这里显示 -->
+                            </div>
+                        </div>
+                        <div class="final-actions">
+                            <button class="action-btn preview">预览</button>
+                            <button class="action-btn submit">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧辅助区 -->
+            <aside class="sidebar">
+                <div class="timer">
+                    <h3>写作计时</h3>
+                    <div class="time-display">00:00:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn start">开始</button>
+                        <button class="timer-btn pause">暂停</button>
+                        <button class="timer-btn reset">重置</button>
+                    </div>
+                </div>
+                <div class="progress-tracker">
+                    <h3>完成进度</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 20%;">
+                            <span>20%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quick-notes">
+                    <h3>快速笔记</h3>
+                    <div class="notes-content" contenteditable="true">
+                        <!-- 笔记内容将在这里编辑 -->
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="../js/guided-writing.js"></script>
+</body>
+</html> 

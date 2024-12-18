@@ -1,0 +1,297 @@
+/* 教师面板布局 */
+.dashboard-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* 管理区块样式 */
+.management-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.management-section h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.management-section h2 i {
+    color: #1890ff;
+}
+
+.section-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* 管理卡片样式 */
+.management-card {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+}
+
+.management-card h3 {
+    color: #1890ff;
+    margin-bottom: 1rem;
+}
+
+/* 班级列表样式 */
+.class-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.class-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class-info h4 {
+    margin-bottom: 0.5rem;
+}
+
+.class-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* 作业列表样式 */
+.homework-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.homework-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.homework-info h4 {
+    margin-bottom: 0.5rem;
+}
+
+.homework-info p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.progress {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #1890ff;
+    border-radius: 4px;
+}
+
+.progress span {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.homework-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* 资源网格样式 */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.resource-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.resource-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resource-item i {
+    font-size: 2rem;
+    color: #1890ff;
+    margin-bottom: 0.5rem;
+}
+
+.resource-item span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.resource-item p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 资源上传区域 */
+.resource-upload {
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.resource-upload i {
+    font-size: 2rem;
+    color: #1890ff;
+    margin-bottom: 0.5rem;
+}
+
+.resource-upload p {
+    color: #666;
+}
+
+/* 共享资源列表 */
+.shared-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.shared-item {
+    background: white;
+    padding: 0.8rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shared-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.shared-info i {
+    font-size: 1.5rem;
+    color: #1890ff;
+}
+
+.shared-info h4 {
+    margin-bottom: 0.3rem;
+}
+
+.shared-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.shared-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background: #1890ff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-secondary {
+    background: white;
+    color: #1890ff;
+    border: 1px solid #1890ff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-class-btn,
+.add-homework-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: white;
+    border: 1px dashed #1890ff;
+    color: #1890ff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .class-item,
+    .homework-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .class-actions,
+    .homework-actions {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .class-actions button,
+    .homework-actions button {
+        flex: 1;
+    }
+
+    .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

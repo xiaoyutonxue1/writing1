@@ -1,0 +1,235 @@
+/* 消息中心布局 */
+.messages-layout {
+    display: grid;
+    grid-template-columns: 200px 300px 1fr;
+    gap: 1px;
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    height: calc(100vh - 100px);
+    margin-top: 20px;
+}
+
+/* 侧边栏样式 */
+.message-sidebar {
+    background: white;
+    padding: 1rem;
+}
+
+.message-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.message-type:hover {
+    background: #f0f0f0;
+}
+
+.message-type.active {
+    background: #e6f7ff;
+    color: #1890ff;
+}
+
+.message-type i {
+    width: 20px;
+}
+
+.badge {
+    background: #ff4d4f;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+/* 消息列表样式 */
+.message-list {
+    background: white;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+}
+
+.message-item {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.message-item:hover {
+    background: #f9f9f9;
+}
+
+.message-item.unread {
+    background: #f0f7ff;
+}
+
+.message-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.message-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #333;
+}
+
+.message-time {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.message-preview {
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 消息详情样式 */
+.message-detail {
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-header {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-header h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.detail-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
+
+.chat-message.received {
+    align-self: flex-start;
+}
+
+.chat-message.sent {
+    align-self: flex-end;
+}
+
+.message-bubble {
+    padding: 0.8rem;
+    border-radius: 8px;
+    background: #f0f0f0;
+    margin-bottom: 0.3rem;
+}
+
+.chat-message.sent .message-bubble {
+    background: #1890ff;
+    color: white;
+}
+
+.detail-input {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 1rem;
+}
+
+.detail-input textarea {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+    height: 60px;
+}
+
+.send-btn {
+    width: 60px;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.send-btn:hover {
+    background: #40a9ff;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .messages-layout {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .message-detail {
+        display: none;
+    }
+
+    .message-detail.active {
+        display: flex;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        bottom: 0;
+        width: calc(100% - 500px);
+        background: white;
+    }
+}
+
+@media (max-width: 768px) {
+    .messages-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .message-sidebar {
+        display: none;
+    }
+
+    .message-sidebar.active {
+        display: block;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        bottom: 0;
+        width: 200px;
+        z-index: 100;
+    }
+
+    .message-detail.active {
+        width: 100%;
+    }
+}

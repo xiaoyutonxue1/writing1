@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批改中心 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/correction.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/teacher/dashboard.html">管理</a>
+                <a href="/teacher/correction.html" class="active">批改</a>
+                <a href="/teacher/profile.html">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="correction-layout">
+            <!-- 作文列表侧边栏 -->
+            <div class="essays-sidebar">
+                <div class="sidebar-header">
+                    <h2>待批改作文</h2>
+                    <div class="filter-group">
+                        <select class="filter-select">
+                            <option value="all">全部班级</option>
+                            <option value="class1">高二三班</option>
+                            <option value="class2">高二四班</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="toggle-btn active" data-view="uncorrected">
+                                <i class="fas fa-clock"></i> 待批改
+                            </button>
+                            <button class="toggle-btn" data-view="corrected">
+                                <i class="fas fa-check"></i> 已批改
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="essays-list">
+                    <div class="essay-card active">
+                        <div class="essay-info">
+                            <h3>春天的早晨</h3>
+                            <div class="meta-info">
+                                <span><i class="fas fa-user"></i> 张同学</span>
+                                <span><i class="fas fa-users"></i> 高二三班</span>
+                                <span><i class="fas fa-clock"></i> 今天 10:30</span>
+                            </div>
+                            <div class="essay-stats">
+                                <span><i class="fas fa-font"></i> 1200字</span>
+                                <span class="status uncorrected">未批改</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 批改工作区 -->
+            <div class="correction-workspace">
+                <div class="workspace-header">
+                    <div class="correction-mode">
+                        <button class="mode-btn active" data-mode="ai">
+                            <i class="fas fa-robot"></i> AI辅助批改
+                        </button>
+                        <button class="mode-btn" data-mode="manual">
+                            <i class="fas fa-pen"></i> 人工批改
+                        </button>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-secondary save-draft">
+                            <i class="fas fa-save"></i> 保存草稿
+                        </button>
+                        <button class="btn-primary finish-correction">
+                            <i class="fas fa-check"></i> 完成批改
+                        </button>
+                    </div>
+                </div>
+
+                <div class="workspace-content">
+                    <!-- 作文内容区 -->
+                    <div class="essay-content-area">
+                        <div class="essay-header">
+                            <h2>春天的早晨</h2>
+                            <div class="essay-meta">
+                                <span>作者：张同学</span>
+                                <span>提交时间：2023-12-15 10:30</span>
+                            </div>
+                        </div>
+                        <div class="essay-body" contenteditable="false">
+                            <p>清晨的阳光洒在窗台上，整个世界都笼罩在金色的光芒中。远处的小鸟在枝头欢快地歌唱，为这美好的早晨增添了一份生机。</p>
+                            <p>我推开窗户，深深地吸了一口气，春天的气息扑面而来。花园里的花儿竞相开放，蝴蝶在花丛中翩翩起舞，构成了一幅美丽的画卷。</p>
+                        </div>
+                    </div>
+
+                    <!-- 批改工具栏 -->
+                    <div class="correction-tools">
+                        <button class="tool-toggle">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="tools-panel">
+                            <!-- AI分析面板 -->
+                            <div class="panel ai-panel">
+                                <div class="panel-header">
+                                    <h3>AI分析</h3>
+                                    <button class="panel-minimize"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <div class="panel-content">
+                                    <div class="analysis-section">
+                                        <h4>内容分析</h4>
+                                        <div class="analysis-items">
+                                            <div class="analysis-item">
+                                                <label>主题契合度</label>
+                                                <div class="progress-bar">
+                                                    <div class="progress" style="width: 85%"></div>
+                                                    <span>85%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="analysis-section">
+                                        <h4>建议</h4>
+                                        <ul class="suggestion-list">
+                                            <li>增加更多感官描写</li>
+                                            <li>可以加入个人感受</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 人工批改工具 -->
+                            <div class="panel manual-panel" style="display: none;">
+                                <div class="panel-header">
+                                    <h3>批改工具</h3>
+                                    <button class="panel-minimize"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <div class="panel-content">
+                                    <div class="tool-group">
+                                        <button class="correction-tool" data-type="mark">
+                                            <i class="fas fa-highlighter"></i> 标记
+                                        </button>
+                                        <button class="correction-tool" data-type="comment">
+                                            <i class="fas fa-comment"></i> 评语
+                                        </button>
+                                        <button class="correction-tool" data-type="suggest">
+                                            <i class="fas fa-magic"></i> 修改建议
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/correction.js"></script>
+</body>
+</html>

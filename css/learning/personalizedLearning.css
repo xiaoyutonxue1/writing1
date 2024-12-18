@@ -1,0 +1,115 @@
+/* Personalized Learning Modal Styles */
+.learning-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.diagnosis-grid,
+.planning-grid,
+.tracking-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin: 2.5rem auto 0;
+    max-width: 1600px;
+}
+
+.diagnosis-card,
+.planning-card,
+.tracking-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: 2.5rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(24, 144, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.diagnosis-card:hover,
+.planning-card:hover,
+.tracking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(24, 144, 255, 0.15);
+    border-color: #1890ff;
+}
+
+.diagnosis-card h4,
+.planning-card h4,
+.tracking-card h4 {
+    color: #1890ff;
+    margin-bottom: 1.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin: 0.8rem 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #1890ff, #40a9ff);
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+.record-item,
+.feedback-item {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(24, 144, 255, 0.1);
+}
+
+.feedback-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.feedback-item i {
+    color: #1890ff;
+    font-size: 1.2rem;
+}
+
+.view-btn {
+    margin-left: auto;
+    background: #1890ff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.view-btn:hover {
+    background: #40a9ff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+    .diagnosis-grid,
+    .planning-grid,
+    .tracking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .learning-options,
+    .diagnosis-grid,
+    .planning-grid,
+    .tracking-grid {
+        grid-template-columns: 1fr;
+    }
+}

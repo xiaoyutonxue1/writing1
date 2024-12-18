@@ -1,0 +1,575 @@
+/* 整体布局 */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 顶部导航 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-btn {
+    color: #666;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.back-btn:hover {
+    color: #333;
+}
+
+/* 步骤指示器 */
+.step-indicator {
+    display: flex;
+    gap: 30px;
+}
+
+.step {
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background: #4CAF50;
+    color: white;
+}
+
+/* 主要内容区 */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+/* 写作区域 */
+.writing-area {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 步骤内容 */
+.step-content {
+    display: none;
+}
+
+.step-content.active {
+    display: block;
+}
+
+/* 主题选择 */
+.topic-categories {
+    display: grid;
+    gap: 20px;
+}
+
+.topic-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.topic-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.topic-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topic-card h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.topic-card p {
+    color: #666;
+    margin: 0 0 10px 0;
+}
+
+.difficulty {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.custom-topic {
+    display: flex;
+    gap: 10px;
+}
+
+.topic-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.confirm-topic {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 大纲编辑 */
+.outline-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.outline-editor {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.outline-tools {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.tool-btn {
+    padding: 8px 15px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.outline-content {
+    min-height: 300px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+/* 素材收集 */
+.materials-area {
+    display: grid;
+    gap: 20px;
+}
+
+.material-search {
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.material-categories {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 8px 15px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.category-btn.active {
+    background: #4CAF50;
+    color: white;
+}
+
+/* 写作工作区 */
+.writing-workspace {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+.editor-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editor {
+    min-height: 400px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.writing-assistant {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.assistant-header {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.assistant-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.input-area {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
+
+.ai-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* 优化完善 */
+.optimization-area {
+    display: grid;
+    gap: 20px;
+}
+
+.text-analysis {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.analysis-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.analysis-item {
+    text-align: center;
+}
+
+.item-label {
+    display: block;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.item-value {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 右侧边栏 */
+.sidebar {
+    display: grid;
+    gap: 20px;
+}
+
+.timer, .progress-tracker, .quick-notes {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.time-display {
+    font-size: 2em;
+    text-align: center;
+    margin: 15px 0;
+    font-family: monospace;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.timer-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.timer-btn.start {
+    background: #4CAF50;
+    color: white;
+}
+
+.timer-btn.pause {
+    background: #FFC107;
+}
+
+.timer-btn.reset {
+    background: #f5f5f5;
+}
+
+.notes-content {
+    min-height: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* 通知样式 */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+/* AI消息样式 */
+.message {
+    margin-bottom: 15px;
+    max-width: 85%;
+}
+
+.user-message {
+    margin-left: auto;
+}
+
+.ai-message {
+    margin-right: auto;
+}
+
+.message-content {
+    padding: 10px 15px;
+    border-radius: 15px;
+    line-height: 1.4;
+}
+
+.user-message .message-content {
+    background: #4CAF50;
+    color: white;
+    border-radius: 15px 15px 0 15px;
+}
+
+.ai-message .message-content {
+    background: #f5f5f5;
+    color: #333;
+    border-radius: 15px 15px 15px 0;
+}
+
+/* AI建议样式 */
+.ai-suggestion {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #4CAF50;
+}
+
+.ai-suggestion h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.ai-suggestion ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.ai-suggestion ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+.ai-suggestion li {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+/* 素材样式 */
+.material-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.material-content {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.collect-btn, .remove-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.collect-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.remove-btn {
+    background: #f44336;
+    color: white;
+}
+
+/* 写作助手最小化样式 */
+.writing-assistant.minimized .assistant-content {
+    display: none;
+}
+
+.writing-assistant.minimized {
+    height: auto;
+}
+
+/* 编辑器工具栏样式 */
+.editor-tools {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.tool-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s ease;
+}
+
+.tool-btn:hover {
+    background: #e0e0e0;
+}
+
+/* 进度指示器样式增强 */
+.step-indicator {
+    position: relative;
+}
+
+.step-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #eee;
+    z-index: -1;
+}
+
+.step {
+    position: relative;
+    background: white;
+    border: 2px solid #eee;
+}
+
+.step.active {
+    border-color: #4CAF50;
+}
+
+.step.completed {
+    background: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.step-content.active {
+    animation: fadeIn 0.3s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .writing-workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .step-indicator {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .step {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+} 

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/learning/personalizedLearning.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">AI智能写作辅导平台</a>
+            <div class="nav-links">
+                <a href="/student/dashboard.html">首页</a>
+                <a href="/student/creation.html">创作中心</a>
+                <a href="/student/learning.html">学习中心</a>
+                <a href="/student/messages.html">消息中心</a>
+                <a href="/student/profile.html" class="active">个人中心</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-layout">
+            <!-- 个人信息卡片 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="https://via.placeholder.com/100" alt="头像">
+                        <button class="edit-avatar">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h2>张同学</h2>
+                        <p class="user-level">写作等级：Lv.5</p>
+                        <div class="exp-bar">
+                            <div class="exp-progress" style="width: 70%"></div>
+                            <span>经验值：700/1000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">32</span>
+                        <span class="stat-label">作品数</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">128</span>
+                        <span class="stat-label">获赞</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">15</span>
+                        <span class="stat-label">收藏</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 个性化学习计划 -->
+            <div class="personalized-learning">
+                <h3><i class="fas fa-graduation-cap"></i> 个性化学习计划</h3>
+                <div class="learning-sections">
+                    <div class="learning-section">
+                        <h4>能力诊断</h4>
+                        <div class="diagnosis-content">
+                            <div class="ability-chart">
+                                <canvas id="abilityChart"></canvas>
+                            </div>
+                            <div class="ability-details">
+                                <div class="ability-item">
+                                    <h5>内容构思</h5>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%"></div>
+                                        <span>85%</span>
+                                    </div>
+                                </div>
+                                <div class="ability-item">
+                                    <h5>语言表达</h5>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 92%"></div>
+                                        <span>92%</span>
+                                    </div>
+                                </div>
+                                <div class="ability-item">
+                                    <h5>结构组织</h5>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 78%"></div>
+                                        <span>78%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learning-section">
+                        <h4>学习建议</h4>
+                        <div class="suggestions">
+                            <div class="suggestion-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <div class="suggestion-content">
+                                    <h5>加强议论文训练</h5>
+                                    <p>建议多练习议论文写作，特别是论点论据的选择和论证方法的运用</p>
+                                </div>
+                            </div>
+                            <div class="suggestion-item">
+                                <i class="fas fa-book"></i>
+                                <div class="suggestion-content">
+                                    <h5>扩充写作素材</h5>
+                                    <p>可以通过阅读名著、观察生活等方式积累更多写作素材</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learning-section">
+                        <h4>学习进度</h4>
+                        <div class="progress-chart">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品管理 -->
+            <div class="works-management">
+                <h3><i class="fas fa-book"></i> 作品管理</h3>
+                <div class="works-tabs">
+                    <button class="tab-btn active">全部作品</button>
+                    <button class="tab-btn">草稿箱</button>
+                    <button class="tab-btn">已发布</button>
+                </div>
+                <div class="works-list">
+                    <div class="work-item">
+                        <div class="work-info">
+                            <h4>春天的早晨</h4>
+                            <p class="work-meta">记叙文 | 2023-10-15 | 1200字</p>
+                        </div>
+                        <div class="work-actions">
+                            <button class="action-btn"><i class="fas fa-edit"></i> 编辑</button>
+                            <button class="action-btn"><i class="fas fa-trash"></i> 删除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成就系统 -->
+            <div class="achievements">
+                <h3><i class="fas fa-trophy"></i> 我的成就</h3>
+                <div class="achievement-grid">
+                    <div class="achievement-card unlocked">
+                        <i class="fas fa-pen-fancy"></i>
+                        <h4>初级作家</h4>
+                        <p>完成10篇作文</p>
+                    </div>
+                    <div class="achievement-card">
+                        <i class="fas fa-star"></i>
+                        <h4>优秀作者</h4>
+                        <p>获得50个赞</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 收藏夹 -->
+            <div class="favorites-section">
+                <h3><i class="fas fa-star"></i> 我的收藏</h3>
+                <div class="favorites-grid"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/js/profile.js"></script>
+</body>
+</html>
