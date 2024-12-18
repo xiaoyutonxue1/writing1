@@ -6,10 +6,6 @@
     <title>学习中心 - AI智能写作辅导平台</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/learning.css">
-    <link rel="stylesheet" href="/css/learning/videoPlayer.css">
-    <link rel="stylesheet" href="/css/learning/aiAssistant.css">
-    <link rel="stylesheet" href="/css/learning/skillsTraining.css">
-    <link rel="stylesheet" href="/css/learning/theoryLearning.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -28,17 +24,170 @@
 
     <div class="main-content">
         <div class="container">
+            <!-- 学习进度概览 -->
+            <div class="learning-overview">
+                <h2>学习进度</h2>
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>课程完成率</h3>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                            <span>75%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>学习时长</h3>
+                            <p>128小时</p>
+                            <span>本月累计</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>获得成就</h3>
+                            <p>12个</p>
+                            <span>继续加油！</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="learning-grid">
                 <!-- 写作理论学习 -->
                 <div class="learning-section theory-section">
-                    <h2><i class="fas fa-book"></i> 写作理论学习</h2>
-                    <p>点击进入写作理论学习系统</p>
+                    <div class="section-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h2>写作理论学习</h2>
+                    <p>系统掌握写作基础知识和技巧</p>
+                    <ul class="course-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            写作开头技巧
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            描写方法详解
+                        </li>
+                        <li>
+                            <i class="fas fa-circle"></i>
+                            议论文写作技巧
+                        </li>
+                    </ul>
+                    <button class="enter-btn">进入学习 <i class="fas fa-arrow-right"></i></button>
                 </div>
 
                 <!-- 技能训练 -->
                 <div class="learning-section skills-section">
-                    <h2><i class="fas fa-dumbbell"></i> 技能训练</h2>
-                    <p>点击进入技能训练系统</p>
+                    <div class="section-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h2>技能训练</h2>
+                    <p>通过练习提升实际写作能力</p>
+                    <ul class="course-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            场景描写训练
+                        </li>
+                        <li>
+                            <i class="fas fa-circle"></i>
+                            人物刻画练习
+                        </li>
+                        <li>
+                            <i class="fas fa-circle"></i>
+                            情感表达训练
+                        </li>
+                    </ul>
+                    <button class="enter-btn">开始训练 <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- AI辅导 -->
+                <div class="learning-section ai-section">
+                    <div class="section-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h2>AI智能辅导</h2>
+                    <p>获得个性化的写作指导和建议</p>
+                    <ul class="course-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            写作风格分析
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            表达优化建议
+                        </li>
+                        <li>
+                            <i class="fas fa-circle"></i>
+                            结构完整性分析
+                        </li>
+                    </ul>
+                    <button class="enter-btn">开始辅导 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 推荐课程 -->
+            <div class="recommended-courses">
+                <h2>推荐课程</h2>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1519791883288-dc8bd696e667?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="记叙文写作进阶">
+                            <span class="course-tag">热门</span>
+                        </div>
+                        <div class="course-content">
+                            <h3>记叙文写作进阶</h3>
+                            <p>掌握高级记叙文写作技巧，提升文章感染力</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user"></i> 2.5k人学习</span>
+                                <span><i class="fas fa-star"></i> 4.8分</span>
+                            </div>
+                            <button class="start-btn" type="button">开始学习</button>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="议论文论证技巧">
+                            <span class="course-tag">新课</span>
+                        </div>
+                        <div class="course-content">
+                            <h3>议论文论证技巧</h3>
+                            <p>学习论证方法，提高议论文说服力</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user"></i> 1.8k人学习</span>
+                                <span><i class="fas fa-star"></i> 4.9分</span>
+                            </div>
+                            <button class="start-btn" type="button">开始学习</button>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1466&q=80" alt="描写性文章创作">
+                            <span class="course-tag">推荐</span>
+                        </div>
+                        <div class="course-content">
+                            <h3>描写性文章创作</h3>
+                            <p>提升场景描写能力，让文章更生动</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user"></i> 2.1k人学习</span>
+                                <span><i class="fas fa-star"></i> 4.7分</span>
+                            </div>
+                            <button class="start-btn" type="button">开始学习</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -46,13 +195,139 @@
             <div class="learning-tools">
                 <h3><i class="fas fa-tools"></i> 学习工具</h3>
                 <div class="tools-container">
-                    <button class="tool-btn"><i class="fas fa-sitemap"></i> 知识导图</button>
-                    <button class="tool-btn"><i class="fas fa-sticky-note"></i> 笔记系统</button>
-                    <button class="tool-btn"><i class="fas fa-redo"></i> 复习工具</button>
+                    <button class="tool-btn">
+                        <i class="fas fa-sitemap"></i>
+                        <div class="tool-info">
+                            <span>知识导图</span>
+                            <small>可视化知识体系</small>
+                        </div>
+                    </button>
+                    <button class="tool-btn">
+                        <i class="fas fa-sticky-note"></i>
+                        <div class="tool-info">
+                            <span>笔记系统</span>
+                            <small>记录学习心得</small>
+                        </div>
+                    </button>
+                    <button class="tool-btn">
+                        <i class="fas fa-redo"></i>
+                        <div class="tool-info">
+                            <span>复习工具</span>
+                            <small>巩固学习成果</small>
+                        </div>
+                    </button>
+                    <button class="tool-btn">
+                        <i class="fas fa-tasks"></i>
+                        <div class="tool-info">
+                            <span>学习计划</span>
+                            <small>规划学习进度</small>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- 课程学习模态框 -->
+    <div class="course-modal" id="courseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>记叙文写作进阶</h2>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="course-layout">
+                    <!-- 左侧视频和课程内容 -->
+                    <div class="course-main">
+                        <div class="video-container">
+                            <video id="courseVideo" controls>
+                                <source src="/public/video.mp4" type="video/mp4">
+                                您的浏览器不支持视频播放。
+                            </video>
+                        </div>
+                        <div class="course-chapters">
+                            <h3>课程章节</h3>
+                            <div class="chapter-list">
+                                <div class="chapter active" data-video="/public/video.mp4">
+                                    <div class="chapter-header">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>第1章：开头技巧详解</span>
+                                        <span class="duration">15:30</span>
+                                    </div>
+                                </div>
+                                <div class="chapter" data-video="/public/video.mp4">
+                                    <div class="chapter-header">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>第2章：细节描写方法</span>
+                                        <span class="duration">20:45</span>
+                                    </div>
+                                </div>
+                                <div class="chapter" data-video="/public/video.mp4">
+                                    <div class="chapter-header">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>第3章：情感表达技巧</span>
+                                        <span class="duration">18:20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧AI助教对话 -->
+                    <div class="ai-assistant">
+                        <div class="assistant-header">
+                            <div class="assistant-info">
+                                <img src="https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="AI助教" class="assistant-avatar">
+                                <div class="assistant-title">
+                                    <h3>智能助教</h3>
+                                    <span>随时为你解答问题</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-container">
+                            <div class="chat-messages">
+                                <div class="message assistant">
+                                    <div class="message-content">
+                                        <p>你好！我是你的AI学习助手。这节课我们学习记叙文写作进阶，有任何问题都可以问我。</p>
+                                    </div>
+                                </div>
+                                <div class="message assistant">
+                                    <div class="message-content">
+                                        <p>我可以帮你：</p>
+                                        <ul>
+                                            <li>解答课程知识点问题</li>
+                                            <li>分析写作案例</li>
+                                            <li>提供写作练习建议</li>
+                                            <li>检查你的写作作业</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="quick-questions">
+                                    <button class="question-btn">老师讲的"多感官描写"是什么意思？</button>
+                                    <button class="question-btn">记叙文中细节描写要注意什么？</button>
+                                    <button class="question-btn">如何写好人物对话？</button>
+                                    <button class="question-btn">课程中提到的"时空变换"怎么运用？</button>
+                                </div>
+                                <div class="test-questions">
+                                    <h4>测试一下</h4>
+                                    <button class="question-btn test">我想测试一下学习成果</button>
+                                    <button class="question-btn test">请考考这节课的重点</button>
+                                    <button class="question-btn test">来道练习题吧</button>
+                                </div>
+                            </div>
+                            <div class="chat-input-container">
+                                <input type="text" class="chat-input" placeholder="输入你的问题或回答，按回车发送...">
+                                <button class="send-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="/js/learning.js"></script>
 </body>
 </html>
