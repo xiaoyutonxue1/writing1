@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生写作详情 - AI写作教学平台</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/teacher/dashboard.css">
+    <link rel="stylesheet" href="../css/teacher/student-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="nav-bar">
+        <div class="nav-brand">
+            <img src="../assets/logo.png" alt="Logo" class="nav-logo">
+            <span>AI写作教学平台</span>
+        </div>
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-menu-item">
+                <i class="fas fa-chart-line"></i>
+                数据概览
+            </a>
+            <a href="correction.html" class="nav-menu-item">
+                <i class="fas fa-edit"></i>
+                批改中心
+            </a>
+            <a href="analysis.html" class="nav-menu-item active">
+                <i class="fas fa-chart-bar"></i>
+                数据分析
+            </a>
+        </div>
+        <div class="nav-user">
+            <div class="user-info">
+                <img src="../assets/avatar/teacher1.jpg" alt="Avatar" class="user-avatar">
+                <span class="user-name">王老师</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="user-menu">
+                <a href="#" class="user-menu-item">
+                    <i class="fas fa-user"></i>
+                    个人中心
+                </a>
+                <a href="#" class="user-menu-item">
+                    <i class="fas fa-cog"></i>
+                    系统设置
+                </a>
+                <div class="menu-divider"></div>
+                <a href="#" class="user-menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    退出登录
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 加载动画 -->
+    <div class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- 错误提示 -->
+    <div class="error-message" style="display: none;"></div>
+
+    <!-- 主要内容区 -->
+    <main class="main-content">
+        <!-- 返回按钮 -->
+        <div class="back-section">
+            <a href="analysis.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                返回数据分析
+            </a>
+        </div>
+
+        <!-- 学生基本信息区 -->
+        <section class="student-info-section">
+            <div class="student-profile">
+                <img src="../assets/avatar/default.jpg" alt="学生头像" class="student-avatar">
+                <div class="student-basic-info">
+                    <h2 class="student-name">张三</h2>
+                    <p class="student-class">初三(1)班</p>
+                    <div class="student-tags">
+                        <span class="tag progress-tag">进步</span>
+                        <span class="tag focus-tag">重点关注</span>
+                    </div>
+                </div>
+                <div class="student-actions">
+                    <button class="action-btn focus-btn">
+                        <i class="fas fa-star"></i>
+                        设为重点关注
+                    </button>
+                    <button class="action-btn export-btn">
+                        <i class="fas fa-download"></i>
+                        导出学习报告
+                    </button>
+                </div>
+            </div>
+            <div class="student-stats">
+                <div class="stat-card">
+                    <h3>写作总数</h3>
+                    <p class="stat-value">15</p>
+                    <p class="stat-trend positive">较上月 +3</p>
+                </div>
+                <div class="stat-card">
+                    <h3>平均分数</h3>
+                    <p class="stat-value">88.5</p>
+                    <p class="stat-trend positive">较上月 +2.5</p>
+                </div>
+                <div class="stat-card">
+                    <h3>最新得分</h3>
+                    <p class="stat-value">92.0</p>
+                    <p class="stat-trend positive">环比 +3.5</p>
+                </div>
+                <div class="stat-card">
+                    <h3>进步幅度</h3>
+                    <p class="stat-value">15%</p>
+                    <p class="stat-trend positive">较上月 +5%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 写作能力分析区 -->
+        <section class="ability-analysis-section">
+            <div class="section-header">
+                <h2>写作能力分析</h2>
+                <div class="time-filter">
+                    <button class="filter-btn active">近一周</button>
+                    <button class="filter-btn">近一月</button>
+                    <button class="filter-btn">近三月</button>
+                </div>
+            </div>
+            <div class="analysis-content">
+                <div class="radar-chart-container">
+                    <canvas id="ability-radar-chart"></canvas>
+                </div>
+                <div class="ability-details">
+                    <div class="ability-item">
+                        <h3>语言表达</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                        <p class="ability-score">85分 - 良好</p>
+                    </div>
+                    <div class="ability-item">
+                        <h3>内容创新</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 92%"></div>
+                        </div>
+                        <p class="ability-score">92分 - 优秀</p>
+                    </div>
+                    <div class="ability-item">
+                        <h3>结构组织</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 78%"></div>
+                        </div>
+                        <p class="ability-score">78分 - 待提高</p>
+                    </div>
+                    <div class="ability-item">
+                        <h3>思维深度</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 88%"></div>
+                        </div>
+                        <p class="ability-score">88分 - 良好</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 历史写作记录区 -->
+        <section class="writing-history-section">
+            <div class="section-header">
+                <h2>写作记录</h2>
+                <div class="history-filter">
+                    <select class="filter-select">
+                        <option value="all">全部类型</option>
+                        <option value="narrative">记叙文</option>
+                        <option value="argumentative">议论文</option>
+                        <option value="descriptive">描写文</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="all">全部时间</option>
+                        <option value="week">近一周</option>
+                        <option value="month">近一月</option>
+                        <option value="quarter">近三月</option>
+                    </select>
+                </div>
+            </div>
+            <div class="writing-list">
+                <!-- 写作记录项 -->
+                <div class="writing-item">
+                    <div class="writing-date">
+                        <span class="date">01-14</span>
+                        <span class="year">2024</span>
+                    </div>
+                    <div class="writing-content">
+                        <h3 class="writing-title">难忘的一次运动会</h3>
+                        <div class="writing-meta">
+                            <span class="writing-type">记叙文</span>
+                            <span class="writing-words">800字</span>
+                            <span class="writing-score">92分</span>
+                        </div>
+                        <p class="writing-comment">文章结构清晰，语言生动，具有较强的感染力。</p>
+                        <div class="writing-tags">
+                            <span class="tag">描写生动</span>
+                            <span class="tag">情感真挚</span>
+                            <span class="tag">结构完整</span>
+                        </div>
+                    </div>
+                    <div class="writing-actions">
+                        <button class="view-btn">查看详情</button>
+                    </div>
+                </div>
+                <!-- 更多写作记录... -->
+            </div>
+            <div class="pagination">
+                <button class="page-btn prev-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="page-info">第 1 页，共 5 页</span>
+                <button class="page-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 作文详情预览弹窗 -->
+    <div class="writing-detail-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>作文详情</h2>
+                <button class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="writing-info">
+                    <h3 class="writing-title">难忘的一次运动会</h3>
+                    <div class="writing-meta">
+                        <span class="writing-type">记叙文</span>
+                        <span class="writing-date">2024-01-14</span>
+                        <span class="writing-words">800字</span>
+                        <span class="writing-score">92分</span>
+                    </div>
+                </div>
+                <div class="writing-content">
+                    <div class="original-text">
+                        <!-- 作文原文 -->
+                    </div>
+                    <div class="correction-marks">
+                        <!-- 批改标记 -->
+                    </div>
+                </div>
+                <div class="writing-evaluation">
+                    <h3>评价详情</h3>
+                    <div class="score-details">
+                        <div class="score-item">
+                            <span class="score-name">语言表达</span>
+                            <span class="score-value">90分</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-name">内容创新</span>
+                            <span class="score-value">95分</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-name">结构组织</span>
+                            <span class="score-value">92分</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-name">思维深度</span>
+                            <span class="score-value">91分</span>
+                        </div>
+                    </div>
+                    <div class="evaluation-comments">
+                        <h3>点评</h3>
+                        <div class="ai-comments">
+                            <h4>AI点评</h4>
+                            <p>文章结构清晰，语言生动，具有较强的感染力。建议在细节描写方面可以更加细腻。</p>
+                        </div>
+                        <div class="teacher-comments">
+                            <h4>教师点评</h4>
+                            <textarea placeholder="请输入您的点评..."></textarea>
+                            <button class="save-btn">保存点评</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/teacher/TeacherDataManager.js"></script>
+    <script src="../js/teacher/student-detail.js"></script>
+</body>
+</html> 

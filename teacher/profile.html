@@ -4,178 +4,401 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人中心 - AI智能写作辅导平台</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/teacher-profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/teacher/dashboard.css">
+    <link rel="stylesheet" href="../css/teacher/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="logo">AI智能写作辅导平台</a>
-            <div class="nav-links">
-                <a href="/teacher/dashboard.html">管理</a>
-                <a href="/teacher/correction.html">批改</a>
-                <a href="/teacher/profile.html" class="active">个人中心</a>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <img src="../assets/logo.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">AI智能写作辅导平台</span>
+        </div>
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>工作台
+            </a>
+            <a href="correction.html" class="nav-item">
+                <i class="fas fa-tasks"></i>批改中心
+            </a>
+            <a href="analysis.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>数据分析
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>个人中心
+            </a>
+        </div>
+        <div class="nav-user">
+            <span class="user-name">王老师</span>
+            <div class="avatar-container">
+                <img src="../assets/avatar.png" alt="Avatar" class="user-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="avatar-placeholder" style="display:none;">
+                    <span>王</span>
+                </div>
+            </div>
+            <div class="user-menu">
+                <a href="profile.html" class="user-menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>个人信息</span>
+                </a>
+                <a href="settings.html" class="user-menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>系统设置</span>
+                </a>
+                <a href="#" class="user-menu-item" id="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>退出登录</span>
+                </a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="profile-layout">
-            <!-- 个人信息卡片 -->
-            <div class="profile-card">
-                <div class="profile-header">
-                    <div class="profile-avatar">
-                        <img src="https://via.placeholder.com/120" alt="头像">
-                        <button class="edit-avatar">
-                            <i class="fas fa-camera"></i>
-                        </button>
-                    </div>
-                    <div class="profile-info">
-                        <h2>王老师</h2>
-                        <p class="title">高级语文教师</p>
-                        <p class="meta">教龄：15年 | 工号：T20080901</p>
-                    </div>
-                    <button class="edit-profile-btn">
-                        <i class="fas fa-edit"></i> 编辑资料
-                    </button>
-                </div>
-            </div>
-
-            <!-- 教学数据 -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <i class="fas fa-users"></i>
-                    <div class="stat-info">
-                        <h3>在教班级</h3>
-                        <p>5个班</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-user-graduate"></i>
-                    <div class="stat-info">
-                        <h3>学生总数</h3>
-                        <p>247人</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-tasks"></i>
-                    <div class="stat-info">
-                        <h3>批改作文</h3>
-                        <p>1,234篇</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-star"></i>
-                    <div class="stat-info">
-                        <h3>好评率</h3>
-                        <p>98%</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 教学分析 -->
-            <div class="analysis-section">
-                <h2><i class="fas fa-chart-line"></i> 教学分析</h2>
-                <div class="analysis-content">
-                    <div class="chart-container">
-                        <div class="chart-placeholder">
-                            班级成绩分布图
-                        </div>
-                    </div>
-                    <div class="analysis-stats">
-                        <div class="analysis-item">
-                            <h3>本月数据</h3>
-                            <ul>
-                                <li>
-                                    <span>批改作文</span>
-                                    <span>156篇</span>
-                                </li>
-                                <li>
-                                    <span>平均批改时间</span>
-                                    <span>15分钟/篇</span>
-                                </li>
-                                <li>
-                                    <span>学生进步率</span>
-                                    <span>85%</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 教学资源 -->
-            <div class="resources-section">
-                <h2><i class="fas fa-folder-open"></i> 我的资源</h2>
-                <div class="resources-grid">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <div class="resource-info">
-                            <h3>教案</h3>
-                            <p>28个文件</p>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-file-powerpoint"></i>
-                        </div>
-                        <div class="resource-info">
-                            <h3>课件</h3>
-                            <p>45个文件</p>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <div class="resource-info">
-                            <h3>教学素材</h3>
-                            <p>126个文件</p>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <div class="resource-info">
-                            <h3>分享资源</h3>
-                            <p>89个文件</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 账号设置 -->
-            <div class="settings-section">
-                <h2><i class="fas fa-cog"></i> 账号设置</h2>
-                <div class="settings-grid">
-                    <div class="setting-card">
-                        <i class="fas fa-lock"></i>
-                        <h3>修改密码</h3>
-                        <p>定期更新密码以确保账号安全</p>
-                    </div>
-                    <div class="setting-card">
-                        <i class="fas fa-bell"></i>
-                        <h3>消息通知</h3>
-                        <p>设置消息提醒和通知方式</p>
-                    </div>
-                    <div class="setting-card">
+    <!-- 主要内容区 -->
+    <main class="main-content">
+        <!-- 个人中心内容 -->
+        <div class="profile-container">
+            <!-- 左侧导航 -->
+            <div class="profile-nav">
+                <div class="nav-section">
+                    <h3>账号管理</h3>
+                    <a href="#basic-info" class="nav-item active">
+                        <i class="fas fa-user"></i>
+                        基本资料
+                    </a>
+                    <a href="#account-security" class="nav-item">
                         <i class="fas fa-shield-alt"></i>
-                        <h3>隐私设置</h3>
-                        <p>管理个人信息的显示范围</p>
-                    </div>
-                    <div class="setting-card">
-                        <i class="fas fa-palette"></i>
-                        <h3>界面设置</h3>
-                        <p>自定义界面显示偏好</p>
-                    </div>
+                        账号安全
+                    </a>
                 </div>
+                <div class="nav-section">
+                    <h3>教学管理</h3>
+                    <a href="#teaching-stats" class="nav-item">
+                        <i class="fas fa-chart-pie"></i>
+                        教学统计
+                    </a>
+                    <a href="#teaching-resources" class="nav-item">
+                        <i class="fas fa-book"></i>
+                        教学资源
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <h3>系统设置</h3>
+                    <a href="#notifications" class="nav-item">
+                        <i class="fas fa-bell"></i>
+                        消息通知
+                    </a>
+                    <a href="#preferences" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        偏好设置
+                    </a>
+                </div>
+            </div>
+
+            <!-- 右侧内容 -->
+            <div class="profile-content">
+                <!-- 基本资料 -->
+                <section id="basic-info" class="content-section">
+                    <h2>基本资料</h2>
+                    <div class="profile-form">
+                        <div class="avatar-upload">
+                            <div class="avatar-preview">
+                                <img src="../assets/avatar/teacher1.jpg" alt="Avatar">
+                            </div>
+                            <div class="avatar-actions">
+                                <button class="upload-btn">
+                                    <i class="fas fa-upload"></i>
+                                    上传头像
+                                </button>
+                                <p class="upload-tip">支持 jpg、png 格式，文件小于 2MB</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <input type="text" value="王老师" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label>教龄</label>
+                            <input type="number" value="5" placeholder="请输入教龄">
+                            <span class="input-suffix">年</span>
+                        </div>
+                        <div class="form-group">
+                            <label>所教班级</label>
+                            <div class="class-tags">
+                                <span class="class-tag">
+                                    初三(1)班
+                                    <i class="fas fa-times"></i>
+                                </span>
+                                <span class="class-tag">
+                                    初三(2)班
+                                    <i class="fas fa-times"></i>
+                                </span>
+                                <button class="add-class-btn">
+                                    <i class="fas fa-plus"></i>
+                                    添加班级
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>个人简介</label>
+                            <textarea placeholder="请输入个人简介">从事语文教学5年，擅长作文教学和批改指导。</textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button class="save-btn">保存修改</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 账号安全 -->
+                <section id="account-security" class="content-section" style="display: none;">
+                    <h2>账号安全</h2>
+                    <div class="security-list">
+                        <div class="security-item">
+                            <div class="security-info">
+                                <i class="fas fa-lock"></i>
+                                <div class="security-text">
+                                    <h3>登录密码</h3>
+                                    <p>定期修改密码可以保护账号安全</p>
+                                </div>
+                            </div>
+                            <button class="modify-btn">修改</button>
+                        </div>
+                        <div class="security-item">
+                            <div class="security-info">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div class="security-text">
+                                    <h3>手机绑定</h3>
+                                    <p>已绑定：138****8888</p>
+                                </div>
+                            </div>
+                            <button class="modify-btn">修改</button>
+                        </div>
+                        <div class="security-item">
+                            <div class="security-info">
+                                <i class="fas fa-envelope"></i>
+                                <div class="security-text">
+                                    <h3>邮箱绑定</h3>
+                                    <p>未绑定邮箱</p>
+                                </div>
+                            </div>
+                            <button class="bind-btn">绑定</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 教学统计 -->
+                <section id="teaching-stats" class="content-section" style="display: none;">
+                    <h2>教学统计</h2>
+                    <div class="stats-cards">
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>批改总数</h3>
+                                <p class="stats-value">1,234</p>
+                                <p class="stats-trend positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    较上月增长 12%
+                                </p>
+                            </div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>平均分数</h3>
+                                <p class="stats-value">88.5</p>
+                                <p class="stats-trend positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    较上月增长 2.5分
+                                </p>
+                            </div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>AI使用率</h3>
+                                <p class="stats-value">85%</p>
+                                <p class="stats-trend positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    较上月增长 5%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-charts">
+                        <div class="chart-container">
+                            <h3>批改数量趋势</h3>
+                            <div id="correction-trend-chart"></div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>分数分布</h3>
+                            <div id="score-distribution-chart"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 教学资源 -->
+                <section id="teaching-resources" class="content-section" style="display: none;">
+                    <h2>教学资源</h2>
+                    <div class="resource-tabs">
+                        <button class="tab-btn active">教案</button>
+                        <button class="tab-btn">范文</button>
+                        <button class="tab-btn">批改模板</button>
+                    </div>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-file-word"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>记叙文写作教案</h3>
+                                <p>��传时间：2024-01-15</p>
+                            </div>
+                            <div class="resource-actions">
+                                <button class="action-btn">
+                                    <i class="fas fa-download"></i>
+                                    下载
+                                </button>
+                                <button class="action-btn">
+                                    <i class="fas fa-trash-alt"></i>
+                                    删除
+                                </button>
+                            </div>
+                        </div>
+                        <div class="resource-upload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>点击或拖拽文件上传</p>
+                            <span>支持 doc、docx、pdf 格式，单个文件不超过 10MB</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 消息通知 -->
+                <section id="notifications" class="content-section" style="display: none;">
+                    <h2>消息通知</h2>
+                    <div class="notification-settings">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>系统通知</h3>
+                                <p>接收系统更新、维护等通知</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>作业提醒</h3>
+                                <p>学生提交新作业时提醒</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>邮件通知</h3>
+                                <p>重要消息同步发送邮件提醒</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 偏好设置 -->
+                <section id="preferences" class="content-section" style="display: none;">
+                    <h2>偏好设置</h2>
+                    <div class="preference-settings">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>界面主题</h3>
+                                <p>选择您喜欢的界面主���</p>
+                            </div>
+                            <div class="theme-selector">
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="light" checked>
+                                    <span class="theme-preview light"></span>
+                                    <span>浅色</span>
+                                </label>
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="dark">
+                                    <span class="theme-preview dark"></span>
+                                    <span>深色</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>字体大小</h3>
+                                <p>调整界面字体大小</p>
+                            </div>
+                            <div class="font-size-selector">
+                                <button class="size-btn">小</button>
+                                <button class="size-btn active">中</button>
+                                <button class="size-btn">大</button>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>语言</h3>
+                                <p>选择界面显示语言</p>
+                            </div>
+                            <select class="language-select">
+                                <option value="zh-CN">简体中文</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 修改密码弹窗 -->
+    <div class="modal password-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>修改密码</h2>
+                <button class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>当前密码</label>
+                    <input type="password" placeholder="请输入当前密码">
+                </div>
+                <div class="form-group">
+                    <label>新密码</label>
+                    <input type="password" placeholder="请输入新密码">
+                </div>
+                <div class="form-group">
+                    <label>确认新密码</label>
+                    <input type="password" placeholder="请再次输入新密码">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn">取消</button>
+                <button class="confirm-btn">确认修改</button>
             </div>
         </div>
     </div>
-    <script src="/js/teacher-profile.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/teacher/TeacherDataManager.js"></script>
+    <script src="../js/teacher/AvatarManager.js"></script>
+    <script src="../js/teacher/profile.js"></script>
 </body>
 </html>
