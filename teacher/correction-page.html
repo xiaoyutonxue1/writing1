@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作文批改 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/teacher/dashboard.css">
+    <link rel="stylesheet" href="../css/teacher/correction-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <img src="../assets/logo.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">AI智能写作辅导平台</span>
+        </div>
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>工作台
+            </a>
+            <a href="correction.html" class="nav-item active">
+                <i class="fas fa-tasks"></i>批改中心
+            </a>
+            <a href="analysis.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>数据分析
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>个人中心
+            </a>
+        </div>
+        <div class="nav-user">
+            <span class="user-name">王老师</span>
+            <div class="avatar-container">
+                <img src="../assets/avatar.png" alt="Avatar" class="user-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="avatar-placeholder" style="display:none;">
+                    <span>王</span>
+                </div>
+            </div>
+            <div class="user-menu">
+                <a href="profile.html" class="user-menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>个人信息</span>
+                </a>
+                <a href="settings.html" class="user-menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>系统设置</span>
+                </a>
+                <a href="#" class="user-menu-item" id="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>退出登录</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <main class="correction-container">
+        <!-- 左侧作文内容 -->
+        <section class="essay-section">
+            <div class="essay-header">
+                <div class="student-info">
+                    <img src="https://via.placeholder.com/48" alt="Student" class="student-avatar">
+                    <div class="info-text">
+                        <h3 class="student-name">李明</h3>
+                        <span class="class-info">三年级一班</span>
+                    </div>
+                </div>
+                <div class="essay-meta">
+                    <span><i class="fas fa-clock"></i>提交时间：2024-01-15 09:30</span>
+                    <span><i class="fas fa-file-alt"></i>字数：800</span>
+                    <span><i class="fas fa-redo"></i>第2稿</span>
+                </div>
+            </div>
+            
+            <div class="essay-content">
+                <h2 class="essay-title">春天的早晨</h2>
+                <div class="essay-text" contenteditable="true">
+                    清晨，我被窗外的鸟鸣声唤醒。推开窗户，一阵清新的空气扑面而来，带着泥土和花草的芬芳。阳光温柔地洒在大地上，为刚刚萌发的嫩芽镀上了一层金色。
+                    
+                    小区的花园里，各种春花竞相绽放。粉色的桃花、白色的梨花，还有金黄的迎春花，像是给大地穿上了一件彩色的衣裳。蜜蜂和蝴蝶在花丛中忙碌地采蜜，为这幅春日画卷增添了几分生机。
+                    
+                    远处的小山上，嫩绿的新叶正在冒出，给光秃秃的树枝带来了希望。山脚下的小溪欢快地流淌，清澈的溪水映照着蓝天白云，格外动人。
+                    
+                    这样的春日早晨，让人感到无比的愉悦和期待。大自然的复苏，仿佛在告诉我们：新的一天，新的开始，一切都充满了无限可能。
+                </div>
+            </div>
+        </section>
+
+        <!-- 右侧批改工具 -->
+        <section class="correction-tools">
+            <!-- 工具栏 -->
+            <div class="tool-bar">
+                <div class="tool-buttons">
+                    <button class="tool-btn" data-tool="underline">
+                        <i class="fas fa-underline"></i>
+                        下划线
+                    </button>
+                    <button class="tool-btn" data-tool="highlight">
+                        <i class="fas fa-highlighter"></i>
+                        高亮
+                    </button>
+                    <button class="tool-btn" data-tool="comment">
+                        <i class="fas fa-comment"></i>
+                        批注
+                    </button>
+                </div>
+                <div class="color-picker">
+                    <span class="color-dot" data-color="#ffd400" style="background-color: #ffd400"></span>
+                    <span class="color-dot" data-color="#ff6b6b" style="background-color: #ff6b6b"></span>
+                    <span class="color-dot" data-color="#4dabf7" style="background-color: #4dabf7"></span>
+                    <span class="color-dot" data-color="#51cf66" style="background-color: #51cf66"></span>
+                </div>
+            </div>
+
+            <!-- AI批改按钮 -->
+            <button class="ai-correction-btn">
+                <i class="fas fa-robot"></i>
+                AI智能批改
+            </button>
+
+            <!-- 评分区域 -->
+            <div class="scoring-section">
+                <h3>评分标准</h3>
+                <div class="score-items">
+                    <div class="score-item">
+                        <label>内容与主题 (40分)</label>
+                        <input type="number" min="0" max="40" value="0">
+                    </div>
+                    <div class="score-item">
+                        <label>语言表达 (30分)</label>
+                        <input type="number" min="0" max="30" value="0">
+                    </div>
+                    <div class="score-item">
+                        <label>结构布局 (20分)</label>
+                        <input type="number" min="0" max="20" value="0">
+                    </div>
+                    <div class="score-item">
+                        <label>书写规范 (10分)</label>
+                        <input type="number" min="0" max="10" value="0">
+                    </div>
+                </div>
+                <div class="total-score">
+                    总分：<span>0</span>
+                </div>
+            </div>
+
+            <!-- 评语区域 -->
+            <div class="comment-section">
+                <h3>评语</h3>
+                <div class="quick-comments">
+                    <span class="quick-comment-tag">结构完整，层次分明</span>
+                    <span class="quick-comment-tag">用词准确，语言生动</span>
+                    <span class="quick-comment-tag">描写细腻，画面感强</span>
+                    <span class="quick-comment-tag">内容充实，主题突出</span>
+                </div>
+                <textarea placeholder="请输入评语..."></textarea>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="action-buttons">
+                <button class="save-draft">保存草稿</button>
+                <button class="submit-correction">提交批改</button>
+            </div>
+        </section>
+
+        <!-- AI批改结果面板 -->
+        <div class="ai-results-panel">
+            <div class="panel-header">
+                <h3>AI批改建议</h3>
+                <button class="close-panel">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="results-summary">
+                <div class="summary-item">
+                    <label>建议得分</label>
+                    <span class="value">0</span>
+                </div>
+                <div class="summary-item">
+                    <label>亮点数量</label>
+                    <span class="value">0</span>
+                </div>
+                <div class="summary-item">
+                    <label>改进建议</label>
+                    <span class="value">0</span>
+                </div>
+            </div>
+            <div class="results-details">
+                <div class="highlights-section">
+                    <h4>作文亮点</h4>
+                    <ul class="highlights-list"></ul>
+                </div>
+                <div class="improvements-section">
+                    <h4>改进建议</h4>
+                    <ul class="improvements-list"></ul>
+                </div>
+                <div class="suggested-comment-section">
+                    <h4>建议评语</h4>
+                    <p class="suggested-comment"></p>
+                </div>
+            </div>
+            <button class="accept-all-btn">
+                <i class="fas fa-check"></i>
+                采纳所有建议
+            </button>
+        </div>
+    </main>
+
+    <script src="../js/teacher/dataManager.js"></script>
+    <script src="../js/teacher/correction-page.js"></script>
+</body>
+</html> 

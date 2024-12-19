@@ -3,135 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>教师主页 - AI智能写作辅导平台</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/teacher.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>教师工作台 - AI智能写作辅导平台</title>
+    <link rel="stylesheet" href="../css/teacher/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="logo">AI智能写作辅导平台</a>
-            <div class="nav-links">
-                <a href="/teacher/dashboard.html" class="active">管理</a>
-                <a href="/teacher/correction.html">批改</a>
-                <a href="/teacher/profile.html">个人中心</a>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <img src="../assets/logo.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">AI智能写作辅导平台</span>
+        </div>
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fas fa-home"></i>工作台
+            </a>
+            <a href="correction.html" class="nav-item">
+                <i class="fas fa-tasks"></i>批改中心
+            </a>
+            <a href="analysis.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>数据分析
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>个人中心
+            </a>
+        </div>
+        <div class="nav-user">
+            <span class="user-name">王老师</span>
+            <div class="avatar-container">
+                <img src="../assets/avatar.png" alt="Avatar" class="user-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="avatar-placeholder" style="display:none;">
+                    <span>王</span>
+                </div>
+            </div>
+            <div class="user-menu">
+                <a href="profile.html" class="user-menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>个人信息</span>
+                </a>
+                <a href="settings.html" class="user-menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>系统设置</span>
+                </a>
+                <a href="#" class="user-menu-item" id="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>退出登录</span>
+                </a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="dashboard-grid">
-            <!-- 班级管理 -->
-            <div class="management-section">
-                <h2><i class="fas fa-users"></i> 班级管理</h2>
-                <div class="section-content">
-                    <!-- 学生管理 -->
-                    <div class="management-card">
-                        <h3>学生管理</h3>
-                        <div class="class-list">
-                            <div class="class-item">
-                                <div class="class-info">
-                                    <h4>高二三班</h4>
-                                    <p>学生数：45人</p>
-                                </div>
-                                <div class="class-actions">
-                                    <button class="btn-primary"><i class="fas fa-user-plus"></i> 添加学生</button>
-                                    <button class="btn-secondary"><i class="fas fa-cog"></i> 管理</button>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="add-class-btn">
-                            <i class="fas fa-plus"></i> 添加新班级
-                        </button>
-                    </div>
-
-                    <!-- 作业管理 -->
-                    <div class="management-card">
-                        <h3>作业管理</h3>
-                        <div class="homework-list">
-                            <div class="homework-item">
-                                <div class="homework-info">
-                                    <h4>记叙文写作练习</h4>
-                                    <p>截止日期：2023-12-20</p>
-                                    <div class="progress">
-                                        <div class="progress-bar" style="width: 75%"></div>
-                                        <span>已提交：34/45</span>
-                                    </div>
-                                </div>
-                                <div class="homework-actions">
-                                    <button class="btn-primary"><i class="fas fa-check"></i> 批改</button>
-                                    <button class="btn-secondary"><i class="fas fa-eye"></i> 详情</button>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="add-homework-btn">
-                            <i class="fas fa-plus"></i> 发布新作业
-                        </button>
-                    </div>
+    <!-- 主要内容区 -->
+    <main class="main-content">
+        <!-- 快捷操作区 -->
+        <section class="quick-actions">
+            <div class="action-card pending-assignments">
+                <div class="card-icon">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="card-info">
+                    <h3>待批改作业</h3>
+                    <p class="count">12</p>
                 </div>
             </div>
-
-            <!-- 资源管理 -->
-            <div class="management-section">
-                <h2><i class="fas fa-book"></i> 资源管理</h2>
-                <div class="section-content">
-                    <!-- 教学资源 -->
-                    <div class="management-card">
-                        <h3>教学资源</h3>
-                        <div class="resource-grid">
-                            <div class="resource-item">
-                                <i class="fas fa-file-alt"></i>
-                                <span>教材资源</span>
-                                <p>12个文件</p>
-                            </div>
-                            <div class="resource-item">
-                                <i class="fas fa-file-powerpoint"></i>
-                                <span>课件资源</span>
-                                <p>8个文件</p>
-                            </div>
-                            <div class="resource-item">
-                                <i class="fas fa-tasks"></i>
-                                <span>习题库</span>
-                                <p>56题</p>
-                            </div>
-                            <div class="resource-item">
-                                <i class="fas fa-folder"></i>
-                                <span>素材库</span>
-                                <p>23个文件</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 资源共享 -->
-                    <div class="management-card">
-                        <h3>资源共享</h3>
-                        <div class="shared-resources">
-                            <div class="resource-upload">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p>点击或拖拽文件到此处上传</p>
-                            </div>
-                            <div class="shared-list">
-                                <div class="shared-item">
-                                    <div class="shared-info">
-                                        <i class="fas fa-file-pdf"></i>
-                                        <div>
-                                            <h4>高中写作技巧汇总.pdf</h4>
-                                            <p>上传时间：2023-12-01</p>
-                                        </div>
-                                    </div>
-                                    <div class="shared-actions">
-                                        <button class="btn-icon"><i class="fas fa-download"></i></button>
-                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="action-card student-requests">
+                <div class="card-icon">
+                    <i class="fas fa-hand-paper"></i>
+                </div>
+                <div class="card-info">
+                    <h3>学生求助</h3>
+                    <p class="count">5</p>
                 </div>
             </div>
-        </div>
-    </div>
-    <script src="/js/teacher.js"></script>
+            <div class="action-card class-notices">
+                <div class="card-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="card-info">
+                    <h3>课程通知</h3>
+                    <p class="count">3</p>
+                </div>
+            </div>
+            <div class="action-card recent-views">
+                <div class="card-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="card-info">
+                    <h3>最近访问</h3>
+                    <p class="count">8</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据概览区 -->
+        <section class="data-overview">
+            <div class="overview-card weekly-stats">
+                <h3>本周批改数据</h3>
+                <div class="stats-chart">
+                    <canvas id="weeklyStatsChart"></canvas>
+                </div>
+            </div>
+            <div class="overview-card student-activity">
+                <h3>学生活跃度</h3>
+                <div class="activity-chart">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+            <div class="overview-card writing-progress">
+                <h3>写作进度统计</h3>
+                <div class="progress-chart">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+            <div class="overview-card ability-improvement">
+                <h3>能力提升曲线</h3>
+                <div class="improvement-chart">
+                    <canvas id="improvementChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最近动态 -->
+        <section class="recent-activities">
+            <h2>最近动态</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p class="activity-text">李明提交了作业《春天的早晨》</p>
+                        <p class="activity-time">10分钟前</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p class="activity-text">张华请求批改指导</p>
+                        <p class="activity-time">30分钟前</p>
+                    </div>
+                </div>
+                <!-- 更多动态项... -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 右侧边栏 -->
+    <aside class="right-sidebar">
+        <!-- 待办事项 -->
+        <section class="todo-list">
+            <h3>待办事项</h3>
+            <div class="todo-items">
+                <div class="todo-item">
+                    <input type="checkbox" id="todo1">
+                    <label for="todo1">批改三年级作文5篇</label>
+                </div>
+                <div class="todo-item">
+                    <input type="checkbox" id="todo2">
+                    <label for="todo2">回复学生提问3条</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特办事项 -->
+        <section class="special-tasks">
+            <h3>特办事项</h3>
+            <div class="task-items">
+                <div class="task-item">
+                    <input type="checkbox" id="special1">
+                    <label for="special1">批改三年级作文5篇</label>
+                    <span class="task-tag urgent">紧急</span>
+                </div>
+                <div class="task-item">
+                    <input type="checkbox" id="special2">
+                    <label for="special2">回复学生提问3条</label>
+                    <span class="task-tag important">重要</span>
+                </div>
+            </div>
+            <button class="add-task-btn">
+                <i class="fas fa-plus"></i> 添加特办事项
+            </button>
+        </section>
+
+        <!-- 教学日历 -->
+        <section class="teaching-calendar">
+            <h3>教学日历</h3>
+            <div class="calendar-container" id="teachingCalendar">
+                <!-- 日历内容将通过JavaScript动态生成 -->
+            </div>
+        </section>
+    </aside>
+
+    <!-- 引入JS文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/teacher/dataManager.js"></script>
+    <script src="../js/teacher/dashboard.js"></script>
 </body>
 </html>

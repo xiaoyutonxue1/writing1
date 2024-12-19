@@ -1,0 +1,589 @@
+/* 页面布局 */
+.correction-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+    max-width: 1600px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    height: calc(100vh - 64px);
+}
+
+/* 作文内容区域 */
+.essay-section {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+
+.essay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.student-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info-text h3 {
+    font-size: 1.25rem;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.class-info {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.essay-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.essay-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.essay-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.essay-title {
+    font-size: 1.5rem;
+    color: #1d1d1f;
+    margin: 0;
+    text-align: center;
+}
+
+.essay-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #1d1d1f;
+    white-space: pre-wrap;
+    outline: none;
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.essay-text:focus {
+    border-color: #e5e7eb;
+}
+
+/* 批改工具区域 */
+.correction-tools {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.tool-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tool-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tool-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    color: #4b5563;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.tool-btn:hover {
+    background: #e5e7eb;
+}
+
+.tool-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.color-picker {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.color-dot.active {
+    border-color: #2563eb;
+}
+
+.ai-correction-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #2563eb;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+}
+
+.ai-correction-btn:hover {
+    background: #1d4ed8;
+}
+
+/* 评分区域 */
+.scoring-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scoring-section h3 {
+    font-size: 1rem;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.score-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score-item label {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.score-item input {
+    width: 60px;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.total-score {
+    font-size: 1rem;
+    color: #1d1d1f;
+    font-weight: 500;
+    text-align: right;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* 评语区域 */
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-section h3 {
+    font-size: 1rem;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.quick-comments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.quick-comment-tag {
+    padding: 0.25rem 0.75rem;
+    background: #f3f4f6;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quick-comment-tag:hover {
+    background: #e5e7eb;
+    color: #2563eb;
+}
+
+.comment-section textarea {
+    height: 120px;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    resize: none;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* 操作按钮 */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.action-buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.save-draft {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.save-draft:hover {
+    background: #e5e7eb;
+}
+
+.submit-correction {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.submit-correction:hover {
+    background: #1d4ed8;
+}
+
+/* AI批改结果面板 */
+.ai-results-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h3 {
+    font-size: 1.25rem;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.close-panel {
+    padding: 0.5rem;
+    background: none;
+    color: #6b7280;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.close-panel:hover {
+    background: #f3f4f6;
+    color: #dc2626;
+}
+
+.results-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.summary-item label {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.summary-item .value {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #2563eb;
+}
+
+.results-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.results-details h4 {
+    font-size: 1rem;
+    color: #1d1d1f;
+    margin: 0 0 0.75rem 0;
+}
+
+.highlights-list,
+.improvements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.highlights-list li,
+.improvements-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.highlights-list li:hover,
+.improvements-list li:hover {
+    background: #e5e7eb;
+}
+
+.highlights-list i {
+    color: #d97706;
+    margin-top: 0.25rem;
+}
+
+.improvements-list i {
+    color: #dc2626;
+    margin-top: 0.25rem;
+}
+
+.suggested-comment {
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+.accept-all-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #2563eb;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background 0.2s ease;
+}
+
+.accept-all-btn:hover {
+    background: #1d4ed8;
+}
+
+/* 响应式布局 */
+@media (max-width: 1200px) {
+    .correction-container {
+        grid-template-columns: 1fr 350px;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .correction-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .correction-tools {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60vh;
+        border-radius: 1rem 1rem 0 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .correction-tools.active {
+        transform: translateY(0);
+    }
+
+    .tool-buttons {
+        flex-wrap: wrap;
+    }
+
+    .results-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 批注样式 */
+.annotation-highlight {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.annotation-underline {
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.annotation-comment {
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.temp-highlight {
+    background-color: rgba(255, 212, 0, 0.3);
+    animation: fadeOut 3s ease;
+}
+
+@keyframes fadeOut {
+    0% { background-color: rgba(255, 212, 0, 0.5); }
+    100% { background-color: rgba(255, 212, 0, 0); }
+}
+
+/* 评论框样式 */
+.annotation-comment-box {
+    position: absolute;
+    width: 250px;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 1000;
+}
+
+.annotation-comment-box::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #ffffff;
+}
+
+.annotation-comment-box textarea {
+    width: 100%;
+    height: 80px;
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+    resize: none;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.annotation-comment-box .comment-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.annotation-comment-box button {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.annotation-comment-box .save-comment {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.annotation-comment-box .save-comment:hover {
+    background: #1d4ed8;
+}
+
+.annotation-comment-box .delete-annotation {
+    background: #f3f4f6;
+    color: #dc2626;
+}
+
+.annotation-comment-box .delete-annotation:hover {
+    background: #fef2f2;
+} 
