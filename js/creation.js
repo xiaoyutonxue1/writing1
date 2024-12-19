@@ -1,7 +1,7 @@
 // 核心应用类
 class WritingApp {
     constructor() {
-        this.version = 'v1.9.0';  // 更新版本号
+        this.version = 'v2.0.1';  // 更新版本号
         console.log('WritingApp 构造函数被调用');
         this.editor = document.getElementById('editor');
         this.wordCountElement = document.getElementById('wordCount');
@@ -33,7 +33,7 @@ class WritingApp {
             // 检查是否已存在建议列表容器
             let suggestionsContainer = rightSidebar.querySelector('.suggestions-list');
             if (!suggestionsContainer) {
-                // 创建��议列表容器
+                // 创建建议列表容器
                 suggestionsContainer = document.createElement('div');
                 suggestionsContainer.className = 'suggestions-list';
                 rightSidebar.appendChild(suggestionsContainer);
@@ -372,7 +372,7 @@ class WritingApp {
         // 计算用时
         const timeSpent = this.calculateTimeSpent();
         
-        // 更���显示
+        // 更新显示
         if (this.wordCountElement) {
             this.wordCountElement.textContent = `字数：${wordCount}`;
         }
@@ -455,7 +455,7 @@ class WritingApp {
         // 水平居中对齐
         let left = rect.left + (rect.width - toolbarRect.width) / 2;
         
-        // 确保不超出编辑器边界
+        // ���保不超出编辑器边界
         if (left < 0) {
             left = 10;
         } else if (left + toolbarRect.width > editorRect.right) {
@@ -533,7 +533,7 @@ class WritingApp {
                 type: 'rewrite',
                 icon: 'sync',
                 title: '改写建议',
-                text: '这段春天的描写可以从视觉、听觉、嗅觉等多个感官角度进行细致刻画。建议：\n"嫩绿的新芽悄然破土，像一支支翠绿的画笔，在大地上勾勒生机。目光所及，园林田野间铺展着一片片新绿的地毯。\n\n各色果树竞相绽放，桃花似朝霞般灿烂，杏花如晚霞般绚丽，梨花若白雪般纯净。花香沁人心脾，闭目遐想，仿佛已能看到枝头挂满累累硕果。\n\n春风送来燕子的喜讯，也带来风筝的欢笑。孩童们在草地上嬉戏，在池畔追逐，为这春日增添了无限生趣。"',
+                text: '这段春天的描写可以从视觉、听觉、嗅觉等多个感官角度进行细致刻画。建议��\n"嫩绿的新芽悄然破土，像一支支翠绿的画笔，在大地上勾勒生机。目光所及，园林田野间铺展着一片片新绿的地毯。\n\n各色果树竞相绽放，桃花似朝霞般灿烂，杏花如晚霞般绚丽，梨花若白雪般纯净。花香沁人心脾，闭目遐想，仿佛已能看到枝头挂满累累硕果。\n\n春风送来燕子的喜讯，也带来风筝的欢笑。孩童们在草地上嬉戏，在池畔追逐，为这春日增添了无限生趣。"',
                 options: [
                     { value: 'formal', text: '正式改写' },
                     { value: 'casual', text: '轻松改写' },
@@ -544,7 +544,7 @@ class WritingApp {
                 type: 'polish',
                 icon: 'magic',
                 title: '润色建议',
-                text: '建议通过更丰富的意象和更细腻的描写来增强画面感。建议：\n"春日里，嫩芽偷偷探出头来，像一个个顽皮的精灵，将大地点缀得生机盎然。放眼望去，园林与田野间尽是一片片青翠欲滴的新绿。\n\n果树们仿在举办盛大的春日庆典，桃花红得似火般热烈，杏花粉得像霞般温柔，梨花白得如雪般纯洁。阵阵花香在微风中流转，闭上眼，仿佛已能看到满树的果实在枝头轻轻摇曳。\n\n春风裹挟着燕子的欢唱，牵引着风筝的舞姿，还有孩童们的笑声在草地上、池水旁回荡，构成了一幅动感十足的春日画卷。"',
+                text: '建议通过更丰富的意象和更细腻的描写来增强画面感。建议：\n"春日里，嫩芽偷偷探出头来，像一个个顽皮的精灵，将大地点缀得生机盎然。放眼望去，园林与田野间尽是一片片青翠欲滴的新绿。\n\n果树们仿在举办盛大的春日庆典，桃花红得似火般热烈，杏花粉得像霞般温柔，梨花白得如雪般纯洁。阵阵花香在微风中流转，闭上眼，仿佛已能看到满树��果实在枝头轻轻摇曳。\n\n春风裹挟着燕子的欢唱，牵引着风筝的舞姿，还有孩童们的笑声在草地上、池水旁回荡，构成了一幅动感十足的春日画卷。"',
                 options: [
                     { value: 'concise', text: '简洁版本' },
                     { value: 'detailed', text: '详细版本' },
@@ -555,7 +555,7 @@ class WritingApp {
                 type: 'style',
                 icon: 'palette',
                 title: '风格建议',
-                text: '建议采用更富有诗意和韵律感的表达方式。建议：\n"春意悄然，新绿的精灵从沉睡的土地中苏醒，点点嫩芽如碧玉般晶莹，编织成一幅生机勃勃的翠绿画卷，在园林与田野间徐徐展开。\n\n百花争艳，果树枝头绽放出春天的调色盘：桃花如朝霞初绽，灿若云霓；杏花似晚霞留恋，绚若彩虹；梨花若云雪飘散，纯净无暇。花香氤氲，沁人心脾，让人不禁遐想满树硕果的丰收景象。\n\n春风拂过，带来燕子的欢唱与风筝的翩跹，还有孩童们在草地���、池水旁追逐嬉戏的欢声笑语，共同谱写这春日的交响乐章。"',
+                text: '建议采用更富有诗意和韵律感的表达方式。建议：\n"春意悄然，新绿的精灵从沉睡的土地中苏醒，点点嫩芽如碧玉般晶莹，编织成一幅生机勃勃的翠绿画卷，在园林与田野间徐徐展开。\n\n百花争艳，果树枝头绽放出春天的调色盘：桃花如朝霞初绽，灿若云霓；杏花似晚霞留恋，绚若彩虹；梨花若云雪飘散，纯净无暇。花香氤氲，沁人心脾，让人不禁遐想满树硕果的丰收景象。\n\n春风拂过，带来燕子的欢唱与风筝的翩跹，还有孩童们在草地上、池水旁追逐嬉戏的欢声笑语，共同谱写这春日的交响乐章。"',
                 options: [
                     { value: 'narrative', text: '叙事风格' },
                     { value: 'descriptive', text: '描写风格' },
@@ -838,7 +838,7 @@ class WritingApp {
         document.head.appendChild(style);
     }
 
-    // 显示���误提示
+    // 显示错误提示
     showError(message) {
         const rightSidebar = document.querySelector('.right-sidebar');
         if (!rightSidebar) return;
@@ -1152,14 +1152,14 @@ class AIChat {
                 '把自然景物和心情结合：\n- 春芽破土：充满生机与希望\n- 春雨润物：滋养心灵的温柔\n- 百花绽放：绚烂多彩的梦想\n- 春风拂面：温暖治愈的感动'
             ],
             '好词好句': [
-                '描写春天的好词：\n【颜色词】\n- 嫩绿、青翠、粉嫩、灼灼\n【声音词】\n- 潺潺、淙淙、啁啾、沙沙\n【动作词】\n- 萌发、绽放、飘洒、吐绿\n【形���词】\n- 温润、和煦、清新、盎然',
+                '描写春天的好词：\n【颜色词】\n- 嫩绿、青翠、粉嫩、灼灼\n【声音词】\n- 潺潺、淙淙、啁啾、沙沙\n【动作词】\n- 萌发、绽放、飘洒、吐绿\n【形词】\n- 温润、和煦、清新、盎然',
                 '优美句子参考：\n1. "春雨如丝，润物无声，让大地披上了一层薄薄的轻纱。"\n2. "春风和煦，像母亲的手轻轻抚过大地，唤醒了沉睡的万物。"\n3. "嫩绿的小草刚刚探出头，像是大地绣出的一幅翠绿的地毯。"',
                 '可以用这些词语：\n【春天景色】\n- 春意盎然、春光明媚、春色满园\n【春天气息】\n- 春暖花开、春意融融、春风和煦\n【春天生机】\n- 欣欣向荣、蓬勃生机、万象更新'
             ],
             '开头技巧': [
                 '春天文章的开头可以这样写：\n1. 拟人开头：\n"春姑娘悄悄地来了，她轻轻地敲响了大地的门。"\n\n2. 比喻开头：\n"春天像一位画家，用她的画笔为大地增添色彩。"\n\n3. 感官开头：\n"一阵温暖的春风拂面而来，带来了泥土和花香的气息。"',
                 '好的开头方式：\n1. 环境描写：从天气、景色入手\n2. 人物活动：描写人们的春日活动\n3. 感受抒发：表达对春天的期待\n4. 场景对比：冬去春来的变化',
-                '开头注意事项：\n1. 要简洁生动\n2. 紧扣春天特点\n3. 引起读者兴趣\n4. 为全文定下基调\n\n可以从这些方面��入：\n- 春风、春雨、春芽\n- 气温变化、日照变化\n- 人们的春日活动'
+                '开头注意事项：\n1. 要简洁生动\n2. 紧扣春天特点\n3. 引起读者兴趣\n4. 为全文定下基调\n\n可以从这些方面入手：\n- 春风、春雨、春芽\n- 气温变化、日照变化\n- 人们的春日活动'
             ]
         };
 
@@ -1276,7 +1276,7 @@ class AIChat {
             } else if (userInput.includes('心情') || userInput.includes('情感')) {
                 response = this.getRandomResponse('情感表达');
             } else if (userInput.includes('词') || userInput.includes('句')) {
-                response = this.getRandomResponse('好词好��');
+                response = this.getRandomResponse('好词好句');
             } else if (userInput.includes('开头') || userInput.includes('开始')) {
                 response = this.getRandomResponse('开头技巧');
             } else {
@@ -1309,7 +1309,7 @@ class AIChat {
                 response = this.getRandomResponse('景色描写');
             } else if (question.includes('感官')) {
                 response = this.getRandomResponse('感官描写');
-            } else if (question.includes('心情') || question.includes('情感')) {
+            } else if (question.includes('心情') || question.includes('情��')) {
                 response = this.getRandomResponse('情感表达');
             } else if (question.includes('好词好句')) {
                 response = this.getRandomResponse('好词好句');
@@ -1347,7 +1347,7 @@ class AIChat {
 
 // 等待DOM加载完成后初始化应用
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM加载��成,开始初始化应用...');
+    console.log('DOM加载完成,开始初始化应用...');
     window.writingApp = new WritingApp();
     window.aiChat = new AIChat();
     console.log('应用初始化完成');
