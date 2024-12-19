@@ -3,137 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>家长主页 - AI智能写作辅导平台</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/parent.css">
-    <link rel="stylesheet" href="/css/components/aiReadingAssistant.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>家长中心 - AI智能写作教学平台</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <link href="../css/parent/dashboard.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="logo">AI智能写作辅导平台</a>
-            <div class="nav-links">
-                <a href="/parent/dashboard.html" class="active">主页</a>
-                <a href="/parent/messages.html">消息</a>
-                <a href="/parent/profile.html">个人中心</a>
+    <!-- 顶部导航 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">AI智能写作教学平台 - 家长中心</a>
+            <div class="d-flex align-items-center">
+                <span class="navbar-text me-3">欢迎您，<span id="parentName">张三</span>家长</span>
+                <div class="notification-icon me-3 position-relative">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">2</span>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" onclick="logout()">退出</button>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="dashboard-grid">
-            <!-- 学习概览 -->
-            <div class="overview-section">
-                <div class="student-info">
-                    <img src="https://via.placeholder.com/60" alt="学生头像" class="student-avatar">
-                    <div class="info-text">
-                        <h2>张小明</h2>
-                        <p>高二三班</p>
-                    </div>
-                </div>
-                <div class="overview-cards">
-                    <div class="overview-card">
-                        <i class="fas fa-clock"></i>
-                        <div class="card-content">
-                            <h3>本周学习时长</h3>
-                            <p>12小时30分钟</p>
+    <!-- 主要内容区 -->
+    <div class="container mt-4">
+        <!-- 概览卡片 -->
+        <div class="row overview-cards mb-4">
+            <div class="col-md-3">
+                <div class="card overview-card">
+                    <div class="card-body">
+                        <div class="overview-icon">
+                            <i class="fas fa-clock"></i>
                         </div>
-                    </div>
-                    <div class="overview-card">
-                        <i class="fas fa-pen"></i>
-                        <div class="card-content">
-                            <h3>完成作文数</h3>
-                            <p>8篇</p>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <i class="fas fa-chart-line"></i>
-                        <div class="card-content">
-                            <h3>平均分数</h3>
-                            <p>88分</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 最近学习内容 -->
-            <div class="recent-section">
-                <h2><i class="fas fa-history"></i> 最近学习内容</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time">今天 14:30</div>
-                        <div class="content">
-                            <h3>完成作文《春天的早晨》</h3>
-                            <p>字数：1200 | 用时：45分钟</p>
-                            <div class="tags">
-                                <span class="tag">记叙文</span>
-                                <span class="tag">描写性文章</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="time">今天 10:15</div>
-                        <div class="content">
-                            <h3>完成写作技巧课程学习</h3>
-                            <p>课程：《如何写好开头段》</p>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 100%"></div>
-                                <span>已完成</span>
+                        <div class="overview-content">
+                            <h6 class="card-subtitle">今日学习</h6>
+                            <p class="card-text" id="todayStudy">45分钟</p>
+                            <div class="overview-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>较昨日+15分钟</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- 学习报告 -->
-            <div class="report-section">
-                <h2><i class="fas fa-chart-bar"></i> 学习报告</h2>
-                <div class="report-content">
-                    <div class="chart-container">
-                        <div class="chart-placeholder">
-                            能力雷达图
+            <div class="col-md-3">
+                <div class="card overview-card">
+                    <div class="card-body">
+                        <div class="overview-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="overview-content">
+                            <h6 class="card-subtitle">作业完成</h6>
+                            <p class="card-text" id="homeworkCompletion">85%</p>
+                            <div class="overview-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>高于平均5%</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="report-details">
-                        <div class="detail-item">
-                            <h3>写作能力分析</h3>
-                            <ul>
-                                <li>内容构思能力：良好</li>
-                                <li>语言表达能力：优秀</li>
-                                <li>结构组织能力：良好</li>
-                            </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card overview-card">
+                    <div class="card-body">
+                        <div class="overview-icon">
+                            <i class="fas fa-star"></i>
                         </div>
-                        <div class="detail-item">
-                            <h3>改进建议</h3>
-                            <ul>
-                                <li>建议加强议论文写作训练</li>
-                                <li>可以多积累写作素材</li>
-                                <li>注意加强文章结构的逻辑性</li>
-                            </ul>
+                        <div class="overview-content">
+                            <h6 class="card-subtitle">综合评分</h6>
+                            <p class="card-text" id="overallScore">88分</p>
+                            <div class="overview-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>进步3分</span>
+                            </div>
                         </div>
-                        <button class="view-report-btn" onclick="showFullReport()">
-                            <i class="fas fa-file-alt"></i> 查看完整报告
-                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card overview-card">
+                    <div class="card-body">
+                        <div class="overview-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="overview-content">
+                            <h6 class="card-subtitle">写作兴趣</h6>
+                            <p class="card-text" id="writingInterest">较高</p>
+                            <div class="overview-trend neutral">
+                                <i class="fas fa-minus"></i>
+                                <span>持平</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要功能区 -->
+        <div class="row">
+            <!-- 左侧栏 -->
+            <div class="col-lg-8">
+                <!-- 学习监督 -->
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-line me-2"></i>
+                            学习情况
+                        </h5>
+                        <div class="header-actions">
+                            <select class="form-select form-select-sm d-inline-block w-auto me-2">
+                                <option>本周</option>
+                                <option>本月</option>
+                                <option>本学期</option>
+                            </select>
+                            <a href="progress.html" class="btn btn-link">详细报告</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- 学习时间分布 -->
+                        <div class="study-time-chart mb-4" id="studyTimeChart">
+                            <!-- 学习时间分布图表 -->
+                        </div>
+                        
+                        <!-- 作业完成情况 -->
+                        <div class="homework-status mb-4">
+                            <h6 class="section-title">作业完成情况</h6>
+                            <div class="progress-list">
+                                <div class="progress-item">
+                                    <div class="progress-header">
+                                        <span class="progress-title">本周作业</span>
+                                        <span class="progress-value">5/6</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 83%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-item">
+                                    <div class="progress-header">
+                                        <span class="progress-title">写作练习</span>
+                                        <span class="progress-value">3/3</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-item">
+                                    <div class="progress-header">
+                                        <span class="progress-title">阅读任务</span>
+                                        <span class="progress-value">2/3</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 66%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 待完成任务 -->
+                        <div class="todo-list">
+                            <h6 class="section-title">待完成任务</h6>
+                            <div class="task-list">
+                                <div class="task-item">
+                                    <div class="task-content">
+                                        <i class="fas fa-file-alt task-icon"></i>
+                                        <div class="task-info">
+                                            <h6 class="task-title">完成作文《我的理想》</h6>
+                                            <p class="task-desc">字数要求800字以上，注意结构完整</p>
+                                        </div>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="task-deadline">今天截止</span>
+                                        <span class="badge bg-warning">紧急</span>
+                                    </div>
+                                </div>
+                                <div class="task-item">
+                                    <div class="task-content">
+                                        <i class="fas fa-book task-icon"></i>
+                                        <div class="task-info">
+                                            <h6 class="task-title">阅读《小王子》</h6>
+                                            <p class="task-desc">完成读书笔记和感想</p>
+                                        </div>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="task-deadline">3天后截止</span>
+                                        <span class="badge bg-info">进行中</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 能力诊断 -->
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="fas fa-diagnoses me-2"></i>
+                            能力诊断
+                        </h5>
+                        <a href="diagnosis.html" class="btn btn-link">查看详情</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- 能力雷达图 -->
+                                <div class="ability-radar mb-4" id="abilityRadar"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- 能力评估列表 -->
+                                <div class="ability-list">
+                                    <div class="ability-item">
+                                        <div class="ability-info">
+                                            <h6>内容构思</h6>
+                                            <div class="ability-score">
+                                                <span class="score">85</span>
+                                                <span class="trend positive">+5</span>
+                                            </div>
+                                        </div>
+                                        <p class="ability-desc">善于观察生活，想象力丰富</p>
+                                    </div>
+                                    <div class="ability-item">
+                                        <div class="ability-info">
+                                            <h6>语言表达</h6>
+                                            <div class="ability-score">
+                                                <span class="score">78</span>
+                                                <span class="trend positive">+3</span>
+                                            </div>
+                                        </div>
+                                        <p class="ability-desc">用词准确，语句通顺</p>
+                                    </div>
+                                    <div class="ability-item">
+                                        <div class="ability-info">
+                                            <h6>结构布局</h6>
+                                            <div class="ability-score">
+                                                <span class="score">72</span>
+                                                <span class="trend negative">-2</span>
+                                            </div>
+                                        </div>
+                                        <p class="ability-desc">需要加强文章结构训练</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 教师评语 -->
-            <div class="feedback-section">
-                <h2><i class="fas fa-comment-alt"></i> 教师评语</h2>
-                <div class="feedback-list">
-                    <div class="feedback-item">
-                        <div class="teacher-info">
-                            <img src="https://via.placeholder.com/40" alt="教师头像">
-                            <div>
-                                <h3>王老师</h3>
-                                <span>语文教师</span>
+            <!-- 右侧栏 -->
+            <div class="col-lg-4">
+                <!-- 快捷操作 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-bolt me-2"></i>
+                            快捷操作
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="quick-actions">
+                            <a href="#" class="quick-action-item">
+                                <i class="fas fa-edit"></i>
+                                <span>查看作业</span>
+                            </a>
+                            <a href="#" class="quick-action-item">
+                                <i class="fas fa-comment-alt"></i>
+                                <span>老师反馈</span>
+                            </a>
+                            <a href="#" class="quick-action-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>学习计划</span>
+                            </a>
+                            <a href="#" class="quick-action-item">
+                                <i class="fas fa-book"></i>
+                                <span>学习资源</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 最新动态 -->
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="fas fa-bell me-2"></i>
+                            最新动态
+                        </h5>
+                        <a href="notifications.html" class="btn btn-link">全部</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon bg-primary">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h6>获得写作之星勋章</h6>
+                                    <p>作文《我的梦想》获得老师表扬</p>
+                                    <span class="activity-time">10分钟前</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-success">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h6>完成每周写作任务</h6>
+                                    <p>本周已完成3篇写作练习</p>
+                                    <span class="activity-time">2小时前</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-info">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h6>收到老师评语</h6>
+                                    <p>王老师对最新作文进行了点评</p>
+                                    <span class="activity-time">昨天</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="feedback-content">
-                            <p>小明的写作能力有明显提升，特别是在描写细节方面有很大进步。建议继续保持，多注意积累写作素材。</p>
-                            <span class="feedback-time">2023-12-15</span>
+                    </div>
+                </div>
+
+                <!-- 辅导建议 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            辅导建议
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="guide-list">
+                            <div class="guide-item">
+                                <div class="guide-icon">
+                                    <i class="fas fa-book-reader"></i>
+                                </div>
+                                <div class="guide-content">
+                                    <h6>加强阅读训练</h6>
+                                    <p>建议每天安排30分钟阅读时间，培养阅读习惯</p>
+                                    <a href="#" class="guide-action">查看推荐书单</a>
+                                </div>
+                            </div>
+                            <div class="guide-item">
+                                <div class="guide-icon">
+                                    <i class="fas fa-pen"></i>
+                                </div>
+                                <div class="guide-content">
+                                    <h6>结构训练</h6>
+                                    <p>针对文章结构较弱的问题，建议进行专项训练</p>
+                                    <a href="#" class="guide-action">查看训练方法</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,138 +363,81 @@
         </div>
     </div>
 
-    <!-- 完整学习报告弹窗 -->
-    <div id="reportModal" class="report-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-file-alt"></i> 学习报告详情</h2>
-                <button class="close-btn" onclick="closeReportModal()">
+    <!-- AI助手浮动按钮 -->
+    <div class="ai-assistant-btn" id="aiAssistantBtn">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- AI助手对话界面 -->
+    <div class="ai-chat-panel" id="aiChatPanel">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-robot"></i>
+                <span>AI写作助手</span>
+            </div>
+            <div class="chat-actions">
+                <button class="function-btn" title="切换功能">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button class="close-btn" id="closeChatBtn">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="report-sections">
-                    <div class="report-section">
-                        <h3>学习数据统计</h3>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-value">32</div>
-                                <div class="stat-label">总学习时长（小时）</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">18</div>
-                                <div class="stat-label">完成作文数量</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">88</div>
-                                <div class="stat-label">平均分数</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">92%</div>
-                                <div class="stat-label">作业完成率</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="report-section">
-                        <h3>能力评估</h3>
-                        <div class="ability-chart">
-                            <div class="chart-placeholder">
-                                详细能力雷达图
-                            </div>
-                        </div>
-                        <div class="ability-details">
-                            <div class="ability-item">
-                                <h4>内容构思</h4>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 85%"></div>
-                                    <span>85%</span>
-                                </div>
-                                <p>能够独立构思文章内容，主题明确，思路清晰</p>
-                            </div>
-                            <div class="ability-item">
-                                <h4>语言表达</h4>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 92%"></div>
-                                    <span>92%</span>
-                                </div>
-                                <p>用词准确，语言生动，表达流畅自然</p>
-                            </div>
-                            <div class="ability-item">
-                                <h4>结构组织</h4>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 78%"></div>
-                                    <span>78%</span>
-                                </div>
-                                <p>文章结构完整，层次分明，过渡自然</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="report-section">
-                        <h3>学习建议</h3>
-                        <div class="suggestions">
-                            <div class="suggestion-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <div class="suggestion-content">
-                                    <h4>加强议论文训练</h4>
-                                    <p>建议多练习议论文写作，特别是论点论据的选择和论证方法的运用</p>
-                                </div>
-                            </div>
-                            <div class="suggestion-item">
-                                <i class="fas fa-book"></i>
-                                <div class="suggestion-content">
-                                    <h4>扩充写作素材</h4>
-                                    <p>可以通过阅读名著、观察生活等方式积累更多写作素材</p>
-                                </div>
-                            </div>
-                            <div class="suggestion-item">
-                                <i class="fas fa-sitemap"></i>
-                                <div class="suggestion-content">
-                                    <h4>优化文章结构</h4>
-                                    <p>注意加强文章结构的逻辑性，使文章更有条理性</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="report-section">
-                        <h3>进步趋势</h3>
-                        <div class="trend-chart">
-                            <div class="chart-placeholder">
-                                学习进步趋势图
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        
+        <!-- 功能选择面板 -->
+        <div class="function-panel" id="functionPanel">
+            <div class="function-item" data-function="analysis">
+                <i class="fas fa-chart-bar"></i>
+                <span>学情分析</span>
+                <p>分析孩子的写作水平</p>
+            </div>
+            <div class="function-item" data-function="guide">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>辅导指导</span>
+                <p>获取科学辅导方法</p>
+            </div>
+            <div class="function-item" data-function="resource">
+                <i class="fas fa-book-reader"></i>
+                <span>资源推荐</span>
+                <p>推荐优质学习资源</p>
+            </div>
+            <div class="function-item" data-function="communication">
+                <i class="fas fa-comments"></i>
+                <span>沟通助手</span>
+                <p>辅助家校沟通交流</p>
             </div>
         </div>
 
-        <!-- AI助手按钮和面板 -->
-        <button class="ai-toggle">
-            <i class="fas fa-robot"></i>
-        </button>
-        <div class="ai-chat-panel">
-            <div class="ai-header">
-                <h3><i class="fas fa-robot"></i> AI学习助手</h3>
-                <button class="close-btn"><i class="fas fa-times"></i></button>
+        <!-- 对话内容区 -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message system">
+                您好!我是AI助手,可以为您提供以下服务:
+                <ul>
+                    <li>分析孩子的写作学习情况</li>
+                    <li>提供科学的辅导方法建议</li>
+                    <li>推荐优质的写作学习资源</li>
+                    <li>协助您与老师进行沟通</li>
+                </ul>
+                请问有什么可以帮您?
             </div>
-            <div class="quick-actions">
-                <button class="action-btn" data-action="analyze">
-                    <i class="fas fa-chart-line"></i> 分析学习报告
-                </button>
-                <button class="action-btn" data-action="suggest">
-                    <i class="fas fa-lightbulb"></i> 获取学习建议
-                </button>
-            </div>
-            <div class="chat-messages"></div>
-            <div class="chat-input">
-                <input type="text" placeholder="输入您的问题...">
-                <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
-            </div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="chat-input">
+            <textarea 
+                id="messageInput" 
+                placeholder="请输入您的问题..."
+                rows="1"
+            ></textarea>
+            <button class="send-btn" id="sendMessageBtn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
 
-    <script src="/js/parent.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="../js/parent/dashboard.js"></script>
 </body>
 </html>
