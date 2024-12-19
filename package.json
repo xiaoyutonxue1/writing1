@@ -1,6 +1,6 @@
 {
   "name": "ai-writing-platform",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "description": "AI智能写作教学平台 - 专注于提升中小学生写作能力",
   "main": "index.js",
   "scripts": {
