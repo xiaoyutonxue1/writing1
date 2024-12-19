@@ -70,7 +70,7 @@ let avatarManager;
 document.addEventListener('DOMContentLoaded', () => {
     avatarManager = new AvatarManager();
     loadUserData();
-    initNavigation();
+    initSideNavigation();
     initAvatarUpload();
     initClassTags();
     initPasswordModal();
@@ -79,6 +79,31 @@ document.addEventListener('DOMContentLoaded', () => {
     initCharts();
     initResourceUpload();
 });
+
+// 初始化侧边导航
+function initSideNavigation() {
+    const sideNavItems = document.querySelectorAll('.profile-nav .nav-item');
+    const sections = document.querySelectorAll('.content-section');
+
+    // 显示默认页面
+    document.getElementById('basic-info').style.display = 'block';
+
+    sideNavItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = item.getAttribute('href').substring(1);
+
+            // 更新导航项状态
+            sideNavItems.forEach(nav => nav.classList.remove('active'));
+            item.classList.add('active');
+
+            // 更新内容区域显示
+            sections.forEach(section => {
+                section.style.display = section.id === targetId ? 'block' : 'none';
+            });
+        });
+    });
+}
 
 // 加载用户数据
 function loadUserData() {
@@ -166,31 +191,6 @@ function loadUserData() {
         {'small': 1, 'medium': 2, 'large': 3}[mockData.settings.preferences.fontSize]
     })`).classList.add('active');
     document.querySelector('.language-select').value = mockData.settings.preferences.language;
-}
-
-// 初始化导航
-function initNavigation() {
-    const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('.content-section');
-
-    // 显示默认页面
-    document.getElementById('basic-info').style.display = 'block';
-
-    navItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = item.getAttribute('href').substring(1);
-
-            // 更新导航项状态
-            navItems.forEach(nav => nav.classList.remove('active'));
-            item.classList.add('active');
-
-            // 更新内容区域显示
-            sections.forEach(section => {
-                section.style.display = section.id === targetId ? 'block' : 'none';
-            });
-        });
-    });
 }
 
 // 初始化头像上传

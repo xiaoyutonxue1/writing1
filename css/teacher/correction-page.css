@@ -1,16 +1,18 @@
 /* 页面布局 */
 .correction-container {
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 3fr 1fr;
     gap: 2rem;
-    max-width: 1600px;
-    margin: 2rem auto;
-    padding: 0 2rem;
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
     height: calc(100vh - 64px);
+    box-sizing: border-box;
 }
 
 /* 作文内容区域 */
 .essay-section {
+    min-width: 0;
     background: #ffffff;
     border-radius: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -99,6 +101,8 @@
 
 /* 批改工具区域 */
 .correction-tools {
+    min-width: 0;
+    width: 100%;
     background: #ffffff;
     border-radius: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -315,7 +319,9 @@
     width: 90%;
     max-width: 800px;
     max-height: 90vh;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border: 1px solid #e5e7eb;
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
@@ -411,22 +417,20 @@
     border-radius: 0.5rem;
     font-size: 0.875rem;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .highlights-list li:hover,
 .improvements-list li:hover {
-    background: #e5e7eb;
+    transform: translateX(5px);
 }
 
-.highlights-list i {
-    color: #d97706;
-    margin-top: 0.25rem;
+.highlights-list li i {
+    color: #fbbf24;
 }
 
-.improvements-list i {
-    color: #dc2626;
-    margin-top: 0.25rem;
+.improvements-list li i {
+    color: #ef4444;
 }
 
 .suggested-comment {
@@ -496,13 +500,47 @@
 
 /* 批注样式 */
 .annotation-highlight {
+    position: relative;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.annotation-highlight:hover::after {
+    content: attr(data-comment);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .annotation-underline {
+    position: relative;
     cursor: pointer;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.annotation-underline:hover::after {
+    content: attr(data-comment);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .annotation-comment {
@@ -586,4 +624,44 @@
 
 .annotation-comment-box .delete-annotation:hover {
     background: #fef2f2;
-} 
+}
+
+/* 错误提示样式 */
+.error-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+    animation: slideIn 0.3s ease;
+}
+
+/* 成功提示样式 */
+.success-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    background-color: #dcfce7;
+    color: #16a34a;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+ 

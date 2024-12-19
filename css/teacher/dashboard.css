@@ -31,12 +31,19 @@ body {
 .nav-brand {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.nav-brand a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .nav-logo {
-    height: 2.5rem;
+    height: 40px;
     width: auto;
+    object-fit: contain;
 }
 
 .nav-title {
@@ -301,7 +308,7 @@ body {
     color: #6b7280;
 }
 
-/* 右���边栏 */
+/* 右边栏 */
 .right-sidebar {
     position: fixed;
     top: 4.1rem; /* 导航栏高度 */
